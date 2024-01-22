@@ -5,21 +5,7 @@
     background-color: #fff;
     padding-bottom:80px;
 }
-  .catalog-page .categoryNav {
-    background-color: #006940;
-    display: flex;
-    margin-bottom: 30px; }
-    .catalog-page .categoryNav ul {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      list-style: none;
-      padding: 20px 0;
-      margin: 0; }
-      .catalog-page .categoryNav ul li {
-        padding: 0 15px; }
-        .catalog-page .categoryNav ul li a:hover {
-          color: #fff; }
+   
   .catalog-page .catalog-title {
     text-align: center;
     margin-bottom: 30px;

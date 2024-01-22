@@ -633,7 +633,7 @@ progress {
 
 @media (min-width: 1500px) {
     .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
-        max-width: 1500px
+        max-width: 100%;
     }
 }
 
@@ -6207,6 +6207,30 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         .card > .card-header + .list-group, .card > .list-group + .card-footer {
             border-top: 0
         }
+
+
+.categoryNav {
+    background-color: #006940;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+    .categoryNav ul {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        list-style: none;
+        padding: 20px 0;
+        margin: 0;
+    }
+
+        .categoryNav ul li {
+            padding: 0 15px;
+        }
+
+            .categoryNav ul li a:hover {
+                color: #fff;
+            }
 
 .card-body {
     flex: 1 1 auto;

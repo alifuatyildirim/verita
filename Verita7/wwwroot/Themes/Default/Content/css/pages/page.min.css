@@ -19,7 +19,7 @@
 
 .page-container {
     background-color: #fff;
-  /*  padding: 40px 0 80px;*/
+    padding: 0 0 80px;
     overflow: hidden;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .page-container .container {
- 
+ min-height:1350px;
 }
 
 @media(max-width:767.98px) {
@@ -57,14 +57,15 @@
 }
 
 .page-container .page-content {
-    width: 100%;
-    position: relative;
-    padding-left: 40px;
+    width: 1300px; 
+    margin: 0 auto;
+    padding: 0;
 }
 
 @media(min-width:992px) {
     .page-container .page-content {
-        padding-right: 350px;
+        margin-top: 60px;
+        padding-bottom:140px;
     }
 
         .page-container .page-content.page-content-full {
