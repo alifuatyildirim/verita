@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.BodyClass = "shop-header-shadow shop-home";
+}
+<link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+<main class="page-container mt-40">
+    <div class="container">
+        <div class="page-content pe-0">
+            <div class="heading-title mb-5">
+                <h4>Gıda Güvenliği</h4>
+
+            </div>
+            <div class="topic-content">
+                <div class="section-title">
+                    <h2><small>Tarladan Sofraya</small></h2>
+                </div>
+                <div class="umb-grid">
+                    <div class="grid-section">
+                        <div>
+                            <div class="single-column">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 column">
+                                        <div>
+                                            <p>Doğal ortamında yetişen meyve ve sebzeler tedarik zinciri sürecinde insan sağlığına zararlı olabilecek biyolojik, kimyasal ve fiziksel zararlara maruz kalma riski ile karşı karşıyadır. Gıda güvenliği ürünlerin karşılaşabileceği bu etkenlerden ürünleri korumak için geliştirilen ve tasarlanan planlı uygulamalardır.</p>
+                                            <p>Sağlıklı bir gelecek için gıda güvenliği kontrollerini tüm tedarikçilerinde ve tedarik sürecinde uygulayan İdeal, markaları nezdinde güvenilir gıda konusunda yüksek bir kalite standardizasyonu sağlamaktadır.</p>
+                                            <p>İdeal’in gıda güvenliğini içeren kontrol prosesi, uzman kontrolünde yapılan toprak ve yaprak analizleri ile başlamaktadır. Her ürün, kendi ihtiyacına uygun analizlerden geçirilmekte, sistemin takibi ürünün en doğru zamanda hasat edilmesi ile sürmektedir.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section links{
+
+    <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Default/Content/css/layout/footer.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+
+    <script src="/Themes/Default/Content/js/bootstrap/bootstrap.bundle.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/Themes/Default/Content/plugins/jquery-inline-svg/jquery-inline-svg.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/Themes/Default/Content/plugins/swiperjs/swiper-bundle.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/jquery-validate/jquery.validate-v1.17.0/jquery.validate.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/jquery-validate/jquery.validate.unobtrusive-v3.2.10/jquery.validate.unobtrusive.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/jquery-migrate/jquery-migrate-3.0.1.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/responsive-toolkit/responsive-toolkit.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/Themes/Default/Content/js/main.js?v=2020100520" type="text/javascript"></script>
+    <script src="/js/public.common.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/js/public.ajaxcart.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/toastr/2.1.4/toastr.min.js?v=2020100520" type="text/javascript"></script>
+}
+
+@section scripts{
+    <script>
+        AjaxCart.init('.header-links .qty-cart', '.header-links .qty-wishlist', '.flyout-cart');
+    </script>
+    <script>
+        var $mobileAccount = $('.header-mobile .account-dropdown');
+
+        $mobileAccount.on('click', function () {
+            if ($mobileAccount.find('.navbar-right-item-title').hasClass('is-authenticated')) {
+                window.location.pathname = '/hesabim/bilgilerim/';
+            }
+
+            if ($mobileAccount.find('.navbar-right-item-title').hasClass('no-authenticated')) {
+                window.location.pathname = '/kullanici-giris/';
+            }
+
+        })
+    </script>
+}

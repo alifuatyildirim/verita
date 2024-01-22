@@ -1,0 +1,199 @@
+.product-item {
+    padding: 0;
+    text-align: center;
+    border-radius: .38rem;
+    position: relative;
+    top: 0;
+    transition: all .25s ease-in-out;
+    background-color: #fff
+}
+
+    .product-item .product-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: .38rem;
+        z-index: 10
+    }
+
+    .product-item .product-sale {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(30%, -30%);
+        height: 46px;
+        width: 46px;
+        line-height: 46px;
+        border-radius: 50%;
+        background-color: #F83E3E;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center
+    }
+
+    .product-item .product-title {
+        font-size: 16px;
+        color: #121212;
+        text-align: left;
+        height: 34px;
+        transition: color .25s ease-in-out;
+        margin: 10px
+    }
+
+@media (max-width: 767.98px) {
+    .product-item .product-title {
+        height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical
+    }
+}
+
+.product-item .branch img {
+    width: auto !important
+}
+
+.product-item .product-image {
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.19);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all .25s ease-in-out
+}
+
+    .product-item .product-image img {
+        width: 100%
+    }
+
+.product-item .product-tasting-notes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 10px;
+    height: 32px;
+    text-align: center
+}
+
+    .product-item .product-tasting-notes span {
+        font-size: 13px;
+        font-weight: 500;
+        color: #657383;
+        line-height: 16px
+    }
+
+.product-item .product-price {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 10px
+}
+
+    .product-item .product-price .old-price {
+        color: #c5c7c9;
+        margin-right: 5px;
+        position: relative;
+        font-weight: 600
+    }
+
+        .product-item .product-price .old-price:after {
+            position: absolute;
+            content: '';
+            background-color: #c5c7c9;
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0
+        }
+
+.product-item:hover .product-title {
+    color: #78be20
+}
+
+.product-item.product-item-shadow-sm:hover {
+    box-shadow: 0px 6.7px 5.3px rgba(0,0,0,0.016),0px 22.3px 17.9px rgba(0,0,0,0.024),0px 35px 22px rgba(0,0,0,0.04)
+}
+
+.product-item .overlay {
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    border-radius: 5px;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s
+}
+
+    .product-item .overlay .middle {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        height: 100%;
+        align-items: center
+    }
+
+        .product-item .overlay .middle .overlay-name {
+            color: #fff;
+            font-weight: bold;
+            font-size: 28px;
+            font-family: 'Aleo';
+        }
+
+        .product-item .overlay .middle .overlay-btn {
+            font-size: 23px;
+        }
+
+        .product-item .overlay .middle .product-price {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            color: #fff
+        }
+
+            .product-item .overlay .middle .product-price .old-price {
+                color: #c5c7c9;
+                margin-right: 5px;
+                position: relative;
+                font-weight: 600
+            }
+
+                .product-item .overlay .middle .product-price .old-price:after {
+                    position: absolute;
+                    content: '';
+                    background-color: #c5c7c9;
+                    width: 100%;
+                    height: 2px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0
+                }
+
+.product-item:hover .overlay {
+    opacity: 1
+}
+
+.btn-big {
+    background-image: url(/Themes/Default/Content/img/btn-big.png);
+    font-size: 20px;
+    background-size: contain;
+    color: #fff;
+    background-repeat: no-repeat;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-position-y:center;
+}

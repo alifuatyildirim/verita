@@ -1,0 +1,296 @@
+﻿.home-middle {
+    position: relative;
+}
+
+    .home-middle .left-area {
+        width: 250px;
+        height: 400px;
+        position: absolute;
+        top: 30%;
+        left: 0;
+        transform: translate(0,-50%);
+        background-image: url("/Themes/Default/Content/img/palm_leaf_1.png");
+        z-index: -1;
+    }
+
+    .home-middle .right-area {
+        width: 250px;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0,-50%);
+        background-image: url("/Themes/Default/Content/img/palm_leaf_2.jpg");
+        z-index: -1;
+    }
+
+    .home-middle .contents .title {
+        color: #006940;
+        font-weight: bold;
+    }
+
+.showcase-container {
+    margin: 50px 0;
+}
+
+.showcase .showcase-title {
+    position: relative;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+    .showcase .showcase-title h4 {
+        margin-bottom: 5px;
+        font-size: 30px;
+        color: #006940;
+        font-weight: bold;
+    }
+
+    .showcase .showcase-title h6 {
+        font-size: 14px;
+        color: #666;
+        font-weight: 400;
+        line-height: 20px;
+        background-color: #fff;
+    }
+
+.showcase ~ .showcase {
+    margin-top: 25px;
+}
+
+.left-image-showcase {
+    display: flex;
+}
+
+@media(max-width:991.98px) {
+    .left-image-showcase {
+        display: block;
+    }
+}
+
+.left-image-showcase .showcase-pictures {
+    max-width: 25%;
+}
+
+@media(max-width:991.98px) {
+    .left-image-showcase .showcase-pictures {
+        display: none;
+        margin: 0;
+    }
+}
+
+.left-image-showcase .showcase-pictures img {
+    max-width: 100%;
+    border-radius: .38rem;
+}
+
+.left-image-showcase .showcase-products {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+@media(max-width:991.98px) {
+    .left-image-showcase .showcase-products {
+        padding-left: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.left-image-showcase .showcase-products .showcase-wrap {
+    height: 100%;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+    .left-image-showcase .showcase-products .showcase-wrap .swiper {
+        height: 100%;
+        position: initial;
+    }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper {
+            padding: 0;
+            height: 100%;
+        }
+
+            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide {
+                height: 100%;
+                padding-bottom: 20px;
+            }
+
+                .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item {
+                    height: 100%;
+                }
+
+                    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay {
+                        background: rgba(0,0,0,.3);
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        opacity: 0;
+                        border-radius: 5px;
+                        -webkit-transition: all .4s ease-in-out 0s;
+                        -moz-transition: all .4s ease-in-out 0s;
+                        transition: all .4s ease-in-out 0s;
+                    }
+
+                        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle {
+                            display: flex;
+                            justify-content: space-evenly;
+                            flex-direction: column;
+                            height: 100%;
+                        }
+
+                            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-name {
+                                color: #fff;
+                                font-weight: bold;
+                                font-size: 28px;
+                                font-family: 'Aleo';
+                            }
+
+                            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-btn {
+                                color: #fff;
+                                font-size: 23px;
+                                font-weight: bold;
+                            }
+
+                            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .product-price {
+                                font-size: 20px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 0 10px;
+                                color: #fff;
+                            }
+
+                                .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .product-price .old-price {
+                                    color: #c5c7c9;
+                                    margin-right: 5px;
+                                    position: relative;
+                                    font-weight: 600;
+                                }
+
+                                    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .product-price .old-price:after {
+                                        position: absolute;
+                                        content: '';
+                                        background-color: #c5c7c9;
+                                        width: 100%;
+                                        height: 2px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        left: 0;
+                                    }
+
+                    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item:hover .overlay {
+                        opacity: 1;
+                    }
+
+                .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-title {
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #232323;
+                    height: 30px;
+                    margin: 20px 10px;
+                }
+
+                .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-price {
+                    font-size: 18px;
+                    justify-content: center;
+                }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev, .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
+            width: 44px;
+            height: 44px;
+            background-color: transparent;
+        }
+
+            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev:after, .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next:after {
+                font-size: 26px;
+                font-weight: 600;
+                color: #78be20;
+                background-position: center;
+                content: '';
+                width: 50px;
+                height: 50px;
+                background-repeat: no-repeat;
+                color: transparent !important;
+            }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
+            right: -60px;
+        }
+
+            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next:after {
+                background-image: url("/Themes/Default/Content/img/carousel-arrow-right.png");
+            }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev {
+            left: -60px;
+        }
+
+            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev:after {
+                background-image: url("/Themes/Default/Content/img/carousel-arrow-left.png");
+            }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-pagination {
+            bottom: -4px;
+        }
+
+            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-pagination .swiper-pagination-bullet {
+                width: 15px;
+                height: 15px;
+            }
+
+            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-pagination .swiper-pagination-bullet-active {
+                background-color: #006940;
+            }
+
+.client-showcase {
+    background-image: url("/Themes/Default/Content/img/egzotikmeyve_home.png");
+    background-size: cover;
+    padding: 40px 0;
+}
+
+    .client-showcase .clients .client-item {
+        flex-direction: column;
+        padding: 0;
+        text-align: center;
+        border-radius: .38rem;
+        position: relative;
+        top: 0;
+        transition: all .25s ease-in-out;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px 30px;
+    }
+
+        .client-showcase .clients .client-item .image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all .25s ease-in-out;
+        }
+
+            .client-showcase .clients .client-item .image img {
+                width: 100%;
+            }
+
+        .client-showcase .clients .client-item .name {
+            font-weight: bold;
+        }

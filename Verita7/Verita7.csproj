@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Themes\Default\Content\css\ideal.css" />
+    <Content Remove="wwwroot\Themes\Default\Content\css\layout\shop\product-detail.min.css" />
+    <Content Remove="wwwroot\Themes\Default\Content\css\pages\aboutus-page.min.css" />
+    <Content Remove="wwwroot\Themes\Default\Content\css\pages\blog.min.css" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\about-us-images\hakkimizda-1.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\about-us-images\item-1.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\about-us-images\item-2.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\about-us-images\item-4.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\about-us-images\item-6.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\rawjuice.png" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\verita_raw_gokkusagi72.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\world.png" />
+    <Content Remove="wwwroot\Themes\Default\Content\img\you_name_it.jpg" />
+    <Content Remove="wwwroot\Themes\Default\Content\js\map.js" />
+    <Content Remove="wwwroot\Themes\Default\Content\js\scripts_ctx.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\images\20230206_093602.jpg" />
+    <None Remove="wwwroot\images\DSC1316.jpg" />
+    <None Remove="wwwroot\images\DSC9214.jpg" />
+    <None Remove="wwwroot\images\Harita gorseli.jpg" />
+    <None Remove="wwwroot\i\l\000\0000008.jpeg" />
+    <None Remove="wwwroot\i\l\000\0000025_slider2.jpeg" />
+    <None Remove="wwwroot\i\l\000\0000027_ahududu.jpeg" />
+    <None Remove="wwwroot\i\l\000\0000028_ananas.png" />
+    <None Remove="wwwroot\i\l\000\0000029_avokado.jpeg" />
+    <None Remove="wwwroot\i\l\000\0000030_hindistan-cevizi.jpeg" />
+    <None Remove="wwwroot\i\l\000\0000042_tropikal-zencefil-yerellesir-mi-1.png" />
+    <None Remove="wwwroot\js\public.ajaxcart.js" />
+    <None Remove="wwwroot\js\public.catalogfilter.min.js" />
+    <None Remove="wwwroot\js\public.common.min.js" />
+    <None Remove="wwwroot\lib\jquery-lazy\jquery.lazy.min.js" />
+    <None Remove="wwwroot\lib\jquery-migrate\jquery-migrate-3.0.1.min.js" />
+    <None Remove="wwwroot\lib\jquery-validate\jquery-migrate\jquery-migrate-3.0.1.min.js" />
+    <None Remove="wwwroot\lib\jquery-validate\jquery.validate-v1.17.0\jquery.validate.min.js" />
+    <None Remove="wwwroot\lib\jquery-validate\jquery.validate.unobtrusive-v3.2.10\jquery.validate.unobtrusive.min.js" />
+    <None Remove="wwwroot\lib\jquery\jquery-3.3.1.min.js" />
+    <None Remove="wwwroot\lib\responsive-toolkit\responsive-toolkit.min.js" />
+    <None Remove="wwwroot\lib\toastr\2.1.4\toastr.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\profilfoto.png" />
+    <None Include="wwwroot\i\l\000\0000048_hindistan-cevizi.jpeg" />
+    <None Include="wwwroot\i\l\000\0000049_hindistan-cevizi.jpeg" />
+    <None Include="wwwroot\i\l\000\0000050_hindistan-cevizi.jpeg" />
+    <None Include="wwwroot\i\l\000\0000054_verita-gurme-kivi.png" />
+    <None Include="wwwroot\i\l\000\0000055_verita-gurme-kivi.png" />
+    <None Include="wwwroot\i\l\000\0000056_verita-gurme-kivi.png" />
+    <None Include="wwwroot\i\m\000\0000042_tropikal-zencefil-yerellesir-mi-1.png" />
+    <None Include="wwwroot\Themes\Default\Content\css\ideal.css" />
+    <None Include="wwwroot\Themes\Default\Content\css\layout\shop\product-detail.min.css" />
+    <None Include="wwwroot\Themes\Default\Content\css\pages\aboutus-page.min.css" />
+    <None Include="wwwroot\Themes\Default\Content\css\pages\blog.min.css" />
+    <None Include="wwwroot\Themes\Default\Content\img\about-us-images\hakkimizda-1.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\img\about-us-images\item-1.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\img\about-us-images\item-2.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\img\about-us-images\item-4.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\img\about-us-images\item-6.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\img\rawjuice.png" />
+    <None Include="wwwroot\Themes\Default\Content\img\verita_raw_gokkusagi72.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\img\world.png" />
+    <None Include="wwwroot\Themes\Default\Content\img\you_name_it.jpg" />
+    <None Include="wwwroot\Themes\Default\Content\js\map.js" />
+    <None Include="wwwroot\Themes\Default\Content\js\scripts_ctx.js" />
+  </ItemGroup>
+
+</Project>
