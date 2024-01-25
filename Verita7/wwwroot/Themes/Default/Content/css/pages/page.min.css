@@ -18,8 +18,7 @@
 }
 
 .page-container {
-    background-color: #fff;
-    padding: 0 0 80px;
+    background-color: #fff; 
     overflow: hidden;
 }
 
@@ -28,10 +27,7 @@
         padding: 20px 0 30px;
     }
 }
-
-.page-container .container {
- min-height:1350px;
-}
+ 
 
 @media(max-width:767.98px) {
     .page-container .container {

@@ -31,7 +31,7 @@
             </li>
 
             <li class="inactive">
-                <a href="/nadir-bulunan-meyveler/">
+                <a href="/bunlari-biliyor-musunuz/">
                     Bunları biliyor musunuz?
                 </a>
             </li>
@@ -43,8 +43,24 @@
             </li>
         </ul>
     </div>
-    <div class="container">
-        <div class="heading-title" style="text-align:center; margin-top:140px;">
+    <div class="container container-bg">
+        <div class="page-nav-header">
+            <div class="category-info">
+                <div class="breadcrumb">
+                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:12px">
+                        <li style=" padding: 0 10px 0px 0;">
+                            <a href="/" title="Anasayfa">Anasayfa</a>
+                            <span class="delimiter">></span>
+                        </li>
+                        <li style=" padding: 0 10px 0px 0;">
+                            <span class="current-item">Bunları Biliyor musunuz?</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="heading-title">
             <h4>Bunları biliyor musunuz?</h4>
 
         </div>
@@ -62,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <div id="accordion">
+            <div id="accordion" class="pt-10">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -569,12 +585,8 @@
 <style>
     /* ... Diğer stillendirmeler ... */
 
-    .container {
-        background: url(../images/yaban_mersini_zemin.png);
-        background-size: cover; /* Resmi div'in içine sığacak şekilde ölçekle */
-        background-size: 100%;
-        background-repeat: no-repeat; /* Resmi tek bir kez görüntüle, tekrar etme */
-        z-index: 0; /* .container'ı arka planda tutmak için z-index ekledik */
+    .container-bg {
+        background-image: url(/images/yaban_mersini_zemin.png);  
     }
 
     .page-content {

@@ -1,1 +1,19 @@
-.heading-title h1{color:#78be20;font-weight:600;margin-bottom:20px}.heading-title h3{color:#3f3f3f;font-weight:400;line-height:42px;margin-bottom:40px}@media (max-width: 767.98px){.heading-title h3{font-size:20px;line-height:28px}}
+.heading-title h1 {
+    color: #78be20;
+    font-weight: 600;
+    margin-bottom: 20px
+}
+
+.heading-title h3 {
+    color: #3f3f3f;
+    font-weight: 400;
+    line-height: 42px;
+    margin-bottom: 40px
+}
+
+@media (max-width: 767.98px) {
+    .heading-title h3 {
+        font-size: 20px;
+        line-height: 28px
+    }
+}

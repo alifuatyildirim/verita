@@ -70,5 +70,24 @@ namespace Verita7.Controllers
         {
             return View();
         }
+
+        public ActionResult OrganizasyonYapisi2()
+        {
+            return View();
+        }
+
+        public ActionResult Hedeflerimiz()
+        {
+            return View();
+        }
+        public ActionResult NedenVerita()
+        {
+            return View();
+        }
+
+        public ActionResult KaliteGarantisi()
+        {
+            return View();
+        }
     }
 }

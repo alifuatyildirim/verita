@@ -20,7 +20,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
         name: "Urunlerimiz",
-        pattern: "urunlerimiz/{id?}", 
+        pattern: "urunlerimiz/{id?}",
          defaults: new { controller = "Home", action = "Urunlerimiz" });
 
     endpoints.MapControllerRoute(
@@ -68,14 +68,13 @@ app.UseEndpoints(endpoints =>
         pattern: "hakkimizda/{id?}",
          defaults: new { controller = "Home", action = "Hakkimizda" });
 
-
     endpoints.MapControllerRoute(
         name: "EgzotikMeyveler",
         pattern: "egzotik-meyveler/{id?}",
          defaults: new { controller = "Home", action = "EgzotikMeyveler" });
 
     endpoints.MapControllerRoute(
-        name: "VeritaGurmeKivi", 
+        name: "VeritaGurmeKivi",
         pattern: "verita-gurme-kivi/{id?}",
          defaults: new { controller = "Home", action = "VeritaGurmeKivi" });
 
@@ -83,6 +82,26 @@ app.UseEndpoints(endpoints =>
         name: "OrganizasyonYapisi",
         pattern: "organizasyon-yapisi/{id?}",
          defaults: new { controller = "Home", action = "OrganizasyonYapisi" });
+
+    endpoints.MapControllerRoute(
+    name: "Hedeflerimiz",
+    pattern: "hedeflerimiz/{id?}",
+     defaults: new { controller = "Home", action = "Hedeflerimiz" });
+
+    endpoints.MapControllerRoute(
+  name: "NedenVerita",
+  pattern: "neden-verita/{id?}",
+   defaults: new { controller = "Home", action = "NedenVerita" });
+
+    endpoints.MapControllerRoute(
+name: "KaliteGarantisi",
+pattern: "kalite-garantisi/{id?}",
+ defaults: new { controller = "Home", action = "KaliteGarantisi" });
+
+    endpoints.MapControllerRoute(
+          name: "OrganizasyonYapisi2",
+          pattern: "organizasyon-yapisi2/{id?}",
+           defaults: new { controller = "Home", action = "OrganizasyonYapisi2" });
 
     endpoints.MapControllerRoute(
         name: "Default",

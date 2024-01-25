@@ -6208,11 +6208,19 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             border-top: 0
         }
 
+.page-nav-header {
+    margin: 0 auto;
+    width: 1300px;
+    padding-top: 60px;
+}
+.container-bg { 
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
 
 .categoryNav {
     background-color: #006940;
-    display: flex;
-    margin-bottom: 30px;
+    display: flex; 
 }
 
     .categoryNav ul {
@@ -71881,7 +71889,9 @@ canvas {
     font-weight: 600;
     color: #232323;
     font-size: 26px;
-    margin-bottom: 4px
+    margin-bottom: 4px;
+    text-align:center;
+    padding-top: 80px;
 }
 
 .heading-title p {
