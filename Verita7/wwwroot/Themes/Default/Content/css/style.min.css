@@ -620,7 +620,7 @@ progress {
 }
 
 @media (min-width: 992px) {
-    .container, .container-sm, .container-md, .container-lg {
+    .container, .container-sm, .container-md, .container-lg { 
         max-width: 900px
     }
 }
@@ -633,9 +633,10 @@ progress {
 
 @media (min-width: 1500px) {
     .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
-        max-width: 100%;
+        max-width: 1300px;
     }
 }
+ 
 
 .row {
     --bs-gutter-x: 20px;
@@ -4555,7 +4556,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 
 .btn {
     display: inline-block;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
     color: #232323;
     text-align: center;
@@ -6213,9 +6214,10 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     width: 1300px;
     padding-top: 60px;
 }
-.container-bg { 
+.container-bg {
     background-position-x: center;
     background-repeat: no-repeat;
+    max-width: 100% !important;
 }
 
 .categoryNav {
@@ -71890,8 +71892,8 @@ canvas {
     color: #232323;
     font-size: 26px;
     margin-bottom: 4px;
-    text-align:center;
-    padding-top: 80px;
+    text-align: center;
+    .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl padding-top: 80px;
 }
 
 .heading-title p {
