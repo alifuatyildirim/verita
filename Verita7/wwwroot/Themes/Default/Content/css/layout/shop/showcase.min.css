@@ -88,6 +88,11 @@
     box-sizing: border-box; 
 }
 
+.home-page-products {
+    width: 400px !important;
+    margin-right: 50px !important;
+}
+
 @media(max-width:991.98px) {
     .left-image-showcase .showcase-products {
         padding-left: 0;
@@ -114,9 +119,7 @@
 
             .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide {
                 height: 100%;
-                padding-bottom: 20px;
-                width:400px !important;
-                margin-right:50px !important;
+                padding-bottom: 20px; 
             }
 
                 .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item {
@@ -251,9 +254,7 @@
                 background-color: #006940;
             }
 
-.client-showcase {
-    background-image: url("/Themes/Default/Content/img/egzotikmeyve_home.png");
-    background-size: cover;
+.client-showcase {  
     padding: 40px 0;
 }
 
