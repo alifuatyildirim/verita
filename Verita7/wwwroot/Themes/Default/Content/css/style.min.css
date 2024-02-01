@@ -6209,6 +6209,17 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             border-top: 0
         }
 
+        .home-page-content{
+            font-size:18px;
+            font-family:'Roboto Slab';
+            line-height:30px;
+        }
+
+.product-btn-big{
+    width:220px;
+    height:59px;
+}
+
 .page-nav-header {
     margin: 0 auto;
     width: 1300px;
@@ -6230,8 +6241,9 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         width: 100%;
         justify-content: center;
         list-style: none;
-        padding: 20px 0;
+        padding: 24px 0;
         margin: 0;
+        height:70px;
     }
 
         .categoryNav ul li {
@@ -6503,7 +6515,8 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     flex-wrap: wrap;
     padding: 0 0;
     margin-bottom: 0;
-    list-style: none
+    list-style: none;
+    margin-top:60px;
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -62058,6 +62071,14 @@ a.text-hover-muted, .text-hover-muted {
     .hoverable:hover a.text-hover-muted .svg-icon svg:hover g [fill], .hoverable:hover .text-hover-muted .svg-icon svg:hover g [fill] {
         transition: fill 0.3s ease
     }
+
+.product-title {
+    color: #006940;
+    font-weight: bold;
+    font-size:40px;
+    font-weight:700;
+    font-family:'Roboto Slab SemiBold'
+}
 
 .font-roboto {
     font-family: "Roboto",Helvetica,sans-serif !important

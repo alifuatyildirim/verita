@@ -61,6 +61,10 @@ namespace Verita7.Controllers
             return View();
         }
 
+        public ActionResult VeritaGurmeKivi2()
+        {
+            return View();
+        }
         public ActionResult BunlariBiliyorMusunuz()
         {
             return View();

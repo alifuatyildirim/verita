@@ -77,6 +77,10 @@ app.UseEndpoints(endpoints =>
         name: "VeritaGurmeKivi",
         pattern: "verita-gurme-kivi/{id?}",
          defaults: new { controller = "Home", action = "VeritaGurmeKivi" });
+    endpoints.MapControllerRoute(
+       name: "VeritaGurmeKivi",
+       pattern: "verita-gurme-kivi2/{id?}",
+        defaults: new { controller = "Home", action = "VeritaGurmeKivi2" });
 
     endpoints.MapControllerRoute(
         name: "OrganizasyonYapisi",
