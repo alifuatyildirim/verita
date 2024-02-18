@@ -9,6 +9,8 @@ namespace Verita.Data
     {
         public DbSet<UserAudit> UserAuditEvents { get; set; }
         public DbSet<Product> Products{ get; set; }
+        public DbSet<ProductCard> ProductCards { get; set; }
+        public DbSet<Category> Categories{ get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

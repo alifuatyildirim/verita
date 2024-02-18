@@ -1,0 +1,18 @@
+﻿@using Verita.Domain.Entities;
+@model CategoryViewModel
+
+
+TEST
+@if (Model.Categories != null && Model.Products != null)
+{
+    @foreach (var category in Model.Categories)
+    {
+        <a class="dropdown-item with-submenu" href="#">@category.Name</a>
+        <div class="sub-menu">
+            @foreach (var product in Model.Products.Where(x => x.CategoryId == category.Id))
+            {
+                <a class="dropdown-item" href="/Urunler/@product.Id">@product.Name</a>
+            }
+        </div>
+    }
+}

@@ -1,0 +1,15 @@
+﻿@using Verita.Domain.Entities;
+
+@if (ViewBag.CategoriesTitle != null && ViewBag.ProductsTitle != null)
+{
+    @foreach (var category in (List<Category>)ViewBag.CategoriesTitle)
+    {
+        <a class="dropdown-item with-submenu" href="#">@category.Name</a>
+        <div class="sub-menu">
+            @foreach (var product in ((List<Product>)ViewBag.ProductsTitle).Where(x => x.CategoryId == category.Id))
+            {
+                <a class="dropdown-item" href="/Urunler/@product.Id">@product.Name</a>
+            }
+        </div>
+    }
+}

@@ -147,79 +147,9 @@
                                     <span>ÜRÜNLERİMİZ</span>
                                 </a>
                                 <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item with-submenu" href="/verita-gurme-kivi">Egzotik Meyveler</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Altın Çilek</a>
-                                        <a class="dropdown-item" href="#">Avokado</a> 
-                                        <a class="dropdown-item" href="#">Bal Ananas</a> 
-                                        <a class="dropdown-item" href="#">Çarkıfelek</a> 
-                                        <a class="dropdown-item" href="#">Demirhindi</a> 
-                                        <a class="dropdown-item" href="#">Gold Ananas</a> 
-                                        <a class="dropdown-item" href="#">Granadilla</a> 
-                                        <a class="dropdown-item" href="#">Guanabana</a>
-                                        <a class="dropdown-item" href="#">Hindistan Cevizi</a> 
-                                        <a class="dropdown-item" href="#">Karambola</a> 
-                                        <a class="dropdown-item" href="#">Kumkuat</a> 
-                                        <a class="dropdown-item" href="#">Liçi</a> 
-                                        <a class="dropdown-item" href="#">Lime</a> 
-                                        <a class="dropdown-item" href="#">Mango</a> 
-                                        <a class="dropdown-item" href="#">Mangosten</a> 
-                                        <a class="dropdown-item" href="#">Papaya</a> 
-                                        <a class="dropdown-item" href="#">Pitahaya</a> 
-                                        <a class="dropdown-item" href="#">Pomelo</a> 
-                                    </div>
-                                    <a class="dropdown-item with-submenu" href="/urunlerimiz">Orman Meyveleri</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Ahududu</a>
-                                        <a class="dropdown-item" href="#">Böğürtlen</a>
-                                        <a class="dropdown-item" href="#">Frenk Üzümü</a>
-                                        <a class="dropdown-item" href="#">Yaban Mersini</a>
-                                    </div>
-                                    <a class="dropdown-item with-submenu" href="/urunlerimiz">Yemeye Hazır</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Yemeye Hazır Avakado</a>
-                                        <a class="dropdown-item" href="#">Yemeye Hazır Mango</a>
-                                        <a class="dropdown-item" href="#">Yemeye Hazır Papaya</a>
-                                    </div>
-                                    <a class="dropdown-item with-submenu" href="/urunlerimiz">Nadir Bulunan Meyveler</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Atemoya</a>
-                                        <a class="dropdown-item" href="#">Çerimoya</a>
-                                        <a class="dropdown-item" href="#">Guava</a>
-                                        <a class="dropdown-item" href="#">Kaktüs İnciri</a>
-                                        <a class="dropdown-item" href="#">Kasava</a>
-                                        <a class="dropdown-item" href="#">Kivano</a>
-                                        <a class="dropdown-item" href="#">Longan</a>
-                                        <a class="dropdown-item" href="#">Maracuya</a>
-                                        <a class="dropdown-item" href="#">Salacca</a>
-                                    </div>
-                                    <a class="dropdown-item with-submenu" href="/urunlerimiz">Klasik Meyveler</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Armut</a>
-                                        <a class="dropdown-item" href="#">Elma</a>
-                                        <a class="dropdown-item" href="#">Kavun</a>
-                                        <a class="dropdown-item" href="#">Nar</a>
-                                        <a class="dropdown-item" href="#">Üzüm</a>
-                                    </div>
-                                    <a class="dropdown-item with-submenu" href="/urunlerimiz">Verita Fresh Cut</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Ananas</a>
-                                        <a class="dropdown-item" href="#">Hindistan Cevizi</a>
-                                        <a class="dropdown-item" href="#">Mango</a>
-                                        <a class="dropdown-item" href="#">Meyve Salatası</a>
-                                        <a class="dropdown-item" href="#">Nar</a>
-                                    </div>
-                                    <a class="dropdown-item" href="/urunlerimiz">Verita Raw Juice</a>
-                                    <a class="dropdown-item with-submenu" href="/urunlerimiz">Sebzeler ve Kök Bitkiler</a>
-                                    <div class="sub-menu">
-                                        <a class="dropdown-item" href="#">Hindiba</a>
-                                        <a class="dropdown-item" href="#">Kasava</a>
-                                        <a class="dropdown-item" href="#">Kuşkonmaz</a>
-                                        <a class="dropdown-item" href="#">Sarımsak</a>
-                                        <a class="dropdown-item" href="#">Tatlı Patates</a>
-                                        <a class="dropdown-item" href="#">Zencefil</a>
-                                        <a class="dropdown-item" href="#">Zerdeçal</a>
-                                    </div>
+                                   
+                                     
+                                        @await Component.InvokeAsync("CategoryList")
                                 </div>
                             </div>
                         </li>  
@@ -520,7 +450,15 @@
     </footer>
 
     <div class="container hidden-container"></div>
-
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $.get('@Url.Action("CategoriesPartialView", "Home")', function (data) {
+                    $('#categoriesPartial').html(data);
+                });
+            });
+        </script>
+    }
     @RenderSection("links", false)
     @RenderSection("scripts", false)
     <style>

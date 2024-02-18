@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Verita.Application;
 using Verita.Application.ProductService;
 using Verita.Data.Abstracts;
 using Verita.Data.Concrete;
 
-namespace AdminLTE.Extensions;
+namespace Verita.Application.Extensions;
 
 public static class ApplicationServicesExtension
 {
@@ -16,7 +15,13 @@ public static class ApplicationServicesExtension
 
 
         services.AddScoped<IProductRepository, ProductRepository>();
-        services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IProductService, ProductService.ProductService>();
+
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ICategoryService, CategoryService>();
+
+        services.AddScoped<IProductCardRepository, ProductCardRepository>();
+        services.AddScoped<IProductCardService, ProductCardService>();
         return services;
     }
 

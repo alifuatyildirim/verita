@@ -1,10 +1,27 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Verita.Application.ProductService;
 
 namespace Verita7.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IProductService productService;
+        private readonly ICategoryService categoryService;
+
+        public HomeController(IProductService productService, ICategoryService categoryService)
+        {
+            this.productService = productService;
+            this.categoryService = categoryService;
+
+        }
+
+        public async Task<IActionResult> CategoriesPartialView()
+        {
+            ViewBag.CategoriesTitle = await this.categoryService.GetCategoriesAsync();
+            ViewBag.ProductsTitle = await this.productService.GetProductsAsync();
+            return PartialView("~/Views/Shared/CategoriesPartialView.cshtml");
+        }
         public ActionResult Index()
         {
             return View();

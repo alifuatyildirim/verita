@@ -1,0 +1,126 @@
+﻿@model Verita.Domain.Entities.Product
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h1>Edit Product</h1>
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data", id = "productForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainImageUrl, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.MainImageUrl))
+                {
+                    <img src="@Model.MainImageUrl" class="img-thumbnail" id="mainImagePreview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="MainImage" class="form-control-file" onchange="previewMainImage(event)" />
+                @Html.ValidationMessageFor(model => model.MainImageUrl, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.CategoryId, new SelectList(ViewBag.Categories, "Id", "Name"), "Select Category", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LanguageId, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.LanguageId, new SelectList(Enum.GetValues(typeof(Verita.Common.Enums.Language))), "Select Language", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="productCards">
+                @for (int i = 0; i < Model.ProductCards.Count; i++)
+                {
+                    <div class="product-card">
+                        <div class="form-group">
+                            <label>Title:</label>
+                            @Html.TextBoxFor(model => model.ProductCards[i].Title, new { @class = "form-control" })
+                            @Html.HiddenFor(model => model.ProductCards[i].Id)
+                        </div>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            @Html.TextAreaFor(model => model.ProductCards[i].Description, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Image:</label>
+                            @if (!string.IsNullOrEmpty(Model.ProductCards[i].Image))
+                            {
+                                <img src="@Model.ProductCards[i].Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                            }
+                            <input type="file" name="ProductCards[@i].Image" class="form-control-file" onchange="previewProductCardImage(event, this)" />
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <button type="button" class="btn btn-success" id="addProductCard">Add Product Card</button>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var productCardIndex = @Model.ProductCards.Count;
+
+            $("#addProductCard").click(function () {
+                var productCardHtml = `
+                                    <div class="product-card">
+                                        <div class="form-group">
+                                            <label>Title:</label>
+                                            <input type="text" name="ProductCards[${productCardIndex}].Title" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Description:</label>
+                                            <textarea name="ProductCards[${productCardIndex}].Description" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Image:</label>
+                                            <input type="file" name="ProductCards[${productCardIndex}].Image" class="form-control-file" onchange="previewProductCardImage(event, this)" />
+                                        </div>
+                                        <!-- Diğer ürün kartı alanları eklenecek -->
+                                    </div>
+                                `;
+
+                $("#productCards").append(productCardHtml);
+                productCardIndex++;
+            });
+        });
+
+        function previewMainImage(event) {
+            var mainImagePreview = document.getElementById('mainImagePreview');
+            mainImagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function previewProductCardImage(event, element) {
+            var productCardImagePreview = $(element).closest('.product-card').find('img')[0];
+            productCardImagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+}

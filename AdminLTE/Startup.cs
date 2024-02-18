@@ -1,5 +1,4 @@
 ﻿using AdminLTE.Data;
-using AdminLTE.Extensions;
 using AdminLTE.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Verita.Application.Extensions;
 using Verita.Contract.Models;
 using Verita.Data;
 using Verita.Repository.Mssql;

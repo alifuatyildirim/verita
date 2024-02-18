@@ -1,0 +1,44 @@
+﻿@using Verita.Common.Enums;
+@using Verita.Domain.Entities;
+@model Category
+
+@{
+    ViewBag.Title = "Edit Category";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Edit Category</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LanguageId)
+                @Html.DropDownListFor(model => model.LanguageId, new SelectList(Enum.GetValues(typeof(Language))), "Select Language", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        }
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->

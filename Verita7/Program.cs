@@ -1,9 +1,39 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using System.Configuration;
+using Verita.Application.Extensions;
+using Verita.Contract.Models;
+using Verita.Data;
+using Verita.Repository.Mssql;
+using Verita.Repository.Mssql.GenericRepository; 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContext");
+builder.Services.AddGenericRepository<ApplicationDbContext>();
+builder.Services.AddQueryRepository<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+   .AddEntityFrameworkStores<ApplicationDbContext>()
+   .AddDefaultTokenProviders();
+builder.Services.AddApplicationServices(); 
+
 var app = builder.Build();
+app.UseStaticFiles(); // Statik dosyalarý sunmak için UseStaticFiles yöntemini kullan
+
+// SharedFile klasörünün yolunu al
+string sharedFilesPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "SharedFiles");
+
+// SharedFile klasörünü sunmak için bir URL rotasý tanýmla
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(sharedFilesPath),
+    RequestPath = "/SharedFiles"
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -17,7 +47,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
-{
+{ 
     endpoints.MapControllerRoute(
         name: "Urunlerimiz",
         pattern: "urunlerimiz/{id?}",
@@ -76,11 +106,8 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "VeritaGurmeKivi",
         pattern: "verita-gurme-kivi/{id?}",
-         defaults: new { controller = "Home", action = "VeritaGurmeKivi" });
-    endpoints.MapControllerRoute(
-       name: "VeritaGurmeKivi",
-       pattern: "verita-gurme-kivi2/{id?}",
-        defaults: new { controller = "Home", action = "VeritaGurmeKivi2" });
+         defaults: new { controller = "Product", action = "Index"},
+        constraints: new { id = @"\d+" }); 
 
     endpoints.MapControllerRoute(
         name: "OrganizasyonYapisi",
@@ -114,5 +141,6 @@ pattern: "kalite-garantisi/{id?}",
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
+     
 });
 app.Run();
