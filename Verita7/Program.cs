@@ -107,7 +107,13 @@ app.UseEndpoints(endpoints =>
         name: "VeritaGurmeKivi",
         pattern: "verita-gurme-kivi/{id?}",
          defaults: new { controller = "Product", action = "Index"},
-        constraints: new { id = @"\d+" }); 
+        constraints: new { id = @"\d+" });
+
+    endpoints.MapControllerRoute(
+       name: "Urunler",
+       pattern: "urunler/{id?}",
+        defaults: new { controller = "Product", action = "Index" },
+       constraints: new { id = @"\d+" });
 
     endpoints.MapControllerRoute(
         name: "OrganizasyonYapisi",
