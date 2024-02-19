@@ -126,9 +126,25 @@ app.UseEndpoints(endpoints =>
      defaults: new { controller = "Home", action = "Hedeflerimiz" });
 
     endpoints.MapControllerRoute(
+   name: "DalindanSofraya",
+   pattern: "dalindan-sofraya/{id?}",
+    defaults: new { controller = "Home", action = "DalindanSofraya" });
+
+    endpoints.MapControllerRoute(
+name: "GuvenliAmbalaj",
+pattern: "guvenli-ambalaj/{id?}",
+defaults: new { controller = "Home", action = "GuvenliAmbalaj" });
+
+    endpoints.MapControllerRoute(
   name: "NedenVerita",
   pattern: "neden-verita/{id?}",
    defaults: new { controller = "Home", action = "NedenVerita" });
+
+    endpoints.MapControllerRoute(
+name: "SogukZincir",
+pattern: "soguk-zincir/{id?}",
+defaults: new { controller = "Home", action = "SogukZincir" });
+
 
     endpoints.MapControllerRoute(
 name: "KaliteGarantisi",

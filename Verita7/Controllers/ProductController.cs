@@ -17,7 +17,6 @@ namespace Verita7.Controllers
         public async Task<IActionResult> Index(int productId)
         {
             ViewBag.Categories = await this.categoryService.GetCategoriesAsync();
-            productId = 4;
             var product = await this.productService.GetProductAsync(productId);
             var productList = await this.productService.GetProductByCategoryIdAsync(product.CategoryId);
             ViewBag.Products = productList;

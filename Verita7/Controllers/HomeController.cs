@@ -110,5 +110,20 @@ namespace Verita7.Controllers
         {
             return View();
         }
+
+        public ActionResult DalindanSofraya()
+        {
+            return View();
+        }
+
+        public ActionResult GuvenliAmbalaj()
+        {
+            return View();
+        }
+
+        public ActionResult SogukZincir()
+        {
+            return View();
+        }
     }
 }
