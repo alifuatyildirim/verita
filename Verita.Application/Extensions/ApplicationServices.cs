@@ -22,6 +22,12 @@ public static class ApplicationServicesExtension
 
         services.AddScoped<IProductCardRepository, ProductCardRepository>();
         services.AddScoped<IProductCardService, ProductCardService>();
+
+        services.AddScoped<IPageImageRepository, PageImageRepository>();
+        services.AddScoped<IPageImageService, PageImageService>();
+
+        services.AddScoped<IPageRepository, PageRepository>();
+        services.AddScoped<IPageService, PageService>();
         return services;
     }
 

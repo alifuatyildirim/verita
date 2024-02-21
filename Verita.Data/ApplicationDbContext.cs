@@ -11,6 +11,8 @@ namespace Verita.Data
         public DbSet<Product> Products{ get; set; }
         public DbSet<ProductCard> ProductCards { get; set; }
         public DbSet<Category> Categories{ get; set; }
+        public DbSet<Page> Pages{ get; set; }
+        public DbSet<PageImage> PageImages{ get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 using Verita.Application.Extensions;
 using Verita.Contract.Models;
 using Verita.Data;
@@ -54,6 +56,7 @@ namespace AdminLTE
                 var policy = new AuthorizationPolicyBuilder()
                                 .RequireAuthenticatedUser()
                                 .Build();
+              
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
 
@@ -81,7 +84,15 @@ namespace AdminLTE
 
             app.UseStatusCodePagesWithRedirects("~/Home/Error/{0}");
 
-            app.UseStaticFiles();
+            app.UseStaticFiles();  
+
+            string sharedFilesPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "SharedFiles");
+             
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(sharedFilesPath),
+                RequestPath = "/SharedFiles"
+            });
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

@@ -1,0 +1,102 @@
+﻿@model Verita.Domain.Entities.Page
+@{
+    ViewData["Title"] = "Edit Page";
+}
+
+<h1>Edit Product</h1>
+
+@using (Html.BeginForm("Edit", "Page", FormMethod.Post, new { enctype = "multipart/form-data", id = "pageForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BackgroundUrl, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.BackgroundUrl))
+                {
+                    <img src="@Model.BackgroundUrl" class="img-thumbnail" id="mainImagePreview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="BackgroundImage" class="form-control-file" onchange="previewMainImage(event)" />
+                @Html.ValidationMessageFor(model => model.BackgroundUrl, "", new { @class = "text-danger" })
+            </div> 
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LanguageId, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.LanguageId, new SelectList(Enum.GetValues(typeof(Verita.Common.Enums.Language))), "Select Language", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="pageImages">
+                @for (int i = 0; i < Model.PageImages.Count; i++)
+                {
+                    <div class="product-card">
+                        <div class="form-group">
+                            <label>Image:</label>
+                            @if (!string.IsNullOrEmpty(Model.PageImages[i].Image))
+                            {
+                                <img src="@Model.PageImages[i].Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                            }
+                            <input type="file" name="PageImages[@i].Image" class="form-control-file" onchange="previewPageImage(event, this)" />
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <button type="button" class="btn btn-success" id="addPageImage">Add Page Image</button>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var productCardIndex = @Model.PageImages.Count;
+
+            $("#addPageImage").click(function () {
+                var productCardHtml = `
+                                    <div class="product-card">
+                                        <div class="form-group">
+                                            <label>Image:</label>
+                                                    <input type="file" name="PageImages[${productCardIndex}].Image" class="form-control-file" onchange="previewPageImage(event, this)" />
+                                        </div>
+                                    </div>
+                                `;
+
+                $("#pageImages").append(productCardHtml);
+                productCardIndex++;
+            });
+        });
+
+        function previewMainImage(event) {
+            var mainImagePreview = document.getElementById('mainImagePreview');
+            mainImagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function previewPageImage(event, element) {
+            var pageImagePreview = $(element).closest('.page-image').find('img')[0];
+            pageImagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+}

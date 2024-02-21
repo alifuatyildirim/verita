@@ -126,6 +126,12 @@ app.UseEndpoints(endpoints =>
      defaults: new { controller = "Home", action = "Hedeflerimiz" });
 
     endpoints.MapControllerRoute(
+   name: "Page",
+   pattern: "page/{id?}",
+    defaults: new { controller = "Page", action = "Index" });
+
+
+    endpoints.MapControllerRoute(
    name: "DalindanSofraya",
    pattern: "dalindan-sofraya/{id?}",
     defaults: new { controller = "Home", action = "DalindanSofraya" });

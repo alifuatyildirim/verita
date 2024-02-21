@@ -42,6 +42,7 @@ namespace Verita.Data.Concrete
             {
                 productEntity.MainImageUrl = product.MainImageUrl;
             }
+            productEntity.Name = product.Name;
             productEntity.LanguageId = product.LanguageId;
             productEntity.Description = product.Description;
             productEntity.Title = product.Title;

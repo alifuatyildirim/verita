@@ -35,6 +35,7 @@ namespace Verita.Data.Concrete
             {
                 productCardEntity.Image = productCard.Image;
             }
+            
             productCardEntity.Title = productCard.Title;
             productCardEntity.ProductId = productCard.ProductId;
             productCardEntity.Description = productCard.Description;
