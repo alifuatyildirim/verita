@@ -22,15 +22,17 @@ namespace AdminLTE.ViewComponents
             //}
 
             sidebars.Add(ModuleHelper.AddHeader("MAIN NAVIGATION"));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Home));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Error, Tuple.Create(0, 0, 1)));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.About, Tuple.Create(0, 1, 0)));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Contact, Tuple.Create(1, 0, 0)));
+            //sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Home));
+            //sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Error, Tuple.Create(0, 0, 1)));
+            //sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.About, Tuple.Create(0, 1, 0)));
+            //sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Contact, Tuple.Create(1, 0, 0)));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Product, Tuple.Create(1, 0, 0)));
+            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Category, Tuple.Create(1, 0, 0)));
+            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Page, Tuple.Create(1, 0, 0)));
             sidebars.Add(ModuleHelper.AddTree("Account"));
             sidebars.Last().TreeChild = new List<SidebarMenu>()
             {
-                ModuleHelper.AddModule(ModuleHelper.Module.Login),
+                //ModuleHelper.AddModule(ModuleHelper.Module.Login),
                 ModuleHelper.AddModule(ModuleHelper.Module.Register, Tuple.Create(1, 1, 1)),
             };
 
@@ -42,7 +44,7 @@ namespace AdminLTE.ViewComponents
                     ModuleHelper.AddModule(ModuleHelper.Module.SuperAdmin),
                     ModuleHelper.AddModule(ModuleHelper.Module.Role),
                 };
-                sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.UserLogs));
+                //sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.UserLogs));
             }
 
             return View(sidebars);

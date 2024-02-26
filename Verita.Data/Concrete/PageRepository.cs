@@ -42,6 +42,7 @@ namespace Verita.Data.Concrete
             {
                 pageEntity.BackgroundUrl = page.BackgroundUrl;
             }
+            pageEntity.Name = page.Name;
             pageEntity.LanguageId = page.LanguageId;
             pageEntity.Description = page.Description;
             pageEntity.Title = page.Title; 

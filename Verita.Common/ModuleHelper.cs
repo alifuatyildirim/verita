@@ -7,16 +7,18 @@
     {
         public enum Module
         {
-            Home,
-            About,
-            Contact,
-            Error,
-            Login,
+            //Home,
+            //About,
+            //Contact,
+            //Error,
+            //Login,
             Register,
             SuperAdmin,
             Role,
-            UserLogs,
-            Product
+            //UserLogs,
+            Product,
+            Category,
+            Page
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -47,24 +49,24 @@
 
             switch (module)
             {
-                case Module.Home:
-                    return new SidebarMenu
-                    {
-                        Type = SidebarMenuType.Link,
-                        Name = "Home",
-                        IconClassName = "fa fa-home",
-                        URLPath = "/",
-                        LinkCounter = counter,
-                    };
-                case Module.Login:
-                    return new SidebarMenu
-                    {
-                        Type = SidebarMenuType.Link,
-                        Name = "Login",
-                        IconClassName = "fa fa-sign-in-alt",
-                        URLPath = "/Account/Login",
-                        LinkCounter = counter,
-                    };
+                //case Module.Home:
+                //    return new SidebarMenu
+                //    {
+                //        Type = SidebarMenuType.Link,
+                //        Name = "Home",
+                //        IconClassName = "fa fa-home",
+                //        URLPath = "/",
+                //        LinkCounter = counter,
+                //    };
+                //case Module.Login:
+                //    return new SidebarMenu
+                //    {
+                //        Type = SidebarMenuType.Link,
+                //        Name = "Login",
+                //        IconClassName = "fa fa-sign-in-alt",
+                //        URLPath = "/Account/Login",
+                //        LinkCounter = counter,
+                //    };
                 case Module.Register:
                     return new SidebarMenu
                     {
@@ -74,33 +76,33 @@
                         URLPath = "/Account/Register",
                         LinkCounter = counter,
                     };
-                case Module.About:
-                    return new SidebarMenu
-                    {
-                        Type = SidebarMenuType.Link,
-                        Name = "About",
-                        IconClassName = "fa fa-users",
-                        URLPath = "/Home/About",
-                        LinkCounter = counter,
-                    };
-                case Module.Contact:
-                    return new SidebarMenu
-                    {
-                        Type = SidebarMenuType.Link,
-                        Name = "Contact",
-                        IconClassName = "fa fa-phone",
-                        URLPath = "/Home/Contact",
-                        LinkCounter = counter,
-                    };
-                case Module.Error:
-                    return new SidebarMenu
-                    {
-                        Type = SidebarMenuType.Link,
-                        Name = "Error",
-                        IconClassName = "fa fa-exclamation-triangle",
-                        URLPath = "/Home/Error",
-                        LinkCounter = counter,
-                    };
+                //case Module.About:
+                //    return new SidebarMenu
+                //    {
+                //        Type = SidebarMenuType.Link,
+                //        Name = "About",
+                //        IconClassName = "fa fa-users",
+                //        URLPath = "/Home/About",
+                //        LinkCounter = counter,
+                //    };
+                //case Module.Contact:
+                //    return new SidebarMenu
+                //    {
+                //        Type = SidebarMenuType.Link,
+                //        Name = "Contact",
+                //        IconClassName = "fa fa-phone",
+                //        URLPath = "/Home/Contact",
+                //        LinkCounter = counter,
+                //    };
+                //case Module.Error:
+                //    return new SidebarMenu
+                //    {
+                //        Type = SidebarMenuType.Link,
+                //        Name = "Error",
+                //        IconClassName = "fa fa-exclamation-triangle",
+                //        URLPath = "/Home/Error",
+                //        LinkCounter = counter,
+                //    };
                 case Module.SuperAdmin:
                     return new SidebarMenu
                     {
@@ -119,22 +121,40 @@
                         URLPath = "/Role",
                         LinkCounter = counter,
                     };
-                case Module.UserLogs:
-                    return new SidebarMenu
-                    {
-                        Type = SidebarMenuType.Link,
-                        Name = "UserLogs",
-                        IconClassName = "fa fa-history",
-                        URLPath = "/UserLogs",
-                        LinkCounter = counter,
-                    };
+                //case Module.UserLogs:
+                //    return new SidebarMenu
+                //    {
+                //        Type = SidebarMenuType.Link,
+                //        Name = "UserLogs",
+                //        IconClassName = "fa fa-history",
+                //        URLPath = "/UserLogs",
+                //        LinkCounter = counter,
+                //    };
                 case Module.Product:
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
                         Name = "Product",
                         IconClassName = "fa fa-history",
-                        URLPath = "/Product/Create",
+                        URLPath = "/Product/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.Category:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Category",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/Category/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.Page:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Page",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/Page/Index",
                         LinkCounter = counter,
                     };
 
