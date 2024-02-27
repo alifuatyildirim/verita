@@ -7,6 +7,7 @@ using Verita.Domain.Entities;
 
 namespace Verita.Web.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;

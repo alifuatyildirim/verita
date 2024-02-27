@@ -11,6 +11,7 @@ using Verita.Domain.Entities;
 
 namespace AdminLTE.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService productService;
