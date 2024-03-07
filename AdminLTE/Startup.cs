@@ -1,4 +1,5 @@
 ﻿using AdminLTE.Data;
+using AdminLTE.Middlewares;
 using AdminLTE.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -56,7 +57,7 @@ namespace AdminLTE
                 var policy = new AuthorizationPolicyBuilder()
                                 .RequireAuthenticatedUser()
                                 .Build();
-              
+
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
 
@@ -73,6 +74,7 @@ namespace AdminLTE
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -84,19 +86,28 @@ namespace AdminLTE
 
             app.UseStatusCodePagesWithRedirects("~/Home/Error/{0}");
 
-            app.UseStaticFiles();  
-
-            string sharedFilesPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "SharedFiles");
-             
-            app.UseStaticFiles(new StaticFileOptions
+            app.UseStaticFiles();
+            try
             {
-                FileProvider = new PhysicalFileProvider(sharedFilesPath),
-                RequestPath = "/SharedFiles"
-            });
+                string sharedFilesPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "SharedFiles");
+                ErrorHandlingMiddlewareExtensions.LogError(sharedFilesPath);
+
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(sharedFilesPath),
+                    RequestPath = "/SharedFiles"
+                });
+            }
+            catch (System.Exception ex)
+            {
+
+                ErrorHandlingMiddlewareExtensions.LogError(ex.Message);
+            }
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseGlobalExceptionHandler();
             app.UseMiddleware<RequestLoggingMiddleware>();
 
             app.UseEndpoints(endpoints =>
@@ -106,10 +117,17 @@ namespace AdminLTE
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-
-            using (var scope = app.ApplicationServices.CreateScope())
+            try
             {
-                DataSeed.Seed(scope.ServiceProvider).Wait();
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    DataSeed.Seed(scope.ServiceProvider).Wait();
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+                ErrorHandlingMiddlewareExtensions.LogError(ex.Message);
             }
         }
     }
