@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Verita.Common.Enums;
+<!DOCTYPE html>
 <html>
 <head>
     <title>Verita</title>
@@ -159,11 +160,7 @@
                                     <span>GÜVENLİ GIDA</span>
                                 </a>
                                 <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Dalindan Sofraya Güvenli Gıda</a>
-                                    <a class="dropdown-item" href="#">Güvenli Ambalaj</a>
-                                    <a class="dropdown-item" href="#">Soğuk Zincir</a>
-                                    <a class="dropdown-item" href="#">Global GAP ve İyi Tarım Uygulamaları</a>
-                                    <a class="dropdown-item" href="#">Sağlıklı Gelecek</a>  
+                                    @await Component.InvokeAsync("PageList", new {pageCategoryId= PageCategory.GuvenliGida})
                                 </div>
                             </div>
                         </li>
@@ -176,12 +173,7 @@
                                     <span>MERAK</span> <span>ETTİKLERİMİZ</span>
                                 </a>
                                 <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Hangi ülkelerin meyveleri</a>
-                                    <a class="dropdown-item" href="#">Nasıl 12 ay mevsiminde taze meyve?</a>
-                                    <a class="dropdown-item" href="#">Nasıl her zaman taze meyve?</a>
-                                    <a class="dropdown-item" href="#">Nerelerdeyiz?</a>
-                                    <a class="dropdown-item" href="/bunlari-biliyor-musunuz">Bunları biliyor musunuz?</a>
-                                    <a class="dropdown-item" href="#">Müşterilerimiz ne diyor?</a> 
+                                    @await Component.InvokeAsync("PageList", new {pageCategoryId= PageCategory.MerakEttikleriniz})
                                 </div>
                             </div>
                         </li> 
@@ -212,14 +204,7 @@
                                     B2B
                                 </a>
                                 <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Egzotik Meyveler</a>
-                                    <a class="dropdown-item" href="#">Orman Meyveleri</a>
-                                    <a class="dropdown-item" href="#">Yemeye Hazır</a>
-                                    <a class="dropdown-item" href="#">Nadir Bulunan Meyveler</a>
-                                    <a class="dropdown-item" href="#">Klasik Meyveler</a>
-                                    <a class="dropdown-item" href="#">Verita Fresh Cut</a>
-                                    <a class="dropdown-item" href="#">Verita Raw Juice</a>
-                                    <a class="dropdown-item" href="#">Sebzeler ve Kök Bitkiler</a>
+                                    @await Component.InvokeAsync("PageList", new {pageCategoryId= PageCategory.B2b})
                                 </div>
                             </div>
                         </div>

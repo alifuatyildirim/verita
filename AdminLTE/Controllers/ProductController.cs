@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Verita.Application;
 using Verita.Application.ProductService;
@@ -17,14 +18,16 @@ namespace AdminLTE.Controllers
     {
         private readonly IProductService productService;
         private readonly IProductCardService productCardService;
+        private readonly IProductOrderItemService productOrderItemService;
         private readonly ICategoryService categoryService;
         private readonly IUserClaimService userClaimService;
-        public ProductController(IProductService productService, IUserClaimService userClaimService, ICategoryService categoryService, IProductCardService productCardService)
+        public ProductController(IProductService productService, IProductOrderItemService productOrderItemService,IUserClaimService userClaimService, ICategoryService categoryService, IProductCardService productCardService)
         {
             this.productService = productService;
             this.userClaimService = userClaimService;
             this.categoryService = categoryService;
             this.productCardService = productCardService; 
+            this.productOrderItemService = productOrderItemService;
         }
 
         [HttpGet]
@@ -55,7 +58,12 @@ namespace AdminLTE.Controllers
                     product.MainImageUrl = await this.productService.SaveImageAsync(product.MainImage.OpenReadStream(), product.MainImage.FileName);
                 }
 
-               var productEntity =  await this.productService.AddProductAsync(product);
+                if (product.BackgroundImage != null)
+                {
+                    product.BackgroundImageUrl = await this.productService.SaveImageAsync(product.BackgroundImage.OpenReadStream(), product.BackgroundImage.FileName);
+                }
+
+                var productEntity =  await this.productService.AddProductAsync(product);
 
                 // Ürün kartları da kaydedilmeli
                 if (product.ProductCards != null && product.ProductCards.Any())
@@ -70,6 +78,21 @@ namespace AdminLTE.Controllers
                             Description = card.Description,
                             ImageUrl = await this.productService.SaveImageAsync(card.Image.OpenReadStream(), card.Image.FileName)
                     });
+                    }
+                }
+
+                if (product.ProductOrderItems!= null && product.ProductOrderItems.Any())
+                {
+                    foreach (var card in product.ProductOrderItems)
+                    {
+                        await this.productOrderItemService.AddProductOrderItemAsync(new AddProductOrderItemRequest
+                        {
+                            CreatedBy = product.CreatedBy,
+                            ProductId = productEntity.Id,
+                            Title = card.Title,
+                            Url = card.Url,
+                            ImageUrl = await this.productService.SaveImageAsync(card.Image.OpenReadStream(), card.Image.FileName)
+                        });
                     }
                 }
 
@@ -92,7 +115,12 @@ namespace AdminLTE.Controllers
                     product.MainImageUrl = await this.productService.SaveImageAsync(product.MainImage.OpenReadStream(), product.MainImage.FileName);
                 }
 
-               await this.productService.EditProductAsync(product);
+                if (product.BackgroundImage != null)
+                {
+                    product.BackgroundImageUrl = await this.productService.SaveImageAsync(product.BackgroundImage.OpenReadStream(), product.BackgroundImage.FileName);
+                }
+
+                await this.productService.EditProductAsync(product);
 
                 // Ürün kartları da kaydedilmeli
                 if (product.ProductCards != null && product.ProductCards.Any())
@@ -123,6 +151,41 @@ namespace AdminLTE.Controllers
                             ProductId = product.Id,
                             Title = card.Title,
                             Description = card.Description,
+                            ImageUrl = imageUrl
+                        });
+                    }
+                }
+
+
+
+                if (product.ProductOrderItems!= null && product.ProductOrderItems.Any())
+                {
+                    foreach (var orderItem in product.ProductOrderItems)
+                    {
+                        string imageUrl = string.Empty;
+                        if (orderItem.Image != null)
+                        {
+                            imageUrl = await this.productService.SaveImageAsync(orderItem.Image.OpenReadStream(), orderItem.Image.FileName);
+                        }
+                        if (orderItem.Id == null)
+                        {
+                            await this.productOrderItemService.AddProductOrderItemAsync(new AddProductOrderItemRequest
+                            {
+                                CreatedBy = product.CreatedBy,
+                                ProductId = product.Id,
+                                Title = orderItem.Title,
+                                Url = orderItem.Url,
+                                ImageUrl = await this.productService.SaveImageAsync(orderItem.Image.OpenReadStream(), orderItem.Image.FileName)
+                            });
+                            continue;
+                        }
+                        await this.productOrderItemService.EditProductOrderItemAsync(new EditProductOrderItemRequest
+                        {
+                            Id = orderItem.Id,
+                            CreatedBy = product.CreatedBy,
+                            ProductId = product.Id,
+                            Title = orderItem.Title,
+                            Url = orderItem.Url,
                             ImageUrl = imageUrl
                         });
                     }

@@ -5,6 +5,7 @@ namespace Verita.Contract.Request.Product
 {
     public class AddPageRequest
     {
+        public PageCategory PageCategory { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty; 

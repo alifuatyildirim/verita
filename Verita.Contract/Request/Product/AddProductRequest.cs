@@ -12,8 +12,13 @@ namespace Verita.Contract.Request.Product
         public IFormFile? MainImage { get; set; }
 
         public string MainImageUrl { get; set; } = string.Empty;
+
+        public IFormFile? BackgroundImage { get; set; }
+        public string BackgroundImageUrl { get; set; } = string.Empty;
+
         public Language LanguageId { get; set; }
         public List<AddProductCardRequest>? ProductCards { get; set; }
+        public List<AddProductOrderItemRequest>? ProductOrderItems { get; set; }
         public string CreatedBy { get; set; } = string.Empty;
     }
 }

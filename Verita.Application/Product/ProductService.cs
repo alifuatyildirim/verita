@@ -1,10 +1,11 @@
-﻿using Verita.Contract.Request.Product;
+﻿using Verita.Application.Image;
+using Verita.Contract.Request.Product;
 using Verita.Data.Abstracts;
 using Verita.Domain.Entities;
 
 namespace Verita.Application.ProductService
 {
-    public class ProductService : IProductService
+    public class ProductService : ImageService,IProductService
     {
         private readonly IProductRepository productRepository;
         private readonly IProductCardRepository productCardRepository;
@@ -18,6 +19,7 @@ namespace Verita.Application.ProductService
         {
             var productEntity = new Product
             {
+                BackgroundImageUrl = product.BackgroundImageUrl,
                 CreatedBy = product.CreatedBy,
                 CategoryId = product.CategoryId,
                 LanguageId = product.LanguageId,
@@ -40,29 +42,7 @@ namespace Verita.Application.ProductService
             return await this.productRepository.GetProductAsync(id);
         }
 
-        public async Task<string> SaveImageAsync(Stream imageStream, string fileName)
-        {
-            // Paylaşılan klasör yolunu belirle
-            var sharedFolderPath = Path.Combine("..", "SharedFiles");
-
-            // Eğer dosya yolu yoksa oluştur
-            if (!Directory.Exists(sharedFolderPath))
-            {
-                Directory.CreateDirectory(sharedFolderPath);
-            }
-
-            // Dosya adını benzersiz bir şekilde oluştur
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + fileName;
-
-            // Dosyayı kaydet
-            var filePath = Path.Combine(sharedFolderPath, uniqueFileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await imageStream.CopyToAsync(fileStream);
-            }
-             
-            return Path.Combine("/SharedFiles", uniqueFileName).Replace("\\", "/");
-        }
+     
 
         public async Task EditProductAsync(EditProductRequest product)
         {
@@ -76,6 +56,7 @@ namespace Verita.Application.ProductService
                 Title = product.Title,
                 Name = product.Name,
                 MainImageUrl = product.MainImageUrl,
+                BackgroundImageUrl = product.BackgroundImageUrl,
             };
             await this.productRepository.EditProductAsync(productEntity);
         }

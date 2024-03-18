@@ -1,4 +1,5 @@
-﻿using Verita.Data.Abstracts;
+﻿using Microsoft.Build.Tasks.Deployment.Bootstrapper;
+using Verita.Data.Abstracts;
 using Verita.Domain.Entities;
 using Verita.Repository.Mssql.GenericRepository;
 
@@ -29,8 +30,29 @@ namespace Verita.Data.Concrete
 
         public async Task UpdateCategoryAsync(Category category)
         {
-            this.genericRepository.Update<Category>(category);
-            await this.genericRepository.SaveChangesAsync();
+            var categoryEntity = await this.GetCategoryAsync(category.Id);
+            if (categoryEntity is null)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(category.MainImage))
+            {
+                categoryEntity.MainImage = category.MainImage;
+            }
+
+
+            if (!string.IsNullOrEmpty(category.BackgroundImage))
+            {
+                categoryEntity.BackgroundImage = category.BackgroundImage;
+            }
+
+            categoryEntity.Name = category.Name;
+            categoryEntity.SortOrder = category.SortOrder;
+            categoryEntity.UpdatedBy = category.UpdatedBy;
+
+            this.genericRepository.Update(categoryEntity);
+           await this.genericRepository.SaveChangesAsync();
         }
 
         public async Task DeleteCategoryAsync(int categoryId)

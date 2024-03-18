@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Verita.Application.Image;
 using Verita.Application.ProductService;
 using Verita.Data.Abstracts;
 using Verita.Data.Concrete;
@@ -23,11 +24,16 @@ public static class ApplicationServicesExtension
         services.AddScoped<IProductCardRepository, ProductCardRepository>();
         services.AddScoped<IProductCardService, ProductCardService>();
 
+        services.AddScoped<IProductOrderItemRepository, ProductOrderItemRepository>();
+        services.AddScoped<IProductOrderItemService, ProductOrderItemService>();
+
         services.AddScoped<IPageImageRepository, PageImageRepository>();
         services.AddScoped<IPageImageService, PageImageService>();
 
         services.AddScoped<IPageRepository, PageRepository>();
         services.AddScoped<IPageService, PageService>();
+
+        services.AddScoped<IImageService, ImageService>();
         return services;
     }
 

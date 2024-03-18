@@ -5,7 +5,7 @@
 {
     @foreach (var category in Model.Categories)
     {
-        <a class="dropdown-item with-submenu" href="#">@category.Name</a>
+        <a class="dropdown-item with-submenu" href="/urunlerimiz?categoryId=@category.Id">@category.Name</a>
         <div class="sub-menu">
             @foreach (var product in Model.Products.Where(x => x.CategoryId == category.Id))
             {

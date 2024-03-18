@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Tasks.Deployment.Bootstrapper;
 using System.Threading.Tasks;
 using Verita.Application;
 using Verita.Application.ProductService;
@@ -44,7 +45,17 @@ namespace Verita.Web.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var category = await this.categoryService.GetCategoryAsync(id);
-            return View(category);
+
+            return View(new EditCategoryRequest
+            {
+                BackgroundImageUrl = category.BackgroundImage,
+                CreatedBy = category.CreatedBy,
+                Id = category.Id,
+                SortOrder = category.SortOrder,
+                LanguageId = category.LanguageId,
+                MainImageUrl = category.MainImage,
+                Name = category.Name
+            });
         }
 
         [HttpPost]
@@ -53,17 +64,35 @@ namespace Verita.Web.Controllers
             category.CreatedBy = this.userClaimService.GetUserName();
             if (ModelState.IsValid)
             {
+                if (category.MainImage != null)
+                {
+                    category.MainImageUrl = await this.categoryService.SaveImageAsync(category.MainImage.OpenReadStream(), category.MainImage.FileName);
+                }
+                if (category.BackgroundImage != null)
+                {
+                    category.BackgroundImageUrl = await this.categoryService.SaveImageAsync(category.BackgroundImage.OpenReadStream(), category.BackgroundImage.FileName);
+                }
                 await this.categoryService.AddCategoryAsync(category);
                 return RedirectToAction("Index");
             }
             return View(category);
         }
-
         [HttpPost]
-        public async Task<IActionResult> Edit(Category category)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(EditCategoryRequest category)
         {
             if (ModelState.IsValid)
             {
+                if (category.MainImage != null)
+                {
+                    category.MainImageUrl = await this.categoryService.SaveImageAsync(category.MainImage.OpenReadStream(), category.MainImage.FileName);
+                }
+
+                if (category.BackgroundImage != null)
+                {
+                    category.BackgroundImageUrl = await this.categoryService.SaveImageAsync(category.BackgroundImage.OpenReadStream(), category.BackgroundImage.FileName);
+                }
+
                 await this.categoryService.UpdateCategoryAsync(category);
                 return RedirectToAction("Index");
             }

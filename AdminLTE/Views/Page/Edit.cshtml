@@ -11,6 +11,12 @@
     @Html.HiddenFor(model => model.Id)
     <div class="row">
         <div class="col-md-6">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PageCategory, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.PageCategory, new SelectList(Enum.GetValues(typeof(Verita.Common.Enums.PageCategory))), "Select Category", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PageCategory, "", new { @class = "text-danger" })
+            </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
                 @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
@@ -37,7 +43,7 @@
                 }
                 <input type="file" name="BackgroundImage" class="form-control-file" onchange="previewMainImage(event)" />
                 @Html.ValidationMessageFor(model => model.BackgroundUrl, "", new { @class = "text-danger" })
-            </div> 
+            </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.LanguageId, htmlAttributes: new { @class = "control-label" })
@@ -76,13 +82,13 @@
 
             $("#addPageImage").click(function () {
                 var productCardHtml = `
-                                    <div class="product-card">
-                                        <div class="form-group">
-                                            <label>Image:</label>
-                                                    <input type="file" name="PageImages[${productCardIndex}].Image" class="form-control-file" onchange="previewPageImage(event, this)" />
-                                        </div>
-                                    </div>
-                                `;
+                                            <div class="product-card">
+                                                <div class="form-group">
+                                                    <label>Image:</label>
+                                                            <input type="file" name="PageImages[${productCardIndex}].Image" class="form-control-file" onchange="previewPageImage(event, this)" />
+                                                </div>
+                                            </div>
+                                        `;
 
                 $("#pageImages").append(productCardHtml);
                 productCardIndex++;

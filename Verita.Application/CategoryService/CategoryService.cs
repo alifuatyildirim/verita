@@ -1,10 +1,14 @@
-﻿using Verita.Contract.Request.Category;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Build.Tasks.Deployment.Bootstrapper;
+using Verita.Application.Image;
+using Verita.Common.Enums;
+using Verita.Contract.Request.Category;
 using Verita.Data.Abstracts;
 using Verita.Domain.Entities;
 
 namespace Verita.Application.ProductService
 {
-    public class CategoryService : ICategoryService
+    public class CategoryService : ImageService, ICategoryService
     {
         private readonly ICategoryRepository categoryRepository;
         public CategoryService(ICategoryRepository categoryRepository)
@@ -16,6 +20,8 @@ namespace Verita.Application.ProductService
         {
             await this.categoryRepository.AddCategoryAsync(new Category
             {
+                MainImage = category.MainImageUrl,
+                BackgroundImage = category.BackgroundImageUrl,
                 CreatedBy = category.CreatedBy,
                 LanguageId = category.LanguageId,
                 SortOrder = category.SortOrder,
@@ -39,10 +45,20 @@ namespace Verita.Application.ProductService
             return await this.categoryRepository.GetCategoryAsync(id);
         }
 
-        public async Task UpdateCategoryAsync(Category category)
+
+        public async Task UpdateCategoryAsync(EditCategoryRequest category)
         {
-            category.UpdatedDate = DateTime.Now;
-            await this.categoryRepository.UpdateCategoryAsync(category);
+            var categoryEntity = new Category
+            {
+                Id = category.Id,
+                SortOrder = category.SortOrder,
+                Name = category.Name,
+                LanguageId = category.LanguageId,
+                MainImage = category.MainImageUrl,
+                BackgroundImage = category.BackgroundImageUrl,
+                UpdatedDate = DateTime.Now
+            };
+            await this.categoryRepository.UpdateCategoryAsync(categoryEntity);
         }
     }
 }

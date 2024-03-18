@@ -1,5 +1,7 @@
-﻿using Verita.Contract.Request.Product;
+﻿using Verita.Common.Enums;
+using Verita.Contract.Request.Product;
 using Verita.Data.Abstracts;
+using Verita.Data.Migrations;
 using Verita.Domain.Entities;
 
 namespace Verita.Application.ProductService
@@ -18,6 +20,7 @@ namespace Verita.Application.ProductService
         {
             var pageEntity = new Page
             {
+                PageCategory = page.PageCategory,
                 CreatedBy = page.CreatedBy, 
                 LanguageId = page.LanguageId,
                 Description = page.Description,
@@ -32,6 +35,11 @@ namespace Verita.Application.ProductService
         public async Task<List<Page>> GetPagesAsync()
         {
             return await this.pageRepository.GetPagesAsync();
+        }
+
+        public async Task<List<Page>> GetPagesByCategoryAsync(PageCategory pageCategory)
+        {
+            return await this.pageRepository.GetPagesByCategoryAsync(pageCategory);
         }
 
         public async Task<Page?> GetPageAsync(int id)
@@ -63,6 +71,7 @@ namespace Verita.Application.ProductService
             var pageEntity = new Page
             {
                 Id = page.Id,
+                PageCategory = page.PageCategory,
                 CreatedBy = page.CreatedBy, 
                 LanguageId = page.LanguageId,
                 Description = page.Description,

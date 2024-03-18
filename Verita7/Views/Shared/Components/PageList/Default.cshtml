@@ -1,0 +1,10 @@
+﻿@using Verita.Domain.Entities;
+@model PageViewModel
+ 
+@if (Model.Pages != null )
+{
+    @foreach (var pageModel in Model.Pages)
+    {
+        <a class="dropdown-item with-submenu" href="/Page?pageId=@pageModel.Id">@pageModel.Name</a>
+    }
+}

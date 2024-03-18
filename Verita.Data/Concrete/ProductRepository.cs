@@ -26,7 +26,7 @@ namespace Verita.Data.Concrete
 
         public async Task<Product?> GetProductAsync(int id)
         {
-            return await this.genericRepository.GetQueryable<Product>().Include(x => x.Category).Include(x=>x.ProductCards).FirstOrDefaultAsync(x=>x.Id == id);
+            return await this.genericRepository.GetQueryable<Product>().Include(x => x.Category).Include(x=>x.ProductCards).Include(x=>x.ProductOrderItems).FirstOrDefaultAsync(x=>x.Id == id);
            
         }
 
@@ -42,6 +42,7 @@ namespace Verita.Data.Concrete
             {
                 productEntity.MainImageUrl = product.MainImageUrl;
             }
+            productEntity.BackgroundImageUrl = product.BackgroundImageUrl;
             productEntity.Name = product.Name;
             productEntity.LanguageId = product.LanguageId;
             productEntity.Description = product.Description;

@@ -40,6 +40,16 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.BackgroundImageUrl, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.BackgroundImageUrl))
+                {
+                    <img src="@Model.BackgroundImageUrl" class="img-thumbnail" id="backgroundImagePreview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="BackgroundImage" class="form-control-file" onchange="previewBackgroundImage(event)" />
+                @Html.ValidationMessageFor(model => model.BackgroundImageUrl, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownListFor(model => model.CategoryId, new SelectList(ViewBag.Categories, "Id", "Name"), "Select Category", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
@@ -53,31 +63,71 @@
         </div>
         <div class="col-md-6">
             <div id="productCards">
-                @for (int i = 0; i < Model.ProductCards.Count; i++)
+                @if (Model.ProductCards != null && Model.ProductCards.Any())
                 {
-                    <div class="product-card">
-                        <div class="form-group">
-                            <label>Title:</label>
-                            @Html.TextBoxFor(model => model.ProductCards[i].Title, new { @class = "form-control" })
-                            @Html.HiddenFor(model => model.ProductCards[i].Id)
+                    @for (int i = 0; i < Model.ProductCards.Count; i++)
+                    {
+                        <div class="product-card">
+                            <div class="form-group">
+                                <label>Title:</label>
+                                @Html.TextBoxFor(model => model.ProductCards[i].Title, new { @class = "form-control" })
+                                @Html.HiddenFor(model => model.ProductCards[i].Id)
+                            </div>
+                            <div class="form-group">
+                                <label>Description:</label>
+                                @Html.TextAreaFor(model => model.ProductCards[i].Description, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Image:</label>
+                                @if (!string.IsNullOrEmpty(Model.ProductCards[i].Image))
+                                {
+                                    <img src="@Model.ProductCards[i].Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                                }
+                                <input type="file" name="ProductCards[@i].Image" class="form-control-file" onchange="previewProductCardImage(event, this)" />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Description:</label>
-                            @Html.TextAreaFor(model => model.ProductCards[i].Description, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            <label>Image:</label>
-                            @if (!string.IsNullOrEmpty(Model.ProductCards[i].Image))
-                            {
-                                <img src="@Model.ProductCards[i].Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
-                            }
-                            <input type="file" name="ProductCards[@i].Image" class="form-control-file" onchange="previewProductCardImage(event, this)" />
-                        </div>
-                    </div>
+                    }
                 }
             </div>
 
+
+
             <button type="button" class="btn btn-success" id="addProductCard">Add Product Card</button>
+        </div>
+
+        <div class="col-md-6">
+            <div id="productOrderItems">
+                @if (Model.ProductOrderItems!= null && Model.ProductOrderItems.Any())
+                {
+                    @for (int i = 0; i < Model.ProductOrderItems.Count; i++)
+                    {
+                        <div class="product-card">
+                            <div class="form-group">
+                                <label>Title:</label>
+                                @Html.TextBoxFor(model => model.ProductOrderItems[i].Title, new { @class = "form-control" })
+                                @Html.HiddenFor(model => model.ProductOrderItems[i].Id)
+                            </div>
+                            <div class="form-group">
+                                <label>Url:</label>
+                                @Html.TextAreaFor(model => model.ProductOrderItems[i].Url, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Image:</label>
+                                @if (!string.IsNullOrEmpty(Model.ProductOrderItems[i].Image))
+                                {
+                                    <img src="@Model.ProductOrderItems[i].Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                                }
+                                <input type="file" name="ProductOrderItems[@i].Image" class="form-control-file" onchange="previewProductOrderItemImage(event, this)" />
+                            </div>
+                        </div>
+                    }
+
+                }
+            </div>
+
+
+
+            <button type="button" class="btn btn-success" id="addProductOrderItem">Add Product Order Item</button>
         </div>
     </div>
 
@@ -87,40 +137,79 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            var productCardIndex = @Model.ProductCards.Count;
-
+        @{
+            var productCardCount = Model.ProductCards != null && Model.ProductCards.Any() ? Model.ProductCards.Count : 0;
+            var productOrderItemCount = Model.ProductOrderItems != null && Model.ProductOrderItems.Any() ? Model.ProductOrderItems.Count : 0;
+        }
+            var productCardIndex = @productCardCount;
+            var productOrderItemIndex = @productOrderItemCount;
             $("#addProductCard").click(function () {
                 var productCardHtml = `
-                                    <div class="product-card">
-                                        <div class="form-group">
-                                            <label>Title:</label>
-                                            <input type="text" name="ProductCards[${productCardIndex}].Title" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Description:</label>
-                                            <textarea name="ProductCards[${productCardIndex}].Description" class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Image:</label>
-                                            <input type="file" name="ProductCards[${productCardIndex}].Image" class="form-control-file" onchange="previewProductCardImage(event, this)" />
-                                        </div>
-                                        <!-- Diğer ürün kartı alanları eklenecek -->
-                                    </div>
-                                `;
+                                            <div class="product-card">
+                                                <div class="form-group">
+                                                    <label>Title:</label>
+                                                    <input type="text" name="ProductCards[${productCardIndex}].Title" class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Description:</label>
+                                                    <textarea name="ProductCards[${productCardIndex}].Description" class="form-control"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Image:</label>
+                                                    <input type="file" name="ProductCards[${productCardIndex}].Image" class="form-control-file" onchange="previewProductCardImage(event, this)" />
+                                                </div>
+                                                <!-- Diğer ürün kartı alanları eklenecek -->
+                                            </div>
+                                        `;
 
                 $("#productCards").append(productCardHtml);
                 productCardIndex++;
             });
+
+            $("#addProductOrderItem").click(function () {
+                var productOrderItemHtml = `
+                                                                    <div class="product-card">
+                                                                        <div class="form-group">
+                                                                            <label>Title:</label>
+                                                                                            <input type="text" name="ProductOrderItems[${productOrderItemIndex}].Title" class="form-control" />
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Url:</label>
+                                                                                                            <input name="ProductOrderItems[${productOrderItemIndex}].Url" class="form-control"></input>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Image:</label>
+                                                                                            <input type="file" name="ProductOrderItems[${productOrderItemIndex}].Image" class="form-control-file" />
+                                                                        </div>
+                                                                    </div>
+                                                                `;
+
+                $("#productOrderItems").append(productOrderItemHtml);
+                productOrderItemIndex++;
+            });
         });
 
-        function previewMainImage(event) {
-            var mainImagePreview = document.getElementById('mainImagePreview');
-            mainImagePreview.src = URL.createObjectURL(event.target.files[0]);
+       
+
+        
+            function previewMainImage(event) {
+                var mainImagePreview = document.getElementById('mainImagePreview');
+                mainImagePreview.src = URL.createObjectURL(event.target.files[0]);
+            }
+
+        function previewBackgroundImage(event) {
+            var backgroundImagePreview = document.getElementById('backgroundImagePreview');
+            backgroundImagePreview.src = URL.createObjectURL(event.target.files[0]);
         }
 
-        function previewProductCardImage(event, element) {
-            var productCardImagePreview = $(element).closest('.product-card').find('img')[0];
-            productCardImagePreview.src = URL.createObjectURL(event.target.files[0]);
-        }
+            function previewProductCardImage(event, element) {
+                var productCardImagePreview = $(element).closest('.product-card').find('img')[0];
+                productCardImagePreview.src = URL.createObjectURL(event.target.files[0]);
+            }
+
+            function previewProductOrderImage(event, element) {
+                var productCardImagePreview = $(element).closest('.product-card').find('img')[0];
+                productCardImagePreview.src = URL.createObjectURL(event.target.files[0]);
+            }
     </script>
 }

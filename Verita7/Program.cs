@@ -7,6 +7,7 @@ using Verita.Contract.Models;
 using Verita.Data;
 using Verita.Repository.Mssql;
 using Verita.Repository.Mssql.GenericRepository;
+using Verita7.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +41,7 @@ try
 }
 catch (Exception ex)
 {
-    Console.WriteLine(ex.Message);
+    ErrorHandlingMiddlewareExtensions.LogError(ex.Message);
 }
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -55,11 +56,6 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute(
-        name: "Urunlerimiz",
-        pattern: "urunlerimiz/{id?}",
-         defaults: new { controller = "Home", action = "Urunlerimiz" });
-
     endpoints.MapControllerRoute(
         name: "MerakEttikleriniz",
         pattern: "merak-ettikleriniz/{id?}",
@@ -121,6 +117,12 @@ app.UseEndpoints(endpoints =>
        pattern: "urunler/{id?}",
         defaults: new { controller = "Product", action = "Index" },
        constraints: new { id = @"\d+" });
+
+    endpoints.MapControllerRoute(
+      name: "Urunlerimiz",
+      pattern: "urunlerimiz/{id?}",
+       defaults: new { controller = "Urunlerimiz", action = "Index" },
+      constraints: new { id = @"\d+" });
 
     endpoints.MapControllerRoute(
         name: "OrganizasyonYapisi",

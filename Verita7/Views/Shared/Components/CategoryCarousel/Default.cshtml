@@ -1,0 +1,32 @@
+﻿@using Verita.Domain.Entities;
+@model CategoryViewModel
+
+@if (Model.Categories != null)
+{
+    @foreach (var categoryModel in Model.Categories)
+    {
+        <div class="swiper-slide home-page-products">
+            <div class="product-item">
+                <a href="/nadir-bulunan-meyveler/"
+                   class="product-link"></a>
+
+                <div class="product-image">
+                    <img src="@categoryModel.MainImage" alt="nadir bulunan meyveler">
+                </div>
+
+                <div class="overlay">
+                    <div class="middle">
+                        <div class="overlay-name">
+                            <span>@categoryModel.Name</span>
+                        </div>
+                        <div class="btn-big product-btn-big">
+                            <a class="btn-dahafazla overlay-btn mx-10 py-2">
+                                İNCELE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

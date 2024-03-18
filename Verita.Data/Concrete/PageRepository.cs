@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Verita.Common.Enums;
 using Verita.Data.Abstracts;
 using Verita.Domain.Entities;
 using Verita.Repository.Mssql.GenericRepository;
@@ -48,9 +49,15 @@ namespace Verita.Data.Concrete
             pageEntity.Title = page.Title; 
             pageEntity.UpdatedBy = page.UpdatedBy;
             pageEntity.UpdatedDate = page.UpdatedDate;
+            pageEntity.PageCategory = page.PageCategory;
 
             this.genericRepository.Update(pageEntity);
             await this.genericRepository.SaveChangesAsync();
-        } 
+        }
+
+        public async Task<List<Page>> GetPagesByCategoryAsync(PageCategory pageCategory)
+        {
+            return await this.genericRepository.GetQueryable<Page>().Where(x=>x.PageCategory == pageCategory).ToListAsync();
+        }
     }
 }
