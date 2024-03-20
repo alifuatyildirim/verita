@@ -284,29 +284,7 @@
                                                     GÜVENLİ GIDA<br />
                                                 </h5>
                                             </li>
-                                            <li>
-                                                <a href="/dalindan-sofraya-guvenli-gida/">Dalindan Sofraya Güvenli Gıda</a>
-                                            </li>
-                                            <li>
-                                                <a href="/guvenli-ambalaj">
-                                                    Güvenli Ambalaj
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/soguk-zincir">
-                                                    Soğuk Zincir
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/iyi-tarim-uygulamalari">
-                                                    Global GAP ve İyi Tarım Uygulamaları
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/saglikli-gelecek">
-                                                    Sağlıklı Gelecek
-                                                </a>
-                                            </li>
+                                            @await Component.InvokeAsync("PageListFooter", new {pageCategoryId= PageCategory.GuvenliGida})
                                         </ul>
                                     </div>
 
@@ -319,24 +297,7 @@
                                                     MERAK ETTİKLERİNİZ<br />
                                                 </h5>
                                             </li>
-                                            <li>
-                                                <a href="/hangi-ulkenin-meyveleri/">Hangi ülkelerin meyveleri?</a>
-                                            </li>
-                                            <li>
-                                                <a href="/nasil-oniki-ay-mevsiminde-meyve/">Nasıl 12 ay mevsiminde taze meyve?</a>
-                                            </li>
-                                            <li>
-                                                <a href="/nasil-her-zaman-taze-meyve/">Nasıl her zaman taze meyve?</a>
-                                            </li>
-                                            <li>
-                                                <a href="/nerelerdeyiz/">Nerelerdeyiz?</a>
-                                            </li>
-                                            <li>
-                                                <a href="/bunlari-biliyor-musunuz/">Bunları biliyor musunuz?</a>
-                                            </li>
-                                            <li>
-                                                <a href="/musterilerimiz-ne-diyor/">Müşterilerimiz ne diyor?</a>
-                                            </li>
+                                            @await Component.InvokeAsync("PageListFooter", new {pageCategoryId= PageCategory.MerakEttikleriniz})
                                         </ul>
                                     </div>
 
@@ -349,27 +310,7 @@
                                                     B2B<br />
                                                 </h5>
                                             </li>
-                                            <li>
-                                                <a href="/b2b-urunler/">B2B Ürünler?</a>
-                                            </li>
-                                            <li>
-                                                <a href="/kesintisiz-tedarik/">Kesintisiz Tedarik</a>
-                                            </li>
-                                            <li>
-                                                <a href="/kanal-ortaklarimiz/">Kanal Ortaklarımız</a>
-                                            </li>
-                                            <li>
-                                                <a href="/sertifikali-urunler/">Sertifikalı Özel Ürünler</a>
-                                            </li>
-                                            <li>
-                                                <a href="/pazarlama/">Pazarlama</a>
-                                            </li>
-                                            <li>
-                                                <a href="/uretici-basvurusu/">Üretici Başvurusu</a>
-                                            </li>
-                                            <li>
-                                                <a href="/tedarikci-basvurusu/">Tedarikçi Başvurusu</a>
-                                            </li>
+                                            @await Component.InvokeAsync("PageListFooter", new {pageCategoryId= PageCategory.B2b})
                                         </ul>
                                     </div>
 

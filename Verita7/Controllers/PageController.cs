@@ -14,7 +14,8 @@ namespace Verita7.Controllers
         }
         public async Task<IActionResult> Index(int pageId)
         { 
-            var page = await this.pageService.GetPageAsync(pageId);  
+            var page = await this.pageService.GetPageAsync(pageId);
+            ViewBag.PageCategories = await this.pageService.GetPagesByCategoryAsync(page!.PageCategory);
             return View(page);
         }
     }

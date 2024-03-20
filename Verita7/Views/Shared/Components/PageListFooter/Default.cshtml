@@ -3,13 +3,17 @@
  
 @if (Model.Pages != null )
 {
-
+   
     @foreach (var pageModel in Model.Pages)
     {
-        <a class="dropdown-item with-submenu" href="/Page?pageId=@pageModel.Id">@pageModel.Name</a>
+        <li>
+            <a href="/Page?pageId=@pageModel.Id">@pageModel.Name</a>
+        </li> 
     }
     @if (Model.Pages.FirstOrDefault()!.PageCategory == Verita.Common.Enums.PageCategory.MerakEttikleriniz)
     {
-        <a class="dropdown-item with-submenu" href="/bunlari-biliyor-musunuz/">Bunları biliyor musunuz?</a>
+        <li>
+            <a href="/bunlari-biliyor-musunuz/">Bunları biliyor musunuz?</a>
+        </li> 
     }
 }

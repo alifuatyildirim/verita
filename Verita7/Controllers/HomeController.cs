@@ -1,19 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Verita.Application.ProductService;
+using Verita.Common.Enums;
 
 namespace Verita7.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IProductService productService;
+        private readonly IPageService pageService;
         private readonly ICategoryService categoryService;
 
-        public HomeController(IProductService productService, ICategoryService categoryService)
+        public HomeController(IProductService productService, ICategoryService categoryService, IPageService pageService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
-
+            this.pageService = pageService;
         }
 
         public async Task<IActionResult> CategoriesPartialView()
@@ -82,8 +84,9 @@ namespace Verita7.Controllers
         {
             return View();
         }
-        public ActionResult BunlariBiliyorMusunuz()
+        public async Task<IActionResult> BunlariBiliyorMusunuz()
         {
+            ViewBag.PageCategories = await this.pageService.GetPagesByCategoryAsync(PageCategory.MerakEttikleriniz);
             return View();
         }
 

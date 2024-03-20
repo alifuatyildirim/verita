@@ -1,44 +1,23 @@
-﻿@{
+﻿@using Verita.Common.Enums;
+@using Verita.Domain.Entities;
+@{
     ViewBag.BodyClass = "shop-header-shadow shop-home";
 }
 <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
 <main class="page-container mt-40">
     <div class="filter-box categoryNav">
         <ul>
-
-            <li class="active last">
-                <a href="/urunlerimiz/">
-                    Hangi ülkelerin meyveleri?
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/egzotik-meyveler/">
-                    Nasıl 12 ay mevsiminde taze meyve?
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/orman-meyveleri/">
-                    Nasıl her zaman taze meyve?
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/yemeye-hazir/">
-                    Nerelerdeyiz?
-                </a>
-            </li>
-
+            @foreach (var item in (List<Page>)ViewBag.PageCategories)
+            {
+                <li class="inactive">
+                    <a href="/Page?pageId=@item.Id">
+                        @item.Name
+                    </a>
+                </li>
+            }
             <li class="inactive">
                 <a href="/bunlari-biliyor-musunuz/">
                     Bunları biliyor musunuz?
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/verita-fresh-cut/">
-                    Müşterilerimiz ne diyor?
                 </a>
             </li>
         </ul>
@@ -586,7 +565,7 @@
     /* ... Diğer stillendirmeler ... */
 
     .container-bg {
-        background-image: url(/images/yaban_mersini_zemin.png);  
+        background-image: url(/images/yaban_mersini_zemin.png);
     }
 
     .page-content {

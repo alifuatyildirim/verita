@@ -8,42 +8,23 @@
 <main class="page-container mt-40">
     <div class="filter-box categoryNav">
         <ul>
-
-            <li class="active last">
-                <a href="/hakkimizda/">
-                    Hakkımızda
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/hedeflerimiz/">
-                    Hedeflerimiz
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/orman-meyveleri/">
-                    Neden Verita?
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/organizasyon-yapisi/">
-                    Organizasyon Yapısı
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/kalite-garantisi/">
-                    Kalite Garantisi
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/basinda-biz/">
-                    Basinda Verita
-                </a>
-            </li>
+            
+            @foreach (var item in (List<Page>)ViewBag.PageCategories)
+            {
+                <li class="inactive">
+                    <a href="/Page?pageId=@item.Id">
+                        @item.Name
+                    </a>
+                </li>
+            }
+            @if (Model.PageCategory == PageCategory.MerakEttikleriniz)
+            {
+                <li class="inactive">
+                    <a href="/bunlari-biliyor-musunuz/">
+                        Bunları biliyor musunuz?
+                    </a>
+                </li> 
+            }
         </ul>
     </div>
     <div class="container container-bg">
