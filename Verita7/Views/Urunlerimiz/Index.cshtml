@@ -55,7 +55,7 @@
                         @for (int j = i * 3; j < Math.Min((i + 1) * 3, products.Count); j++)
                         {
                             var item = products[j];
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-6 product-item400">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-6 product-item400 @(j % 3 == 2 ? "last-item" : "")">
                                 <div class="product-item">
                                     <a href ="/urunler?productId=@item.Id" class="product-link"></a>
                                     <div class="product-image">
@@ -79,6 +79,11 @@
         </div>
     </div>
 </section>
+<style>
+    .last-item {
+        margin-right: 0px !important;
+    }
+</style>
 @section links
     {
     <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
