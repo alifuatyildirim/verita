@@ -24,8 +24,10 @@ namespace Verita7.Controllers
             ViewBag.ProductsTitle = await this.productService.GetProductsAsync();
             return PartialView("~/Views/Shared/CategoriesPartialView.cshtml");
         }
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
+            var pages = await this.pageService.GetPagesAsync();
+            ViewBag.DalindanSofraya = pages.Where(x => x.Name.StartsWith("Dalından")).FirstOrDefault()?.Id;
             return View();
         }
 
