@@ -26,6 +26,8 @@ namespace Verita.Application.ProductService
                 LanguageId = category.LanguageId,
                 SortOrder = category.SortOrder,
                 Name = category.Title,
+                IsPage = category.IsPage,
+                PageId = category.PageId,
             });
         }
 
@@ -56,7 +58,9 @@ namespace Verita.Application.ProductService
                 LanguageId = category.LanguageId,
                 MainImage = category.MainImageUrl,
                 BackgroundImage = category.BackgroundImageUrl,
-                UpdatedDate = DateTime.Now
+                UpdatedDate = DateTime.Now,
+                IsPage = category.IsPage,
+                PageId = category.PageId,
             };
             await this.categoryRepository.UpdateCategoryAsync(categoryEntity);
         }

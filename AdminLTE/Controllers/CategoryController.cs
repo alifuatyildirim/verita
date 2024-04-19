@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Build.Tasks.Deployment.Bootstrapper;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Verita.Application;
 using Verita.Application.ProductService;
@@ -13,10 +16,12 @@ namespace Verita.Web.Controllers
     public class CategoryController : Controller
     {
         private readonly ICategoryService categoryService;
+        private readonly IPageService pageService;
         private readonly IUserClaimService userClaimService;
 
-        public CategoryController(ICategoryService categoryService, IUserClaimService userClaimService)
+        public CategoryController(ICategoryService categoryService, IUserClaimService userClaimService, IPageService pageService)
         {
+            this.pageService = pageService;
             this.categoryService = categoryService;
             this.userClaimService = userClaimService;
         }
@@ -38,12 +43,28 @@ namespace Verita.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            var pages = await this.pageService.GetPagesAsync();
+            var selectListItems = pages.Select(p => new SelectListItem
+            {
+                Value = p.Id.ToString(),
+                Text = p.Name
+            });
+
+            ViewBag.Pages = new SelectList(selectListItems, "Value", "Text");
             return View();
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            var pages = await this.pageService.GetPagesAsync();
+            var selectListItems = pages.Select(p => new SelectListItem
+            {
+                Value = p.Id.ToString(),
+                Text = p.Name
+            });
+
+            ViewBag.Pages = new SelectList(selectListItems, "Value", "Text");
             var category = await this.categoryService.GetCategoryAsync(id);
 
             return View(new EditCategoryRequest

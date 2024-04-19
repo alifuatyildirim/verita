@@ -16,5 +16,8 @@ namespace Verita.Contract.Request.Category
         public IFormFile? BackgroundImage { get; set; }
         public string BackgroundImageUrl { get; set; } = string.Empty;
         public string CreatedBy { get; set; } = string.Empty;
+
+        public bool IsPage { get; set; }
+        public int? PageId { get; set; }
     }
 }

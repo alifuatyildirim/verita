@@ -11,6 +11,6 @@ namespace Verita.Common.Enums
         GuvenliGida=0,
         MerakEttikleriniz=1,
         B2b=2,
-
+        Urunlerimiz=3, 
     }
 }
