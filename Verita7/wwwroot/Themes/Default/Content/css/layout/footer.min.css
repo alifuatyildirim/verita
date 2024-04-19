@@ -186,12 +186,13 @@ footer .footer-copyright .footer-copyright-menu li a {
 
 .footer-newsletter {
     flex-direction: column;
-    background: url("/Themes/Default/Content/img/our_products_ustgorsel.jpg");
+    background: url("/Themes/Default/Content/img/our_products_ustgorsel.webp");
     display: flex;
     align-items: center;
     padding: 0;
-    background-repeat: no-repeat;
-    background-size: cover
+    background-repeat: no-repeat; 
+    max-width: 100% !important;
+    background-position-x: center;
 }
 
 @media (max-width: 991.98px) {
@@ -217,18 +218,18 @@ footer .footer-copyright .footer-copyright-menu li a {
 }
 
 .footer-newsletter p {
-    font-size: 22px;
-    width: 400px;
+    font-size: 26px;
+    width: 800px;
     color: #006940;
-    text-align: center; 
+    text-align: center;
 }
 
 .footer-newsletter span {
     color: #006940;
     margin-right: 0;
     text-align: center;
-    width:500px;
-    font-size:26px;
+    width: 800px;
+    font-size: 26px;
     font-family: 'Roboto Slab SemiBold' !important;
 }
 
