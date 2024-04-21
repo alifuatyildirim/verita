@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Verita.Application.BasindaBizService;
 using Verita.Application.Image;
 using Verita.Application.ProductService;
 using Verita.Data.Abstracts;
@@ -32,6 +33,9 @@ public static class ApplicationServicesExtension
 
         services.AddScoped<IPageRepository, PageRepository>();
         services.AddScoped<IPageService, PageService>();
+
+        services.AddScoped<IBasindaBizRepository, BasindaBizRepository>();
+        services.AddScoped<IBasindaBizService, BasindaBizService.BasindaBizService>();
 
         services.AddScoped<IImageService, ImageService>();
         return services;

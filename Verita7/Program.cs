@@ -94,7 +94,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "BasindaBiz",
         pattern: "basinda-biz/{id?}",
-         defaults: new { controller = "Home", action = "BasindaBiz" });
+         defaults: new { controller = "BasindaBiz", action = "Index" });
 
     endpoints.MapControllerRoute(
         name: "Hakkimizda",

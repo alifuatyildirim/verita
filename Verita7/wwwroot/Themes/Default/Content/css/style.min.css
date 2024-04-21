@@ -6215,6 +6215,55 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             line-height:30px;
         }
 
+
+.header-mobile-content .sub-menu {
+    display: none;
+    top: 100%; /* Başlığın altında */
+    left: 0;
+    background-color: #fff;
+    font-size: 18px;
+    font-family: 'Roboto Slab';
+    padding: 10px;
+    text-align:right;
+}
+
+.header-mobile-content .nav-item:hover .sub-menu {
+    display: block;
+}
+
+.header-mobile-content .nav-item.active .sub-menu {
+    display: block;
+}
+
+.header-mobile-content .nav-item {
+    position: relative;
+}
+
+.header-mobile-content .nav-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+    .header-mobile-content .nav-link:hover {
+        background-color: #f0f0f0;
+    }
+
+.header-mobile-content .sub-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .header-mobile-content .sub-menu ul li {
+        padding: 5px 0;
+    }
+
+
+
+
+
 .product-btn-big{
     width:220px;
     height:59px;
@@ -71473,12 +71522,18 @@ html, body {
 
 @media (max-width: 991.98px) {
     html, body {
+        color: #232323;
+        background-repeat: no-repeat;
+        width: 160%;
+        letter-spacing: 0.015rem;
+        overflow-x: hidden;
         font-size: 16px !important
     }
 }
 
 @media (max-width: 767.98px) {
     html, body {
+        
         font-size: 16px !important
     }
 }

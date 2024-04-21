@@ -18,7 +18,8 @@
             //UserLogs,
             Product,
             Category,
-            Page
+            Page,
+            BasindaBiz
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -155,6 +156,15 @@
                         Name = "Page",
                         IconClassName = "fa fa-history",
                         URLPath = "/Page/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.BasindaBiz:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "BasindaBiz",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/BasindaBiz/Index",
                         LinkCounter = counter,
                     };
 

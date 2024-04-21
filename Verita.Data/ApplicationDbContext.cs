@@ -14,6 +14,7 @@ namespace Verita.Data
         public DbSet<Category> Categories{ get; set; }
         public DbSet<Page> Pages{ get; set; }
         public DbSet<PageImage> PageImages{ get; set; }
+        public DbSet<BasindaBiz> BasindaBiz { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
