@@ -1,0 +1,17 @@
+﻿@using Verita.Domain.Entities;
+@model CategoryViewModel
+
+@if (Model.Categories != null && Model.Products != null)
+{
+    @foreach (var category in Model.Categories)
+    {
+        if (category.IsPage)
+        {
+            <li><a class="dropdown-item mobil-sub-menu-font" href="/Page?pageId=@category.PageId">@category.Name</a></li>
+        }
+        else
+        {
+            <li><a class="dropdown-item with-submenu mobil-sub-menu-font" href="/urunlerimiz?categoryId=@category.Id">@category.Name</a></li>
+        }
+    }
+}

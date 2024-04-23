@@ -28,7 +28,7 @@
 @media (max-width: 991.98px) {
     .big-slider .big-slider-swiper {
         position: relative;
-        margin-top: 20px
+        margin-top: 0px
     }
 
         .big-slider .big-slider-swiper:before {

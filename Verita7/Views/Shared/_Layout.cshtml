@@ -40,67 +40,62 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" id="dropdownMenuButton-4" href="#">VERİTA</a>
+                                <div class="sub-menu">
+                                    <ul>
+                                        <li><a class="dropdown-item mobil-sub-menu-font" href="/hakkimizda">Hakkımızda</a>                                 </li>
+                                        <li><a class="dropdown-item mobil-sub-menu-font" href="/hedeflerimiz">Hedeflerimiz</a>                             </li>
+                                        <li><a class="dropdown-item mobil-sub-menu-font" href="/neden-verita">Neden Verita?</a>                            </li>
+                                        <li><a class="dropdown-item mobil-sub-menu-font" href="/organizasyon-yapisi/">Organizasyon Yapısı</a>              </li>
+                                        <li><a class="dropdown-item mobil-sub-menu-font" href="/kalite-garantisi">Kalite Garantisi</a>                     </li>
+                                        <li><a class="dropdown-item mobil-sub-menu-font" href="/basinda-biz">Basında Verita</a>                            </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="dropdownMenuButton-1" href="#">ÜRÜNLERİMİZ</a>
                                 <div class="sub-menu">
                                     <ul>
-                                        <li><a href="#">Ürün 1</a></li>
-                                        <li><a href="#">Ürün 2</a></li>
-                                        <!-- Diğer alt menü öğeleri -->
+                                        @await Component.InvokeAsync("CategoryListMobil")
                                     </ul>
                                 </div>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" id="dropdownMenuButton-2" href="#">GIDA GÜVENLİĞİ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="dropdownMenuButton-3" href="#">MERAK ETTİKLERİNİZ?</a>
+                                <a class="nav-link" id="dropdownMenuButton-1" href="#">GÜVENLİ GIDA</a>
                                 <div class="sub-menu">
                                     <ul>
-                                        <li><a href="#">Soru 1</a></li>
-                                        <li><a href="#">Soru 2</a></li>
-                                        <!-- Diğer alt menü öğeleri -->
+                                         @await Component.InvokeAsync("PageListMobil", new {pageCategoryId= PageCategory.GuvenliGida})
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="dropdownMenuButton-1" href="#">MERAK ETTİKLERİNİZ</a>
+                                <div class="sub-menu">
+                                    <ul>
+                                        @await Component.InvokeAsync("PageListMobil", new {pageCategoryId= PageCategory.MerakEttikleriniz})
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" target="_blank" href="https://www.dunyaninmeyvesi.com/">ONLİNE ALIŞVERİŞ</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" target="_blank" href="https://www.dunyaninmeyvesi.com/">MEYVELİ REHBER</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/bize-ulasin/">İLETİŞİM</a>
+                            </li>
+                           
                         </ul>
                     </div>
                 </div>
 
-                <div class="header-fixed">
-                    <div class="header-fixed-content">
-                        <div class="navbar-right-item homepage text-center">
-                            <div class="svg-icon svg-icon-secondary">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M511.8 287.6L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L416 100.7V64C416 46.33 430.3 32 448 32H480C497.7 32 512 46.33 512 64V185L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6L511.8 287.6z" /></svg>
-                            </div>
-
-                            <a href="/" class="navbar-right-item-title is-authenticated">Anasayfa</a>
-
-                        </div>
-                        <div class="navbar-right-item" style="background-color:#ee2e24; padding:10px;">
-                            <div class="navbar-right-item-title">ONLİNE <br />ALIŞVERİŞ</div>
-                        </div>
-                       @* <div class="navbar-right-item">
-                            <a href="/b2b-urunler" class="navbar-right-item-title">B2B</a>
-
-                        </div>*@
-                        <div class="navbar-right-item">
-                            <div class="navbar-right-item-title">MEYVELİ <br /> REHBER</div>
-                        </div>
-                        <div class="navbar-right-item">
-                            <a href="/bize-ulasin/" class="navbar-right-item-title">İLETİŞİM</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="header-mobile-bg"></div>
             </div>
             <div class="header-mobile-logo">
                 <a href="/">
-                    <img src="/logo.png" />
+                    <img src="/logo.png" style="margin-top:50px;"/>
                 </a>
             </div>
             <div></div>
@@ -109,11 +104,11 @@
     </section>
 
     @*<div class="topbar-mobile">
-            <div class="topbar-content">
-                <span>web.homepage.topbartext</span>
+    <div class="topbar-content">
+    <span>web.homepage.topbartext</span>
 
-            </div>
-        </div>*@
+    </div>
+    </div>*@
     <div class="fixed-header">
         <header>
             <div class="container" style="max-width:100%;">
@@ -127,7 +122,7 @@
 
 
 
-                    <ul class="navbar-nav">  
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -151,12 +146,12 @@
                                     <span>ÜRÜNLERİMİZ</span>
                                 </a>
                                 <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                   
-                                     
-                                        @await Component.InvokeAsync("CategoryList")
+
+
+                                    @await Component.InvokeAsync("CategoryList")
                                 </div>
                             </div>
-                        </li>  
+                        </li>
                         <li class="nav-item">
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" href="gida-guvenligi" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -179,7 +174,7 @@
                                     @await Component.InvokeAsync("PageList", new {pageCategoryId= PageCategory.MerakEttikleriniz})
                                 </div>
                             </div>
-                        </li> 
+                        </li>
                     </ul>
 
 
@@ -199,19 +194,19 @@
 
                         </div>
                         <div class="navbar-right-item" style="background-color:#ee2e24; padding:10px;">
-                            <div class="navbar-right-item-title">ONLINE <br />ALIŞVERİŞ</div>
-                        </div> 
-                       @* <div class="navbar-right-item">
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" href="/b2b-urunler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    B2B
-                                </a>
-                                <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                    @await Component.InvokeAsync("PageList", new {pageCategoryId= PageCategory.B2b})
-                                </div>
-                            </div>
+                            <a href="https://www.dunyaninmeyvesi.com/"><div class="navbar-right-item-title">ONLINE <br />ALIŞVERİŞ</div></a>
+                        </div>
+                        @* <div class="navbar-right-item">
+                        <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="/b2b-urunler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        B2B
+                        </a>
+                        <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
+                        @await Component.InvokeAsync("PageList", new {pageCategoryId= PageCategory.B2b})
+                        </div>
+                        </div>
                         </div>*@
-                   
+
                         <div class="navbar-right-item">
                             <div class="navbar-right-item-title">MEYVELİ <br /> REHBER</div>
                         </div>
@@ -219,16 +214,16 @@
                             <a href="/bize-ulasin/" class="navbar-right-item-title">İLETİŞİM</a>
                         </div>
 
-                      @*  <div class="navbar-right-item">
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    ENG
-                                </a>
-                                <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">TR</a>
-                                    <a class="dropdown-item" href="#">ENG</a> 
-                                </div>
-                            </div>
+                        @*  <div class="navbar-right-item">
+                        <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ENG
+                        </a>
+                        <div class="dropdown-menu transparent-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">TR</a>
+                        <a class="dropdown-item" href="#">ENG</a>
+                        </div>
+                        </div>
                         </div>*@
                     </form>
                 </nav>
@@ -243,7 +238,7 @@
             <div class="row g-0">
                 <div class="col-md-12 col-lg-12 offset-md-1 offset-lg-0 py-10">
                     <div class="row">
-                        <div class="col-lg-10 col-md-12 mt-md-7 mt-lg-0">
+                        <div class="col-lg-10 col-sm-10 mt-md-7 mt-lg-0">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3">
                                     <div class="footer-menu ms-lg-15">
@@ -302,8 +297,8 @@
                                             </li>
                                             @await Component.InvokeAsync("PageListFooter", new {pageCategoryId= PageCategory.GuvenliGida})
                                         </ul>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="col-lg-3 col-md-3">
                                     <div class="footer-menu">
                                         <ul>
@@ -316,23 +311,10 @@
                                         </ul>
                                     </div>
 
-                                </div>
-                               @* <div class="col-lg-3 col-md-3">
-                                    <div class="footer-menu">
-                                        <ul>
-                                            <li>
-                                                <h5 class="text-hover-primary fw-bold">
-                                                    B2B<br />
-                                                </h5>
-                                            </li>
-                                            @await Component.InvokeAsync("PageListFooter", new {pageCategoryId= PageCategory.B2b})
-                                        </ul>
-                                    </div>
-
-                                </div>*@
+                                </div> 
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-12 mt-md-5 mt-lg-0">
+                        <div class="col-lg-2 col-sm-2 mt-md-5 mt-lg-0">
                             <h5 class="text-hover-primary fw-bold">
                                 Müşteri<br />
                                 Destek Hattı
@@ -355,7 +337,7 @@
                                            class="instagram">
                                             <i class="fab fa-instagram"></i>
                                         </a>
-                                    </li> 
+                                    </li>
                                     <li>
                                         <a href="https://www.youtube.com/VeritaMeyve"
                                            rel="nofollow" target="_blank"
@@ -408,7 +390,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-        } 
+        }
 
         .dropdown-menu > li > a:hover, .dropdown-menu > .dropdown-item:hover {
             color: white;
@@ -429,7 +411,7 @@
         .btn-secondary:hover::after {
             border-top-color: #000; /* Hover durumunda ok rengini siyah yapar */
         }
-           
+
 
         .transparent-menu {
             display: none; /* Menüyü başlangıçta gizle */
@@ -496,32 +478,29 @@
             flex-direction: column;
             justify-content: center;
         }
-      
+
         .dropdown-menu .sub-menu {
             display: none;
-            position: absolute; 
-            margin-top:-43.59px;
+            position: absolute;
+            margin-top: -43.59px;
             left: 100%; /* Güncellendi: Menüyü sağ tarafta aç */
             background-color: rgba(0, 0, 0, 0.37);
             border-radius: 0;
             min-width: 200px;
-            font-size:14px;
+            font-size: 14px;
             color: white;
         }
 
             .dropdown-menu .with-submenu:hover + .sub-menu,
             .dropdown-menu .sub-menu:hover {
                 display: block;
-
-              
             }
 
         .sub-menu > .dropdown-item:hover {
             color: white;
             background-color: rgba(0,0,0,0.37);
             border-radius: 0px;
-        } 
-
+        }
     </style>
 </body>
 </html>

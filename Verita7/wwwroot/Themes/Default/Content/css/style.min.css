@@ -344,6 +344,16 @@ button, select {
     cursor: pointer
 }
 
+@media (min-width: 992px) {
+    .order-lg-1 {
+        order: -1;
+    }
+
+    .order-lg-2 {
+        order: -2;
+    }
+}
+
 select {
     word-wrap: normal
 }
@@ -9920,7 +9930,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 }
 
 .mt-40 {
-    margin-top: 10rem !important
+    margin-top: 11rem !important
 }
 
 .mt-auto {

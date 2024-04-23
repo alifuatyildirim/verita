@@ -1,0 +1,15 @@
+﻿@using Verita.Domain.Entities;
+@model PageViewModel
+ 
+@if (Model.Pages != null )
+{
+
+    @foreach (var pageModel in Model.Pages)
+    {
+        <li><a class="dropdown-item with-submenu mobil-sub-menu-font" href="/Page?pageId=@pageModel.Id">@pageModel.Name</a></li>
+    }
+    @if (Model.Pages.FirstOrDefault()!.PageCategory == Verita.Common.Enums.PageCategory.MerakEttikleriniz)
+    {
+        <li><a class="dropdown-item with-submenu mobil-sub-menu-font" href="/bunlari-biliyor-musunuz/">Bunları biliyor musunuz?</a></li>
+    }
+}
