@@ -23,8 +23,8 @@
         <div class="page-nav-header">
             <div class="category-info">
                 <div class="breadcrumb">
-                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:12px">
-                        <li style=" padding: 0 10px 0px 0;">
+                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
+                        <li style=" padding: 0 10px 0px 0; color :#046a38">
                             <a href="/" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
@@ -121,29 +121,68 @@
 
                                                             </div>
                                                         }
-                                                        @foreach (var productItem in Model.ProductOrderItems)
+                                                        @if (Model.ProductOrderItems.Count() == 2)
                                                         {
-                                                            <div class="swiper-slide">
+                                                            <div class="product-item" style="margin-left:198px;">
+                                                                <a href="@Model.ProductOrderItems[0].Url" target="_blank" class="product-link"></a>
 
-                                                                <div class="product-item">
-                                                                    <a href="@productItem.Url" target="_blank" class="product-link"></a>
-
-                                                                    <div class="product-image">
-                                                                        <img style="width:400px; height:400px;" src="@Url.Content(productItem.Image)" alt="@productItem.Title">
-                                                                    </div>
-
-                                                                    <div class="overlay">
-                                                                        <div class="middle">
-                                                                            <div></div>
-                                                                            <div class="overlay-name">@productItem.Title</div>
-                                                                            <a class="btn-big product-btn-big">İNCELE</a>
-                                                                            @* <a class="btn-big overlay-btn mx-10 py-2">İNCELE</a> *@
-                                                                            @* <a class="btn-big product-btn-big">İNCELE</a> *@
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="product-image">
+                                                                    <img style="width:400px; height:400px;" src="@Url.Content(Model.ProductOrderItems[0].Image)" alt="@Model.ProductOrderItems[0].Title">
                                                                 </div>
 
+                                                                <div class="overlay">
+                                                                    <div class="middle">
+                                                                        <div></div>
+                                                                        <div class="overlay-name">@Model.ProductOrderItems[0].Title</div>
+                                                                        <a class="btn-big product-btn-big">İNCELE</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+
+                                                            <div class="product-item" style="margin-left:20px;">
+                                                                <a href="@Model.ProductOrderItems[1].Url" target="_blank" class="product-link"></a>
+
+                                                                <div class="product-image">
+                                                                    <img style="width:400px; height:400px;" src="@Url.Content(Model.ProductOrderItems[1].Image)" alt="@Model.ProductOrderItems[1].Title">
+                                                                </div>
+
+                                                                <div class="overlay">
+                                                                    <div class="middle">
+                                                                        <div></div>
+                                                                        <div class="overlay-name">@Model.ProductOrderItems[1].Title</div>
+                                                                        <a class="btn-big product-btn-big">İNCELE</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+
+
+                                                            @foreach (var productItem in Model.ProductOrderItems)
+                                                            {
+                                                                <div class="swiper-slide">
+
+                                                                    <div class="product-item">
+                                                                        <a href="@productItem.Url" target="_blank" class="product-link"></a>
+
+                                                                        <div class="product-image">
+                                                                            <img style="width:400px; height:400px;" src="@Url.Content(productItem.Image)" alt="@productItem.Title">
+                                                                        </div>
+
+                                                                        <div class="overlay">
+                                                                            <div class="middle">
+                                                                                <div></div>
+                                                                                <div class="overlay-name">@productItem.Title</div>
+                                                                                <a class="btn-big product-btn-big">İNCELE</a>
+                                                                                @* <a class="btn-big overlay-btn mx-10 py-2">İNCELE</a> *@
+                                                                                @* <a class="btn-big product-btn-big">İNCELE</a> *@
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            }
                                                         }
                                                         @if (Model.ProductOrderItems.Count() == 1)
                                                         {
@@ -272,7 +311,7 @@
     body {
         background: url(/images/hedeflerimiz-ust-zemin.png);
         /*  background-size: 100%;
-                                background-repeat: no-repeat;*/
+                                    background-repeat: no-repeat;*/
     }
 
     p {

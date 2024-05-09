@@ -5,7 +5,7 @@
     ViewBag.BodyClass = "shop-home";
 }
 
-<section class="catalog-page mt-40">
+<section class="page-container mt-40">
     <div class="filter-box categoryNav">
         <ul>
 
@@ -22,11 +22,11 @@
 
     <div class="container container-bg">
 
-        <div class="catalog-header">
+        <div class="page-nav-header">
             <div class="category-info">
                 <div class="breadcrumb" style="margin-bottom:10px">
-                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:12px">
-                        <li style=" padding: 0 10px 0px 0;">
+                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
+                        <li style=" padding: 0 10px 0px 0; color :#046a38">
                             <a href="/" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
@@ -34,7 +34,7 @@
                             <span class="current-item">Ürünlerimiz</span>
                             <span class="delimiter">></span>
                         </li>
-                        <li style=" padding: 0 10px 0px 0;">
+                        <li style=" padding: 0 10px 0px 0; color :#7AB929">
                             <span class="current-item">@Model.FirstOrDefault()?.Category.Name</span> 
                         </li>
                     </ul>
@@ -42,10 +42,10 @@
             </div>
 
         </div>
-        <div class="catalog-title">
-            <h3>Ürünlerimiz</h3>
+        <div class="heading-title">
+            <h4>Ürünlerimiz</h4>
         </div>
-        <div class="catalog-container">
+        <div class="page-content pe-0">
 
             <div class="catalog-content ms-lg-0">
                 @{
@@ -59,7 +59,7 @@
                         @for (int j = i * 3; j < Math.Min((i + 1) * 3, products.Count); j++)
                         {
                             var item = products[j];
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-6 product-item400 @(j % 3 == 2 ? "last-item" : "")">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 product-item400 @(j % 3 == 2 ? "last-item" : "")">
                                 <div class="product-item">
                                     <a href ="/urunler?productId=@item.Id" class="product-link"></a>
                                     <div class="product-image">
@@ -91,9 +91,108 @@
     .container-bg {
         background-image: url(@Model.FirstOrDefault()?.Category.BackgroundImage);
     }
+
+    .page-container .page-content {
+        padding-bottom: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .page-content {
+        background-color: rgba(255, 255, 255, 0.7); /* Saydam arka plan rengi */
+        margin: 0 auto; /* Sayfa içeriğini ortalar */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* İsteğe bağlı: sayfa içeriğine bir gölge ekleyebilirsiniz */
+        position: relative;
+        z-index: 2; /* .page-content'ı .container'ın üzerine getirmek için z-index ekledik */
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.1); /* Kartların saydam arka plan rengi */
+        border: none;
+        border-radius: 0px;
+        margin-bottom: 30px;
+        padding-left: 100px;
+    }
+
+    .card-header {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        width: 1100px;
+        margin: 0 auto;
+        padding: 0px;
+    }
+
+    .btn-link {
+        text-decoration: none !important;
+        font-size: 33px !important;
+        font-weight: bold !important;
+        font-family: 'Roboto Slab SemiBold' !important;
+        color: black !important;
+    }
+
+        .btn-link:hover {
+            text-decoration: none !important;
+            font-size: 33px !important;
+            font-weight: bold !important;
+            font-family: 'Roboto Slab SemiBold' !important;
+            color: black !important;
+        }
+
+    .collapse-icon:before {
+        content: '- ';
+        margin-right: 24px;
+    }
+
+    .card-body {
+        background-color: rgba(255, 255, 255, 0.1);
+        font-size: 20px !important;
+        line-height: 36px !important;
+        margin: 0 auto;
+        padding: 0px;
+        width: 800px;
+    }
+
+    .collapsed .collapse-icon:before {
+        content: '+ ';
+        margin-right: 15px;
+    }
+
+    h4 {
+        font-size: 40px !important;
+        font-family: 'Aleo' !important;
+        font-weight: bold !important;
+        color: rgb(4,106,56) !important;
+    }
+
+    .product-main-photo {
+        margin: 0px;
+        padding: 0px;
+        width: 1300px;
+        height: 1300px;
+    }
+
+    .card-photo img {
+        max-width: 100%;
+        height: auto;
+        display: inline-block;
+    }
+
+    body {
+        background: url(/images/hedeflerimiz-ust-zemin.png);
+        /*  background-size: 100%;
+                                    background-repeat: no-repeat;*/
+    }
+
+    p {
+        margin-top: 36px;
+    }
+
+    .left-image-showcase .showcase-products {
+        padding-left: 0px !important;
+    }
 </style>
 @section links
     {
+    <link href="/Themes/Default/Content/css/style.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/layout/component/heading-title.min.css?v=2020100520" rel="stylesheet" type="text/css" />

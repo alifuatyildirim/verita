@@ -1,0 +1,18 @@
+﻿@using Verita.Domain.Entities;
+@model CategoryViewModel
+
+@if (Model.Categories != null && Model.Products != null)
+{
+    @foreach (var category in Model.Categories)
+    {
+        if (category.IsPage)
+        {
+            <li><a href="/Page?pageId=@category.PageId&isPage=true">@category.Name</a></li>
+        }
+        else
+        {
+            <li><a href="/urunlerimiz?categoryId=@category.Id">@category.Name</a></li>
+        }
+
+    }
+}
