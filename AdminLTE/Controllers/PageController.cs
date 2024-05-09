@@ -60,10 +60,10 @@ namespace AdminLTE.Controllers
                         await this.pageImageService.AddPageImageAsync(new AddPageImageRequest
                         {
                             CreatedBy = page.CreatedBy,
-                            PageId = productEntity.Id,
+                            PageId = productEntity.Id, 
                             Title = image.Title,
                             Description = image.Description,
-                            ImageUrl = await this.pageService.SaveImageAsync(image.Image.OpenReadStream(), image.Image.FileName)
+                            ImageUrl = await this.pageService.SaveImageAsync(image.Image.OpenReadStream(), image.Image.FileName),
                         });
                     }
                 }

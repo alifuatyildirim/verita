@@ -29,6 +29,14 @@
                             <span class="delimiter">></span>
                         </li>
                         <li style=" padding: 0 10px 0px 0;">
+                            <a href="/" title="Ürünlerimiz">Ürünlerimiz</a>
+                            <span class="delimiter">></span>
+                        </li>
+                        <li style=" padding: 0 10px 0px 0;">
+                            <a href="urunlerimiz?categoryId=@Model.CategoryId" title="@Model.Category.Name">@Model.Category.Name</a>
+                            <span class="delimiter">></span>
+                        </li>
+                        <li style=" padding: 0 10px 0px 0;">
                             <span class="current-item">@Html.DisplayFor(model=>model.Title)</span>
                         </li>
                     </ul>

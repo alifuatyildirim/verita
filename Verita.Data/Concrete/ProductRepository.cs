@@ -50,6 +50,7 @@ namespace Verita.Data.Concrete
             productEntity.CategoryId = product.CategoryId;
             productEntity.UpdatedBy = product.UpdatedBy;
             productEntity.UpdatedDate = product.UpdatedDate;
+            productEntity.SortOrder = product.SortOrder;
 
             this.genericRepository.Update(productEntity);
             await this.genericRepository.SaveChangesAsync();

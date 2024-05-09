@@ -22,7 +22,7 @@ namespace Verita.Data.Concrete
 
         public async Task<List<Page>> GetPagesAsync()
         {
-            return await this.genericRepository.GetQueryable<Page>().ToListAsync();
+            return await this.genericRepository.GetQueryable<Page>().OrderBy(x=>x.SortOrder).ToListAsync();
         }
 
         public async Task<Page?> GetPageAsync(int id)
@@ -50,6 +50,7 @@ namespace Verita.Data.Concrete
             pageEntity.UpdatedBy = page.UpdatedBy;
             pageEntity.UpdatedDate = page.UpdatedDate;
             pageEntity.PageCategory = page.PageCategory;
+            pageEntity.SortOrder = page.SortOrder;
 
             this.genericRepository.Update(pageEntity);
             await this.genericRepository.SaveChangesAsync();
@@ -57,7 +58,7 @@ namespace Verita.Data.Concrete
 
         public async Task<List<Page>> GetPagesByCategoryAsync(PageCategory pageCategory)
         {
-            return await this.genericRepository.GetQueryable<Page>().Where(x=>x.PageCategory == pageCategory).ToListAsync();
+            return await this.genericRepository.GetQueryable<Page>().Where(x=>x.PageCategory == pageCategory).OrderBy(x=>x.SortOrder).ToListAsync();
         }
     }
 }

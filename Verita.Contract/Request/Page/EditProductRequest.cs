@@ -9,6 +9,7 @@ namespace Verita.Contract.Request.Product
         public PageCategory PageCategory { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
+        public int SortOrder { get; set; } 
         public string Description { get; set; } = string.Empty; 
         public IFormFile? BackgroundImage { get; set; } 
         public string BackgroundUrl { get; set; } = string.Empty;

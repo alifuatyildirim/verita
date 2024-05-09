@@ -1,0 +1,75 @@
+﻿@using Verita.Common.Enums;
+@using Verita.Contract.Request.Category;
+@using Verita.Domain.Entities;
+@model EditHomePageSliderRequest
+
+@{
+    ViewBag.Title = "Edit Slider";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Edit Slider</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        @using (Html.BeginForm("Edit", "HomePageSlider", FormMethod.Post, new { enctype = "multipart/form-data", id = "pageForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description)
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Link)
+                @Html.TextBoxFor(model => model.Link, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+            </div>
+             
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainImageUrl, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.MainImageUrl))
+                {
+                    <img src="@Model.MainImageUrl" class="img-thumbnail" id="mainImagePreview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="MainImage" class="form-control-file" />
+                @Html.ValidationMessageFor(model => model.MainImageUrl, "", new { @class = "text-danger" })
+            </div>
+             
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        }
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+          
+        function previewMainImage(event) {
+            var mainImagePreview = document.getElementById('mainImagePreview');
+            mainImagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+            
+    </script>
+}

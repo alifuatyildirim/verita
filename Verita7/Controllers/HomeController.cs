@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Verita.Application.HomePageSliderService;
+using Verita.Application.NedenVeritaService;
 using Verita.Application.ProductService;
 using Verita.Common.Enums;
 
@@ -10,22 +12,39 @@ namespace Verita7.Controllers
         private readonly IProductService productService;
         private readonly IPageService pageService;
         private readonly ICategoryService categoryService;
+        private readonly IHomePageContentService homePageContentService;
+        private readonly IHomePageSliderService homePageSliderService;
+        private readonly INedenVeritaService nedenVeritaService;
+        private readonly IReferanslarService referanslarService;
 
-        public HomeController(IProductService productService, ICategoryService categoryService, IPageService pageService)
+        public HomeController(IProductService productService, ICategoryService categoryService, IPageService pageService, IHomePageContentService homePageContentService, IHomePageSliderService homePageSliderService, INedenVeritaService nedenVeritaService, IReferanslarService referanslarService)
         {
             this.productService = productService;
             this.categoryService = categoryService;
             this.pageService = pageService;
+            this.homePageContentService = homePageContentService;
+            this.homePageSliderService = homePageSliderService;
+            this.nedenVeritaService = nedenVeritaService;
+            this.referanslarService = referanslarService;
+
         }
 
         public async Task<IActionResult> CategoriesPartialView()
         {
+           
             ViewBag.CategoriesTitle = await this.categoryService.GetCategoriesAsync();
             ViewBag.ProductsTitle = await this.productService.GetProductsAsync();
             return PartialView("~/Views/Shared/CategoriesPartialView.cshtml");
         }
         public async Task<ActionResult> Index()
         {
+            ViewBag.Sliders = await this.homePageSliderService.GetHomePageSliderListAsync();
+            var content = await this.homePageContentService.GetHomePageContentListAsync();
+            ViewBag.GuvenliGida = content.FirstOrDefault(x => x.ContentType == HomePageContentType.GuvenliGida);
+            ViewBag.Hakkimizda = content.FirstOrDefault(x => x.ContentType == HomePageContentType.Hakkimizda);
+            ViewBag.NedenVeritaContent = content.FirstOrDefault(x => x.ContentType == HomePageContentType.NedenVerita); 
+            ViewBag.NedenVerita = await this.nedenVeritaService.GetNedenVeritaListAsync();
+            ViewBag.Referanslar = await this.referanslarService.GetReferanslarListAsync();
             var pages = await this.pageService.GetPagesAsync();
             ViewBag.DalindanSofraya = pages.Where(x => x.Name.StartsWith("Dalından")).FirstOrDefault()?.Id;
             return View();

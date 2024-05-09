@@ -8,6 +8,7 @@
         public string MainImageUrl { get; set; } = string.Empty;
         public string BackgroundImageUrl { get; set; } = string.Empty;
         public int CategoryId { get; set; }
+        public int SortOrder { get; set; }
         public virtual Category Category { get; set; }
         public virtual List<ProductCard> ProductCards { get; set; }
         public virtual List<ProductOrderItem> ProductOrderItems { get; set; }

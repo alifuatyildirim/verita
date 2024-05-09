@@ -27,6 +27,7 @@ namespace Verita.Application.ProductService
                 Title = product.Title,
                 Name = product.Name,
                 MainImageUrl = product.MainImageUrl,
+                SortOrder = product.SortOrder,
             };
             await this.productRepository.AddProductAsync(productEntity);
             return productEntity;
@@ -34,7 +35,8 @@ namespace Verita.Application.ProductService
 
         public async Task<List<Product>> GetProductsAsync()
         {
-            return await this.productRepository.GetProductsAsync();
+            var products = await this.productRepository.GetProductsAsync();
+            return products.OrderBy(x => x.SortOrder).ToList();
         }
 
         public async Task<Product?> GetProductAsync(int id)
@@ -57,6 +59,7 @@ namespace Verita.Application.ProductService
                 Name = product.Name,
                 MainImageUrl = product.MainImageUrl,
                 BackgroundImageUrl = product.BackgroundImageUrl,
+                SortOrder = product.SortOrder
             };
             await this.productRepository.EditProductAsync(productEntity);
         }

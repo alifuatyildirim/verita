@@ -1,0 +1,56 @@
+﻿@using Verita.Common.Enums;
+@using Verita.Contract.Request.Category;
+@using Verita.Contract.Request.HomePageContent;
+@using Verita.Contract.Request.HomePageSlider;
+@using Verita.Domain.Entities;
+@model AddNedenVeritaRequest
+
+@{
+    ViewBag.Title = "Create Neden Verita Content";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Create Neden Verita Content</h3>
+    </div> 
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "NedenVerita", FormMethod.Post, new { enctype = "multipart/form-data", id = "pageForm" }))
+        {
+            @Html.AntiForgeryToken()
+             
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description)
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.City)
+                @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        }
+    </div> 
+</div> 

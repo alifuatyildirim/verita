@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Verita.Domain.Entities;
+@{
     ViewBag.BodyClass = "shop-home";
 }
 <style>
@@ -124,18 +125,14 @@
             <div class="d-flex flex-column my-18 box-shadow" style="background-color: rgb(255 255 255 / 63%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
                     <div class="align-self-center col-lg-6 col-sm-12">
-                        <img src="../Themes/Default/Content/img/about-little.jpg" class="w-100" style="height:auto;" />
+                        <img src="@(((HomePageContent)ViewBag.Hakkimizda)?.Image)" class="w-100" style="height:auto;" />
                     </div>
                     <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                        <span class="text-center mb-4 font-size-h3 title">Hakkımızda</span>
+                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.Hakkimizda)?.Title)</span>
                         <span class="text-center mb-4 px-10 home-page-content">
-                            Türkiye’nin ilk kivi markası olarak 1997 yılında hayata geçen Verita,
-                            Sektörün önde gelen meyve-sebze tedarikçisi ve dağıtıcısı İdeal Tarım Ürünleri Ticareti AŞ’nin de ilk markasıdır.
-                            <br />
-                            <br />
-                            O günden bu yana sektörün tüm zorluklarına rağmen kalitesinden asla ödün vermemeyi ilke edinen Verita, üreticisinden tüketicisine kadar zihinlerde “kaliteli meyve markası” olarak yerini almayı başarmış durumdadır.
+                            @(((HomePageContent)ViewBag.Hakkimizda)?.Description)
                         </span>
-                        <a href="/hakkimizda" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
+                        <a href="@(((HomePageContent)ViewBag.Hakkimizda)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
                     </div>
                 </div>
             </div>
@@ -143,17 +140,14 @@
             <div class="d-flex flex-column my-18 box-shadow" style="background-color: rgb(255 255 255 / 63%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
                     <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center order-lg-1 order-sm-2">
-                        <span class="text-center mb-4 font-size-h3 title">Neden Verita?</span>
+                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.NedenVeritaContent)?.Title)</span>
                         <span class="text-center mb-4 px-10 home-page-content">
-                            Verita bugün 6 kıtada, 49 farklı ülkede ve farklı iklimlerde yetişen her çeşit meyve ve sebzeyi düzenli, sağlıklı, yüksek kaliteli, uygun fiyatlı ve hijyenik koşullarda sizlerin beğenisine sunuyor.
-                            <br>
-                            <br />
-                            Dünyanın dört bir yanından gelen taze meyve ve sebzeler yıl boyunca, her biri kendi mevsiminde doğal koşullarda yetişmiş olarak, sizinle buluşuyor. Böylece Verita, sizlere 12 boyunca mevsiminde, taze ve sağlıklı meyve-sebze tüketme imkanı sağlıyor.
+                            @(((HomePageContent)ViewBag.NedenVeritaContent)?.Description)
                         </span>
-                        <a href="/hakkimizda" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
+                        <a href="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
                     </div>
                     <div class="align-self-center col-lg-6 col-sm-12 order-lg-2 order-sm-1">
-                        <img src="../Themes/Default/Content/img/why-verita-little.jpg" class="w-100" style="height:auto;" />
+                        <img src="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Image)" class="w-100" style="height:auto;" />
                     </div>
                 </div>
             </div>
@@ -175,18 +169,14 @@
             <div class="d-flex flex-column my-18 box-shadow" style="background-color: rgb(255 255 255 / 63%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
                     <div class="align-self-center col-lg-6 col-sm-12">
-                        <img src="../Themes/Default/Content/img/guvenli-gida.jpg" class="w-100" style="height:auto;" />
+                        <img src="@(((HomePageContent)ViewBag.GuvenliGida)?.Image)" class="w-100" style="height:auto;" />
                     </div>
                     <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                        <span class="text-center mb-4 font-size-h3 title">Güvenli Gıda</span>
+                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.GuvenliGida)?.Title)</span>
                         <span class="text-center mb-4 px-10 home-page-content">
-                            Doğal ortamında yetişen meyve ve sebzeler tedarik zinciri sürecinde insan sağlığına zararlı olabilecek biyolojik, kimsala ve fiziksel zararlara maruz kalma riski ile karşı karşıya kalıyor. “Güvenli Gıda” uygulamalarıyla ürünlerimizi bu etkenlerden koruyoruz.
-                            <br />
-                            <br />
-                            Sağlıklı bir gelecek için “Güvenli Gıda” kontrollerimizi tüm tedarikçilerimizde ve tedarik süresince uyguluyoruz. Meyve ve sebzelerimizin “Güvenli Gıda” olmaları konusunda yüksek bir kalite standardizasyonu sağlıyoruz.
-
+                            @(((HomePageContent)ViewBag.GuvenliGida)?.Description)
                         </span>
-                        <a href="/hakkimizda" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
+                        <a href="@(((HomePageContent)ViewBag.GuvenliGida)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
                     </div>
                 </div>
             </div> 
@@ -225,153 +215,19 @@
                         <div class="showcase-wrap">
                             <div class="showcase-slider-branch swiper">
                                 <div class="showcase-slider__wrapper swiper-wrapper">
-                                    <div class="swiper-slide" style="width:244px !important;">
+                                    @foreach (var item in (List<Referanslar>)ViewBag.Referanslar)
+                                    {
+                                        <div class="swiper-slide" style="width:244px !important;">
 
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_1_DM-min.jpg" alt="verita">
+                                            <div class="product-item d-flex">
+                                                <div class="product-image branch">
+                                                    <img src="@item.Image" alt="@item.Title">
+                                                </div>
+
                                             </div>
-
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_2_gurme-min.jpg" alt="gurme">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_3_macrocenter-min.jpg" alt="macrocenter">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_4_metro-min.jpg" alt="metro">
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_5_carrefour-min.jpg" style="width: 220px !important;" alt="carrefour">
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                    }
                                     
-                                    
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_6_migros-min.jpg" alt="migros">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_7_getir-min.jpg" alt="getir">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_8_bim-min.jpg" alt="bim">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_9_A101-min.jpg" alt="a101">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_10_tazedirekt-min.jpg" alt="tazedirekt">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_11_istegelsin-min.jpg" alt="istegelsin">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_12_boldy-min.jpg" alt="boldy">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_13_trendyol-min.jpg" alt="trendyol">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_14_hepsiburada-min.jpg" alt="hepsiburada">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_15_tazemasa-min.jpg" alt="tazemasa">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" style="width:244px !important;">
-
-                                        <div class="product-item d-flex">
-                                            <div class="product-image branch">
-                                                <img src="/Themes/Default/Content/img/referans_16_n11-min.jpg" alt="n11">
-                                            </div>
-
-                                        </div>
-                                    </div> 
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -399,159 +255,22 @@
                         <div class="showcase-slider-client swiper">
                             <div class="showcase-slider__wrapper swiper-wrapper ">
 
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                        @* <div class="image">
-                                            <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Ferhat Ünal</div>
-                                        <div class="title">
-                                             CarrefourSA
-                                        </div>
-                                        <div class="duty mb-5">Müdür Yardımcısı</div>
-                                        <div class="description">
-                                            2011 yılında Verita markasıyla tanıştık ve o tarihten bu yana mağazamızda Raw Juice taze sıkım meyve sularını 
-                                            ve taze meyve ve sebze çeşitlerini stokluyoruz. Özellikle mango ve ananasların kalitesi gerçekten çok yüksek.
-                                            Müşterilerimiz genellikle Verita ürünlerinin bulunabilirliğinden ve kalitesinden çok memnunlar. 
-                                            Satış ekibinin özenli ve destekleyici tutumu, uyumlu iş ilişkileri sürdürmemizi sağlıyor. 
-                                            "Verita'nın rakip firmalarla karşılaştırıldığında kalite farklılaşması, zengin ürün çeşidi ve 
-                                            ürün bulunabilirliği konusunda başarılı olduğunu söyleyebilirim."
-                                        </div>
+                                 @foreach (var item in (List<NedenVerita>)ViewBag.NedenVerita)
+                                {
+                                    <div class="swiper-slide box-shadow">
+                                        <div class="client-item d-flex"> 
+                                            <div class="name mt-5">@item.Name</div>
+                                            <div class="title">
+                                                @item.Title
+                                            </div>
+                                            <div class="duty mb-5">@item.City</div>
+                                            <div class="description">
+                                                @item.Description
+                                            </div>
 
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                        @* <div class="image">
-                                            <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Demir YILDIZ</div>
-                                        <div class="title">
-                                            Sarıyer Market
-                                        </div>
-                                        <div class="duty mb-5">Meyve & Sebze Reyon Görevlisi</div>
-                                        <div class="description">
-                                            Verita ürünlerinin olumlu yönleri arasında; üstün lezzetini, tazeliğini, kalitesini 
-                                            ve doğru hasat edildiği için uzun ömürlü olmasını sayabilirim. Müşterilerimiz Verita'da farklı egzotik 
-                                            meyveler bulabildikçe müşteri memnuniyeti de artıyor. İş ilişkimizde onların iş birliğinden ve desteklerinden 
-                                            çok memnunuz. Sarıyer Market olarak Verita dışında hiçbir yaş meyve sebze markasıyla iş birliği yapmıyoruz.
-                                           
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                       @*  <div class="image">
-                                            <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Nusret Özçelik</div>
-                                        <div class="title">
-                                            Özçelikler Gıda
-                                        </div>
-                                        <div class="duty mb-5">Antalya</div>
-                                        <div class="description">
-                                            1996’dan beri Verita ile çalışıyorum. Bütün ürünlerini düzenli alıyorum. <br />
-                                            Ürünlerin tazeliği konusunda çok hassaslar öyle ki her zaman istediğimiz miktarı ürünün bozulma riskini düşünerek tam olarak vermeyebiliyorlar. <br />
-                                            Müşterilerimiz standart kalitesi ve lezzeti sebebi ile Verita’yı tercih ediyor.  <br />
-                                            Dinamik ve hızlı bir ekip ile çalıştıklarından herhangi bir sorunumuz olduğunda çok süratli dönüş ile çözüm sunuyorlar. <br />
-                                            Verita markası ile çalışmaya devam edeceğim ve onlardan ürün çeşitliliğini aynı kalite ve hizmet anlayışı ile arttırmalarını dilerim.
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                @* 2.Yorumlar *@
-
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                        @* <div class="image">
-                                        <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Baran Demirhan</div>
-                                        <div class="title">
-                                            Papatya Tarım
-                                        </div>
-                                        <div class="duty mb-5">İstanbul</div>
-                                        <div class="description">
-                                            Papatya Tarım olarak 2010’dan beri Verita’nın bütün ürünleri ile çalışıyoruz. 
-                                            Bayrampaşa Hal noktamızda her zaman bütün Verita ürünlerini düzenli olarak bulundurmaktayız. 
-                                            Satış ekibi çok ilgili ve sorunları daha oluşmadan çözüyorlar. Her zaman kendilerine rahatlıkla ulaşıyoruz.<br/>
-                                            Uzun yıllardır Verita ile çalıştığımız için artık bizim de müşterilerimiz bizde düzenli ve bol çeşitte 
-                                            Verita olduğu bizi tercih ediyorlar.
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                        @* <div class="image">
-                                        <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Gökhan Soylu</div>
-                                        <div class="title">
-                                            Efe Yaş Sebze ve Meyve San ve Tic. A.Ş.
-                                        </div>
-                                        <div class="duty mb-5">İstanbul</div>
-                                        <div class="description">
-                                            Bayrampaşa Hali 52 numaralı yazıhanemizde 2013 senesinden beri Verita markalı ürünleri satıyor 
-                                            ve firma ile çalışıyoruz. Müşterilerimiz Verita markasını sordukları için her zaman bütün çeşitleri 
-                                            düzenli bulundurmaya çalışıyoruz. <br />
-                                            Bizimle ilgilenen satış ekibinden ve sevkiyatlarımızın düzeninden çok memnunuz.<br />
-                                            Ürün çeşidini arttırmaları talebimizi her zaman kendilerine de söylüyoruz.
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                        @* <div class="image">
-                                        <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Selami Soylu</div>
-                                        <div class="title">
-                                            RS Yaş Sebze Meyve San ve Tic. A.Ş.
-                                        </div>
-                                        <div class="duty mb-5">İstanbul</div>
-                                        <div class="description">
-                                            Son 10 senedir düzenli olarak Verita meyve alım-satımı yapıyoruz. Bizim firmaya ve markaya olan 
-                                            güvenimiz tamdır. Yaptıkları işin her zaman iyisini yapmaktadırlar. Genç ve ilgili bir ekip ile hizmet veriyorlar. 
-                                            Sipariş ve sevkiyat yönetiminde her zaman etkinler. Son dönemde ithal ürüne olan talebi yerli 
-                                            üretim ile dengelemeleri özellikle egzotik ürünlerin her zaman bulunabilir olmasını sağlamıştır. 
-                                            Bu yönde yerli üretime olan desteklerinin artmasını temenni ederiz.
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                @* 3.Yorumlar *@
-
-                                <div class="swiper-slide box-shadow">
-                                    <div class="client-item d-flex">
-                                        @* <div class="image">
-                                        <img src="../Themes/Default/Content/img/guvenli-gida.jpg" />
-                                        </div> *@
-                                        <div class="name mt-5">Mustafa Nihat Yiğit Katip</div>
-                                        <div class="title">
-                                            Eren Yaş Sebze ve Meyve San ve Tic. A.Ş.
-                                        </div>
-                                        <div class="duty mb-5">İstanbul</div>
-                                        <div class="description">
-                                            10 yıldır düzenli olarak bütün mevcut Verita ürünlerini alıp satıyoruz. 
-                                            Ürünlerin kalitesi her zaman standartların üzerindedir. Çözüm odaklı ve dinamik bir ekip ile düzenli hizmet sağlıyorlar. 
-                                            Her zaman rahatlıkla kendilerine ulaşabiliyoruz. Paketli ürünlerin miktarını arttırmalarını
-                                            ve başladıkları yerli tarımı destekleme politikalarını arttırarak devam etmelerini temenni ediyoruz.
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
+                                } 
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
@@ -814,11 +533,49 @@
     <script>
         // Initialize Slide Items
         function initSlides() {
+        @{
+            // Initialize JavaScript variables
+            <text>
+                var mobileJson = [];
+                var tabletJson = [];
+                var desktopJson = [];
+            </text>
 
+            // Check if ViewBag.Sliders is not null and is a list of HomePageSlider objects
+            if (ViewBag.Sliders != null)
+            {
+                // Iterate through ViewBag.Sliders
+                foreach (var item in (List<HomePageSlider>)ViewBag.Sliders)
+                {
+                    // Create JavaScript object for the slider
+                    <text>
+                        var slider = {
+                            Id: @item.Id,
+                            Title: "@item.Description",
+                            Name: "@item.Name",
+                            PictureUrl: "'@item.ImageUrl'",
+                            Url: "'@item.Link'",
+                            Mobile: true,  
+                            Tablet: true,  
+                            Desktop: true  
+                        };
+                    </text>
+
+                    // Add the slider JavaScript object to the appropriate array
+                    <text>
+                            mobileJson.push(slider);
+                        tabletJson.push(slider);
+                        desktopJson.push(slider);
+                    </text>
+                }
+            }
+
+        }
+        debugger;
             // Variables
-            var mobileJson =  [{ "Id": 1, "Title": "Kalite Garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-            var tabletJson =  [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-            var desktopJson = [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+           // mobileJson =  [{ "Id": 1, "Title": "Kalite Garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+           // tabletJson =  [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+           // desktopJson = [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
 
             // Slide Array
             var slides = new Array();

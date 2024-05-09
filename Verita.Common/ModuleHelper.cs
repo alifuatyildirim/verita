@@ -19,7 +19,10 @@
             Product,
             Category,
             Page,
-            BasindaBiz
+            BasindaBiz,
+            HomePageSlider,
+            HomePageContent,
+            Referanslar
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -147,6 +150,33 @@
                         Name = "Category",
                         IconClassName = "fa fa-history",
                         URLPath = "/Category/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.Referanslar:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Referanslar",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/Referanslar/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.HomePageSlider:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "HomePageSlider",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/HomePageSlider/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.HomePageContent:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "HomePageContent",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/HomePageContent/Index",
                         LinkCounter = counter,
                     };
                 case Module.Page:

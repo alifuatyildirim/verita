@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Verita.Application.BasindaBizService;
+using Verita.Application.HomePageSliderService;
 using Verita.Application.Image;
+using Verita.Application.NedenVeritaService;
 using Verita.Application.ProductService;
 using Verita.Data.Abstracts;
 using Verita.Data.Concrete;
@@ -36,6 +38,19 @@ public static class ApplicationServicesExtension
 
         services.AddScoped<IBasindaBizRepository, BasindaBizRepository>();
         services.AddScoped<IBasindaBizService, BasindaBizService.BasindaBizService>();
+
+        services.AddScoped<IHomePageSliderRepository, HomePageSliderRepository>();
+        services.AddScoped<IHomePageSliderService, HomePageSliderService.HomePageSliderService>();
+        
+        services.AddScoped<IHomePageContentRepository, HomePageContentRepository>();
+        services.AddScoped<IHomePageContentService, HomePageContentService.HomePageContentService>();
+
+        services.AddScoped<INedenVeritaRepository, NedenVeritaRepository>();
+        services.AddScoped<INedenVeritaService, NedenVeritaService.NedenVeritaService>();
+
+        services.AddScoped<IReferanslarRepository, ReferanslarRepository>();
+        services.AddScoped<IReferanslarService, ReferanslarService.ReferanslarService>();
+
 
         services.AddScoped<IImageService, ImageService>();
         return services;

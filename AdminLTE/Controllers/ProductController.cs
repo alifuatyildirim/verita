@@ -76,7 +76,7 @@ namespace AdminLTE.Controllers
                             ProductId = productEntity.Id,
                             Title = card.Title,
                             Description = card.Description,
-                            ImageUrl = await this.productService.SaveImageAsync(card.Image.OpenReadStream(), card.Image.FileName)
+                            ImageUrl = await this.productService.SaveImageAsync(card.Image.OpenReadStream(), card.Image.FileName),
                     });
                     }
                 }

@@ -1,0 +1,50 @@
+﻿@using Verita.Common.Enums;
+@model IEnumerable<Verita.Domain.Entities.HomePageSlider>
+
+@{
+    ViewBag.Title = "Home Page Slider List";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Home Page Slider List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="mb-3">
+            <a href="@Url.Action("Create", "HomePageSlider")" class="btn btn-success float-left">Create New</a>
+            <div class="clearfix"></div>
+        </div>
+        <table id="categoryTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th> 
+                    <th>Order</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var slider in Model)
+                {
+                    <tr>
+                        <td>@slider.Id</td>
+                        <td>@slider.Name</td>
+                        <td>@slider.SortOrder</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Category Actions">
+                                <a href="@Url.Action("Edit", "HomePageSlider", new { id = slider.Id })" class="btn btn-primary">Edit</a>
+                                <form asp-action="Delete" asp-controller="HomePageSlider" asp-route-id="@slider.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this Slider?')" class="delete-form">
+                                    <input type="hidden" name="id" value="@slider.Id" />
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->

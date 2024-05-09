@@ -1,0 +1,42 @@
+﻿@using Verita.Common.Enums;
+@using Verita.Contract.Request.Category;
+@using Verita.Contract.Request.Referanslar;
+@using Verita.Contract.Request.HomePageSlider;
+@using Verita.Domain.Entities;
+@model AddReferanslarRequest
+
+@{
+    ViewBag.Title = "Create Referanslar";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Create Referanslar</h3>
+    </div> 
+    <div class="card-body">
+        @using (Html.BeginForm("Create", "Referanslar", FormMethod.Post, new { enctype = "multipart/form-data", id = "pageForm" }))
+        {
+            @Html.AntiForgeryToken() 
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MainImageUrl, htmlAttributes: new { @class = "control-label" })
+                <input type="file" name="MainImage" class="form-control-file" />
+                @Html.ValidationMessageFor(model => model.MainImageUrl, "", new { @class = "text-danger" })
+            </div> 
+            <button type="submit" class="btn btn-primary">Create</button>
+        }
+    </div> 
+</div> 

@@ -15,6 +15,10 @@ namespace Verita.Data
         public DbSet<Page> Pages{ get; set; }
         public DbSet<PageImage> PageImages{ get; set; }
         public DbSet<BasindaBiz> BasindaBiz { get; set; }
+        public DbSet<HomePageSlider> HomePageSlider { get; set; }
+        public DbSet<HomePageContent> HomePageContent { get; set; }
+        public DbSet<NedenVerita> NedenVerita { get; set; }
+        public DbSet<Referanslar> Referanslar { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

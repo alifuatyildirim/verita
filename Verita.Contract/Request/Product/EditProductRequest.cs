@@ -10,6 +10,7 @@ namespace Verita.Contract.Request.Product
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int CategoryId { get; set; }
+        public int SortOrder { get; set; }
         public IFormFile? MainImage { get; set; }
         public string MainImageUrl { get; set; } = string.Empty;
 

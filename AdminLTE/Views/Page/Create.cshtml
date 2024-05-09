@@ -18,6 +18,12 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
                 @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -61,20 +67,20 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            var pageImageIndex = 0;
+            var productCardIndex = 0;
 
             $("#addPageImage").click(function () {
-                var pageImageHtml = `
-                                    <div class="page-card"> 
-                                        <div class="form-group">
-                                            <label>Image:</label>
-                                                    <input type="file" name="PageImage[${pageImageIndex}].Image" class="form-control-file" />
-                                        </div>
-                                    </div>
-                                `;
+                var productCardHtml = `
+                                                    <div class="product-card">
+                                                        <div class="form-group">
+                                                            <label>Image:</label>
+                                                                    <input type="file" name="PageImages[${productCardIndex}].Image" class="form-control-file" onchange="previewPageImage(event, this)" />
+                                                        </div>
+                                                    </div>
+                                                `;
 
                 $("#pageImages").append(productCardHtml);
-                pageImageIndex++;
+                productCardIndex++;
             });
         });
     </script>

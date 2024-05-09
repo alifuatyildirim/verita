@@ -7,7 +7,7 @@
     {
         if (category.IsPage)
         {
-            <a class="dropdown-item" href="/Page?pageId=@category.PageId">@category.Name</a>
+            <a class="dropdown-item" href="/Page?pageId=@category.PageId&isPage=true">@category.Name</a>
         }
         else
         {

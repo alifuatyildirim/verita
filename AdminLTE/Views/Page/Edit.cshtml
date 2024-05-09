@@ -17,6 +17,13 @@
                 @Html.DropDownListFor(model => model.PageCategory, new SelectList(Enum.GetValues(typeof(Verita.Common.Enums.PageCategory))), "Select Category", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PageCategory, "", new { @class = "text-danger" })
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+            </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
                 @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })

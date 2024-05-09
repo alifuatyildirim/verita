@@ -26,6 +26,7 @@ namespace Verita.Application.ProductService
                 Description = page.Description,
                 Title = page.Title,
                 Name = page.Name,
+                SortOrder = page.SortOrder,
                 BackgroundUrl = page.BackgroundUrl,
             };
             await this.pageRepository.AddPageAsync(pageEntity);
@@ -78,6 +79,7 @@ namespace Verita.Application.ProductService
                 Title = page.Title,
                 Name = page.Name,
                 BackgroundUrl = page.BackgroundUrl,
+                SortOrder = page.SortOrder
             };
             await this.pageRepository.EditPageAsync(pageEntity);
         }
