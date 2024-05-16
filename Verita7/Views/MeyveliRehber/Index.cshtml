@@ -2,7 +2,7 @@
 @using Verita.Domain.Entities;
 @using Microsoft.AspNetCore.Http
 
-@model IEnumerable<Verita.Domain.Entities.BasindaBiz>
+@model IEnumerable<Verita.Domain.Entities.MeyveliRehber>
 
 @{
     ViewBag.BodyClass = "shop-header-shadow shop-home";
@@ -11,46 +11,6 @@
 <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
 
 <main class="page-container mt-40">
-    <div class="filter-box categoryNav">
-        <ul>
-
-            <li class="active last">
-                <a href="/hakkimizda/">
-                    Hakkımızda
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/hedeflerimiz/">
-                    Hedeflerimiz
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/neden-verita/">
-                    Neden Verita?
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/organizasyon-yapisi/">
-                    Organizasyon Yapısı
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/kalite-garantisi/">
-                    Kalite Garantisi
-                </a>
-            </li>
-
-            <li class="inactive">
-                <a href="/basinda-biz/">
-                    Basinda Verita
-                </a>
-            </li>
-        </ul>
-    </div> 
     <div class="container">
         <div class="catalog-header">
             <div class="category-info">
@@ -61,7 +21,7 @@
                             <span class="delimiter">&gt;</span>
                         </li>
                         <li style=" padding: 0 10px 0px 0; color:#7AB929">
-                            <span class="current-item">Basında Verita</span>
+                            <span class="current-item">Meyveli Rehber</span>
                         </li>
                     </ul>
                 </div>
@@ -69,39 +29,10 @@
         </div>
         <div class="page-content pe-0">
             <div class="heading-title mb-25" style="text-align:center;">
-                <h4>Basında Verita</h4>
+                <h4>Meyveli Rehber</h4>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <select id="sortSelect" class="form-control mt-2">
-                    <option>Seçiniz</option>
-                    <option value="asc">Artan</option>
-                    <option value="desc">Azalan</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <input type="text" id="datepicker" class="form-control" placeholder="Tarih Seçin" />
-            </div>
-            <div class="col-md-3">
-                <select id="labelTypeSelect" class="form-control">
-                    <option value="">Seçiniz</option>
-                    <option value="0">Yazılı</option>
-                    <option value="1">Görsel</option>
-                    <option value="2">Dijital</option>
-                    <option value="3">Reklam</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <div class="row">
-                    <div class="col-md-5">
-                        <button type="button" class="btn btn-primary" id="clearFiltersBtn">Temizle</button> <!-- Temizle butonu -->
-                    </div>
-                    <div class="col-md-7">
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         @{
             int pageSize = 28; // Sayfa başına gösterilecek kart sayısı
@@ -127,12 +58,12 @@
     {
         @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
     }
-    <div class="col-sm-3 @(GetCardTypeClass(card.LabelType.GetHashCode()))">
-        <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")" data-title="@card.Name" data-type="@((int)card.LabelType)"  data-image="@card.Image"  data-link="@card.Link"  data-contenttype="@card.ContentType.ToString()">
+    <div class="col-sm-3">
+        <div class="card" data-file ="@card.File" data-title ="@card.Name">
             <img class="card-img-top" src="@card.Image" alt="Kart resmi">
             <div class="card-body">
                 <h5 class="card-title">@card.Name</h5>
-                <a href="@card.Resource">@card.Resource</a>
+                <a href="@card.Link">@card.Link</a>
                 <p class="card-text">@card.DateOfPublication.ToString("dd-MM-yyyy")</p>
             </div>
         </div>
@@ -299,45 +230,25 @@
     <script>
     $(document).ready(function () {
         // Kart tıklanıldığında modalı aç
-        $('.card').click(function () {
-            var title= $(this).data('title');
-            var contentType = $(this).data('contenttype');
-            var content = contentType === 'Image' ? 
-                '<img src="' + $(this).data('image') + '" class="img-fluid" alt="Fotoğraf">' :
-                $(this).data('link');
-            var modalHtml = '<div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">\
-                <div class="modal-dialog modal-dialog-centered modal-lg">\
-                    <div class="modal-content">\
-                        <div class="modal-header">\
-                            <h5 class="modal-title">'+title+'</h5>\
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeAndRemoveModal()"></button>\
-                        </div>\
-                        <div class="modal-body">\
-                            ' + content + '\
-                        </div>\
-                    </div>\
+    $('.card').click(function () {
+    var pdfUrl = $(this).data('file'); 
+    var title = $(this).data('title'); 
+    var modalHtml = '<div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">\
+        <div class="modal-dialog modal-dialog-centered modal-xl">\
+            <div class="modal-content">\
+                <div class="modal-header">\
+                    <h5 class="modal-title">'+title+'</h5>\
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeAndRemoveModal()"></button>\
                 </div>\
-            </div>';
-            $('body').append(modalHtml); // Modal HTML'ini sayfaya ekle
-            $('#contentModal').modal('show'); // Modalı göster
-        });
+                <div class="modal-body">\
+                    <iframe src="' + pdfUrl + '" style="width:100%; height:600px;"></iframe>\
+                </div>\
+            </div>\
+        </div>\
+    </div>';
+    $('body').append(modalHtml); // Modal HTML'ini sayfaya ekle
+    $('#contentModal').modal('show'); // Modalı göster
+});
 
-        // Modal dışına tıkladığında modalı kapat ve sil
-        $(document).on('click', function (e) {
-            if ($(e.target).hasClass('modal')) {
-                $('#contentModal').modal('hide'); // Modalı kapat
-                $('#contentModal').on('hidden.bs.modal', function () {
-                    $(this).remove(); // Modal HTML'ini kaldır
-                });
-            }
-        });
-
-        // Modalı kapat ve sil
-        window.closeAndRemoveModal = function () {
-            $('#contentModal').modal('hide'); // Modalı kapat
-            $('#contentModal').on('hidden.bs.modal', function () {
-                $(this).remove(); // Modal HTML'ini kaldır
-            });
-        };
     });
 </script>

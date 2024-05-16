@@ -6,6 +6,7 @@ using Verita.Application.HakkimizdaService;
 using Verita.Application.HakkimizdaTimeLineService;
 using Verita.Application.HomePageSliderService;
 using Verita.Application.Image;
+using Verita.Application.MeyveliRehberService;
 using Verita.Application.NedenVeritaService;
 using Verita.Application.ProductService;
 using Verita.Data.Abstracts;
@@ -63,6 +64,9 @@ public static class ApplicationServicesExtension
         services.AddScoped<IHakkimizdaTimeLineRepository, HakkimizdaTimeLineRepository>();
         services.AddScoped<IHakkimizdaTimeLineService, HakkimizdaTimeLineService.HakkimizdaTimeLineService>();
 
+
+        services.AddScoped<IMeyveliRehberRepository, MeyveliRehberRepository>();
+        services.AddScoped<IMeyveliRehberService, MeyveliRehberService.MeyveliRehberService>();
 
         services.AddScoped<IImageService, ImageService>();
         return services;

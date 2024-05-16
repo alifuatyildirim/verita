@@ -26,7 +26,8 @@
             NedenVerita,
             BunlariBiliyorMusunuz,
             Hakkimizda,
-            HakkimizdaTimeLine
+            HakkimizdaTimeLine,
+            MeyveliRehber
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -191,6 +192,15 @@
                         Name = "Category",
                         IconClassName = "fa fa-history",
                         URLPath = "/Category/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.MeyveliRehber:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "MeyveliRehber",
+                        IconClassName = "fa fa-history",
+                        URLPath = "/MeyveliRehber/Index",
                         LinkCounter = counter,
                     };
                 case Module.Referanslar:

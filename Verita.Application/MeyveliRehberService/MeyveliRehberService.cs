@@ -24,8 +24,7 @@ namespace Verita.Application.MeyveliRehberService
                 SortOrder = MeyveliRehber.SortOrder,
                 DateOfPublication = MeyveliRehber.DateOfPublication,
                 Link = MeyveliRehber.Link,
-                File = MeyveliRehber.FileUrl,
-                MeyveliRehberType = MeyveliRehber.MeyveliRehberType,
+                File = MeyveliRehber.FileUrl, 
                 CreatedDate = DateTime.Now
             });
         }
@@ -58,8 +57,7 @@ namespace Verita.Application.MeyveliRehberService
                 Image = MeyveliRehber.ImageUrl, 
                 UpdatedDate = DateTime.Now, 
                 DateOfPublication = MeyveliRehber.DateOfPublication,
-                Link = MeyveliRehber.Link,
-                MeyveliRehberType = MeyveliRehber.MeyveliRehberType,
+                Link = MeyveliRehber.Link, 
                 File = MeyveliRehber.FileUrl
             };
             await this.MeyveliRehberRepository.UpdateMeyveliRehberAsync(MeyveliRehberEntity);

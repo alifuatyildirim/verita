@@ -38,7 +38,13 @@ namespace Verita.Data.Concrete
             if (!string.IsNullOrWhiteSpace(MeyveliRehber.Image))
             {
                 MeyveliRehberEntity.Image = MeyveliRehber.Image;
-            } 
+            }
+
+            if (!string.IsNullOrWhiteSpace(MeyveliRehber.File))
+            {
+                MeyveliRehberEntity.File = MeyveliRehber.File;
+            }
+
 
             MeyveliRehberEntity.Name = MeyveliRehber.Name;
             MeyveliRehberEntity.File = MeyveliRehber.File;
@@ -46,7 +52,6 @@ namespace Verita.Data.Concrete
             MeyveliRehberEntity.SortOrder = MeyveliRehber.SortOrder;
             MeyveliRehberEntity.UpdatedBy = MeyveliRehber.UpdatedBy;
             MeyveliRehberEntity.Link = MeyveliRehber.Link;
-            MeyveliRehber.MeyveliRehberType = MeyveliRehber.MeyveliRehberType;
 
             this.genericRepository.Update(MeyveliRehberEntity);
            await this.genericRepository.SaveChangesAsync();

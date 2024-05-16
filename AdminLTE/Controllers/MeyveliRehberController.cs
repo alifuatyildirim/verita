@@ -53,8 +53,7 @@ namespace AdminLTE.Controllers
                 LanguageId = MeyveliRehber.LanguageId,
                 ImageUrl = MeyveliRehber.Image,
                 Name = MeyveliRehber.Name,
-                Link = MeyveliRehber.Link,
-                MeyveliRehberType = MeyveliRehber.MeyveliRehberType,
+                Link = MeyveliRehber.Link, 
                 FileUrl = MeyveliRehber.File
             });
         }
@@ -68,6 +67,10 @@ namespace AdminLTE.Controllers
                 if (MeyveliRehber.Image != null)
                 {
                     MeyveliRehber.ImageUrl = await this.MeyveliRehberService.SaveImageAsync(MeyveliRehber.Image.OpenReadStream(), MeyveliRehber.Image.FileName);
+                }
+                if (MeyveliRehber.File != null)
+                {
+                    MeyveliRehber.FileUrl = await this.MeyveliRehberService.SaveImageAsync(MeyveliRehber.File.OpenReadStream(), MeyveliRehber.File.FileName);
                 }
                 await this.MeyveliRehberService.AddMeyveliRehberAsync(MeyveliRehber);
                 return RedirectToAction("Index");
@@ -83,7 +86,11 @@ namespace AdminLTE.Controllers
                 if (MeyveliRehber.Image != null)
                 {             
                     MeyveliRehber.ImageUrl = await this.MeyveliRehberService.SaveImageAsync(MeyveliRehber.Image.OpenReadStream(), MeyveliRehber.Image.FileName);
-                } 
+                }
+                if (MeyveliRehber.File != null)
+                {
+                    MeyveliRehber.FileUrl = await this.MeyveliRehberService.SaveImageAsync(MeyveliRehber.File.OpenReadStream(), MeyveliRehber.File.FileName);
+                }
 
                 await this.MeyveliRehberService.UpdateMeyveliRehberAsync(MeyveliRehber);
                 return RedirectToAction("Index");

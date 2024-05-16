@@ -48,12 +48,7 @@
                 @Html.LabelFor(model => model.FileUrl, htmlAttributes: new { @class = "control-label" })
                 <input type="file" name="File" class="form-control-file" />
                 @Html.ValidationMessageFor(model => model.FileUrl, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.MeyveliRehberType)
-                @Html.DropDownListFor(model => model.MeyveliRehberType, new SelectList(Enum.GetValues(typeof(LabelType))), "Select LabelType", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MeyveliRehberType, "", new { @class = "text-danger" })
-            </div>
+            </div> 
             <div class="form-group">
                 @Html.LabelFor(model => model.Link)
                 @Html.TextBoxFor(model => model.Link, new { @class = "form-control" })

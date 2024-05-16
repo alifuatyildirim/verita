@@ -84,7 +84,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
       name: "BunlariBiliyorMusunuz",
       pattern: "bunlari-biliyor-musunuz/{id?}",
-         defaults: new { controller = "Home", action = "BunlariBiliyorMusunuz" });
+         defaults: new { controller = "BunlariBiliyorMusunuz", action = "Index" });
 
     endpoints.MapControllerRoute(
         name: "Iletisim",
@@ -95,6 +95,11 @@ app.UseEndpoints(endpoints =>
         name: "BasindaBiz",
         pattern: "basinda-biz/{id?}",
          defaults: new { controller = "BasindaBiz", action = "Index" });
+
+    endpoints.MapControllerRoute(
+        name: "MeyveliRehber",
+        pattern: "meyveli-rehber/{id?}",
+         defaults: new { controller = "MeyveliRehber", action = "Index" });
 
     endpoints.MapControllerRoute(
         name: "Hakkimizda",

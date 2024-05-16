@@ -37,6 +37,7 @@ namespace AdminLTE.ViewComponents
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.NedenVerita, Tuple.Create(1, 0, 0)));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Hakkimizda, Tuple.Create(1, 0, 0)));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.HakkimizdaTimeLine, Tuple.Create(1, 0, 0)));
+            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.MeyveliRehber, Tuple.Create(1, 0, 0)));
             sidebars.Add(ModuleHelper.AddTree("Account"));
             sidebars.Last().TreeChild = new List<SidebarMenu>()
             {

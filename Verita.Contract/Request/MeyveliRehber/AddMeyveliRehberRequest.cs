@@ -8,8 +8,7 @@ namespace Verita.Contract.Request.MeyveliRehber
         public string Name { get; set; } = string.Empty;
         public IFormFile? Image { get; set; }
         public IFormFile? File { get; set; }
-        public string Link { get; set; } = string.Empty;
-        public MeyveliRehberType MeyveliRehberType { get; set; }
+        public string Link { get; set; } = string.Empty; 
         public int SortOrder { get; set; }
         public Language LanguageId { get; set; }
         public DateTime DateOfPublication { get; set; }

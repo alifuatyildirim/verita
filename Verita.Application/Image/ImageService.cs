@@ -18,9 +18,9 @@ namespace Verita.Application.Image
             {
                 Directory.CreateDirectory(sharedFolderPath);
             }
-
+            var extension = fileName.Split('.')[1];
             // Dosya adını benzersiz bir şekilde oluştur
-            var uniqueFileName = Guid.NewGuid().ToString();
+            var uniqueFileName = Guid.NewGuid().ToString()+"."+extension;
 
             // Dosyayı kaydet
             var filePath = Path.Combine(sharedFolderPath, uniqueFileName);
