@@ -1,0 +1,101 @@
+﻿@model Verita.Domain.Entities.Hakkimizda
+@{
+    ViewData["Title"] = "Edit Hakkimizda";
+}
+
+<h1>Edit Hakkimizda</h1>
+
+@using (Html.BeginForm("Edit", "Hakkimizda", FormMethod.Post, new { enctype = "multipart/form-data", id = "HakkimizdaForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title1, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title1, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title1, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description1, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Description1, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description1, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageUrl1, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.ImageUrl1))
+                {
+                    <img src="@Model.ImageUrl1" class="img-thumbnail" id="image1Preview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="Image1" class="form-control-file" onchange="previewImage1(event)" />
+                @Html.ValidationMessageFor(model => model.ImageUrl1, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title2, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title2, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title2, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description2, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Description2, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description2, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageUrl2, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.ImageUrl2))
+                {
+                    <img src="@Model.ImageUrl2" class="img-thumbnail" id="image2Preview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="Image2" class="form-control-file" onchange="previewImage2(event)" />
+                @Html.ValidationMessageFor(model => model.ImageUrl2, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title3, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title3, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title3, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description3, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Description3, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description3, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BackgroundImageUrl, htmlAttributes: new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.BackgroundImageUrl))
+                {
+                    <img src="@Model.BackgroundImageUrl" class="img-thumbnail" id="backgroundImagePreview" style="max-width: 200px; max-height: 200px;" />
+                }
+                <input type="file" name="BackgroundImage" class="form-control-file" onchange="previewBackgroundImage(event)" />
+                @Html.ValidationMessageFor(model => model.BackgroundImageUrl, "", new { @class = "text-danger" })
+            </div> 
+
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () { 
+
+            function previewImage1(event) {
+                var image1Preview = document.getElementById('image1Preview');
+                image1Preview.src = URL.createObjectURL(event.target.files[0]);
+            }
+
+            function previewImage2(event) {
+                var image2Preview = document.getElementById('image2Preview');
+                image2Preview.src = URL.createObjectURL(event.target.files[0]);
+            }
+        function previewBackgroundImage(event) {
+            var backgroundImagePreview = document.getElementById('backgroundImagePreview');
+            backgroundImagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+    </script>
+}

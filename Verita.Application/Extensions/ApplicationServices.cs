@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Verita.Application.BasindaBizService;
+using Verita.Application.BunlariBiliyorMusunuzService;
+using Verita.Application.HakkimizdaService;
+using Verita.Application.HakkimizdaTimeLineService;
 using Verita.Application.HomePageSliderService;
 using Verita.Application.Image;
 using Verita.Application.NedenVeritaService;
@@ -50,6 +53,15 @@ public static class ApplicationServicesExtension
 
         services.AddScoped<IReferanslarRepository, ReferanslarRepository>();
         services.AddScoped<IReferanslarService, ReferanslarService.ReferanslarService>();
+
+        services.AddScoped<IBunlariBiliyorMusunuzRepository, BunlariBiliyorMusunuzRepository>();
+        services.AddScoped<IBunlariBiliyorMusunuzService, BunlariBiliyorMusunuzService.BunlariBiliyorMusunuzService>();
+
+        services.AddScoped<IHakkimizdaRepository, HakkimizdaRepository>();
+        services.AddScoped<IHakkimizdaService, HakkimizdaService.HakkimizdaService>();
+
+        services.AddScoped<IHakkimizdaTimeLineRepository, HakkimizdaTimeLineRepository>();
+        services.AddScoped<IHakkimizdaTimeLineService, HakkimizdaTimeLineService.HakkimizdaTimeLineService>();
 
 
         services.AddScoped<IImageService, ImageService>();

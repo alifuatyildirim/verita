@@ -36,13 +36,13 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (!string.IsNullOrEmpty(category.MainImage))
+            if (!string.IsNullOrWhiteSpace(category.MainImage))
             {
                 categoryEntity.MainImage = category.MainImage;
             }
 
 
-            if (!string.IsNullOrEmpty(category.BackgroundImage))
+            if (!string.IsNullOrWhiteSpace(category.BackgroundImage))
             {
                 categoryEntity.BackgroundImage = category.BackgroundImage;
             }

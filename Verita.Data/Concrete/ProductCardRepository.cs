@@ -26,16 +26,16 @@ namespace Verita.Data.Concrete
         public async Task EditProductCardAsync(ProductCard productCard)
         {
             var productCardEntity = await this.GetProductCardAsync(productCard.Id);
-            if (productCardEntity == null) 
+            if (productCardEntity == null)
             {
                 return;
             }
 
-            if (productCard.Image != null) 
+            if (!string.IsNullOrWhiteSpace(productCard.Image))
             {
                 productCardEntity.Image = productCard.Image;
             }
-            
+
             productCardEntity.Title = productCard.Title;
             productCardEntity.ProductId = productCard.ProductId;
             productCardEntity.Description = productCard.Description;

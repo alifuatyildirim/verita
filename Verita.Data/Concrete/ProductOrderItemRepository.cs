@@ -31,7 +31,7 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (productOrderItem.Image != null) 
+            if (!string.IsNullOrWhiteSpace(productOrderItem.Image)) 
             {
                 productOrderItemEntity.Image = productOrderItem.Image;
             }

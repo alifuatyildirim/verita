@@ -39,7 +39,7 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (!string.IsNullOrEmpty(page.BackgroundUrl)) 
+            if (!string.IsNullOrWhiteSpace(page.BackgroundUrl)) 
             {
                 pageEntity.BackgroundUrl = page.BackgroundUrl;
             }

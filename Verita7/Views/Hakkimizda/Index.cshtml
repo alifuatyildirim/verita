@@ -1,0 +1,221 @@
+﻿@using Verita.Domain.Entities;
+@model Hakkimizda
+@{
+    ViewBag.BodyClass = "shop-header-shadow shop-home";
+}
+<link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+<main class="page-container mt-40">
+    <div class="filter-box categoryNav">
+        <ul>
+
+            <li class="active last">
+                <a href="/hakkimizda/">
+                    Hakkımızda
+                </a>
+            </li>
+
+            <li class="inactive">
+                <a href="/hedeflerimiz/">
+                    Hedeflerimiz
+                </a>
+            </li>
+
+            <li class="inactive">
+                <a href="/neden-verita/">
+                    Neden Verita?
+                </a>
+            </li>
+
+            <li class="inactive">
+                <a href="/organizasyon-yapisi/">
+                    Organizasyon Yapısı
+                </a>
+            </li>
+
+            <li class="inactive">
+                <a href="/kalite-garantisi/">
+                    Kalite Garantisi
+                </a>
+            </li>
+
+            <li class="inactive">
+                <a href="/basinda-biz/">
+                    Basinda Verita
+                </a>
+            </li>
+        </ul>
+    </div> 
+    <div class="container container-body  container-bg">
+        <div class="page-nav-header">
+            <div class="category-info">
+                <div class="breadcrumb">
+                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
+                        <li style=" padding: 0 10px 0px 0; color :#046a38">
+                            <a href="/" title="Anasayfa">Anasayfa</a>
+                            <span class="delimiter">></span>
+                        </li>
+                        <li style=" padding: 0 10px 0px 0; color:#7AB929">
+                            <span class="current-item">Hakkımızda</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="heading-title mt-20">
+            <h4>Hakkımızda</h4>
+        </div>
+        <div class="page-content pe-0 ">
+            <div id="accordion" class="roboto-font pt-10">
+                <div class="d-flex mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                    <div class="align-content-end col-6 d-flex justify-content-start"><img src="@Model.ImageUrl1" class="w-100" style="height:fit-content" /></div>
+                    <div class="col-6 p-4">
+                        <div class="d-flex flex-column align-items-start">
+                            <span class="text-center mb-8 font-size-h5  fw-bold">@Html.DisplayFor(model=>model.Title1)</span>
+                                @Html.DisplayFor(model=>model.Description1)
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex mb-10 mx-10" style="background-color: rgb(255 255 255 / 63%);">
+                    <div class="col-6 p-4">
+                        <div class="d-flex flex-column align-items-center">
+                            <span class="text-center mb-8 font-size-h5  fw-bold">@Html.DisplayFor(model=>model.Title2)</span>
+                            @Html.DisplayFor(model=>model.Description2)
+
+                        </div>
+                    </div>
+                    <div class="align-content-end col-6 d-flex justify-content-end">
+                        <img src="@Model.ImageUrl2" class="w-100" style="height:fit-content" />
+                    </div>
+
+                </div>
+
+                <div class="d-flex my-18 mx-13 justify-content-center" style="background-color: rgb(255 255 255 / 63%);">
+                    <div class="col-6 p-4">
+                        <div class="d-flex flex-column align-items-center">
+                            <span class="text-center mb-8 font-size-h3 fw-bold">@Html.DisplayFor(model=>model.Title3)</span>
+                            @Html.DisplayFor(model=>model.Description3)
+                        </div>
+                    </div>
+                </div>
+
+                <section class="design-section mb-20">
+                    <div class="timeline">
+                        @{List<HakkimizdaTimeLine> timeLines = ((List<HakkimizdaTimeLine>)ViewBag.TimeLines);}
+                        @for (int i = 0; i < timeLines.Count; i++)
+                        {
+                            if (i % 2 == 0)
+                            {
+                                <div class="timeline-empty">
+                                </div>
+                                <div class="timeline-middle">
+                                    <div class="timeline-circle"></div>
+                                </div>
+                                <div class="timeline-component timeline-content">
+                                    <h3>@Html.DisplayFor(model=>timeLines[i].Year)</h3>
+                                    <p>@Html.DisplayFor(model=>timeLines[i].Description)</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="timeline-component timeline-content">
+                                    <h3>@Html.DisplayFor(model=>timeLines[i].Year)</h3>
+                                    <p>@Html.DisplayFor(model=>timeLines[i].Description)</p>
+                                </div>
+                                <div class="timeline-middle">
+                                    <div class="timeline-circle"></div>
+                                </div>
+                                <div class="timeline-empty">
+                                </div>
+                            }
+                        }
+                         <div class="timeline-empty">
+                                </div>
+                        <div class="timeline-middle">
+                            <div class="timeline-circle"></div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+</main>
+<style>
+
+     .container-bg {
+        background-image: url(@Model.BackgroundImageUrl);
+    }
+    .page-container .page-content {
+        padding-bottom: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .page-content {
+        background-color: rgba(255, 255, 255, 0.7); /* Saydam arka plan rengi */
+        margin: 0 auto; /* Sayfa içeriğini ortalar */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* İsteğe bağlı: sayfa içeriğine bir gölge ekleyebilirsiniz */
+        position: relative;
+        z-index: 2; /* .page-content'ı .container'ın üzerine getirmek için z-index ekledik */
+    }
+
+    .roboto-font {
+        font-size: 20px !important;
+        font-weight: 400 !important;
+    }
+
+    .container-body {
+        width: 1300px;
+        margin: 0 auto;
+    }
+
+    h4 {
+        font-size: 40px !important;
+        font-family: 'Roboto Slab SemiBold' !important;
+        font-weight: bold !important;
+        color: rgb(4,106,56) !important;
+    }
+</style>
+@section links{
+
+    <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Default/Content/css/pages/aboutus-page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Default/Content/css/layout/footer.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+
+    <script src="/Themes/Default/Content/js/bootstrap/bootstrap.bundle.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/Themes/Default/Content/plugins/jquery-inline-svg/jquery-inline-svg.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/Themes/Default/Content/plugins/swiperjs/swiper-bundle.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/jquery-validate/jquery.validate-v1.17.0/jquery.validate.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/jquery-validate/jquery.validate.unobtrusive-v3.2.10/jquery.validate.unobtrusive.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/jquery-migrate/jquery-migrate-3.0.1.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/responsive-toolkit/responsive-toolkit.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/Themes/Default/Content/js/main.js?v=2020100520" type="text/javascript"></script>
+    <script src="/js/public.common.min.js?v=2020100520" type="text/javascript"></script>
+    <script src="/js/public.ajaxcart.js?v=2020100520" type="text/javascript"></script>
+    <script src="/lib/toastr/2.1.4/toastr.min.js?v=2020100520" type="text/javascript"></script>
+
+
+}
+
+@section scripts{
+    <script>
+        AjaxCart.init('.header-links .qty-cart', '.header-links .qty-wishlist', '.flyout-cart');
+    </script>
+    <script>
+        var $mobileAccount = $('.header-mobile .account-dropdown');
+
+        $mobileAccount.on('click', function () {
+            if ($mobileAccount.find('.navbar-right-item-title').hasClass('is-authenticated')) {
+                window.location.pathname = '/hesabim/bilgilerim/';
+            }
+
+            if ($mobileAccount.find('.navbar-right-item-title').hasClass('no-authenticated')) {
+                window.location.pathname = '/kullanici-giris/';
+            }
+
+        })
+    </script>
+}

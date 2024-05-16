@@ -22,7 +22,11 @@
             BasindaBiz,
             HomePageSlider,
             HomePageContent,
-            Referanslar
+            Referanslar,
+            NedenVerita,
+            BunlariBiliyorMusunuz,
+            Hakkimizda,
+            HakkimizdaTimeLine
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -78,6 +82,43 @@
                         Name = "Register",
                         IconClassName = "fa fa-user-plus",
                         URLPath = "/Account/Register",
+                        LinkCounter = counter,
+                    };
+
+                case Module.Hakkimizda:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Hakkimizda",
+                        IconClassName = "fa fa-user-plus",
+                        URLPath = "/Hakkimizda/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.HakkimizdaTimeLine:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "HakkimizdaTimeLine",
+                        IconClassName = "fa fa-user-plus",
+                        URLPath = "/HakkimizdaTimeLine/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.BunlariBiliyorMusunuz:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "BunlariBiliyorMusunuz",
+                        IconClassName = "fa fa-user-plus",
+                        URLPath = "/BunlariBiliyorMusunuz/Index",
+                        LinkCounter = counter,
+                    };
+                case Module.NedenVerita:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "NedenVerita",
+                        IconClassName = "fa fa-user-plus",
+                        URLPath = "/NedenVerita/Index",
                         LinkCounter = counter,
                     };
                 //case Module.About:

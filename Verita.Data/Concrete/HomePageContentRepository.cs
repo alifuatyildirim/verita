@@ -35,7 +35,7 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (!string.IsNullOrEmpty(content.Image))
+            if (!string.IsNullOrWhiteSpace(content.Image))
             {
                 contentEntity.Image = content.Image;
             }

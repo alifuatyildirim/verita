@@ -52,7 +52,11 @@ namespace AdminLTE.Controllers
                 SortOrder = basindaBiz.SortOrder,
                 LanguageId = basindaBiz.LanguageId,
                 ImageUrl = basindaBiz.Image,
-                Name = basindaBiz.Name
+                Name = basindaBiz.Name,
+                Link = basindaBiz.Link,
+                ContentType = basindaBiz.ContentType,
+                LabelType = basindaBiz.LabelType,
+                Resource = basindaBiz.Resource
             });
         }
 

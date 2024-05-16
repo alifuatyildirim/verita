@@ -1,5 +1,7 @@
 ﻿@using Verita.Common.Enums;
 @using Verita.Domain.Entities;
+@using Microsoft.AspNetCore.Http
+
 @model IEnumerable<Verita.Domain.Entities.BasindaBiz>
 
 @{
@@ -16,7 +18,7 @@
                     <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
                         <li style=" padding: 0 10px 0px 0; color :#046a38">
                             <a href="/" title="Anasayfa">Anasayfa</a>
-                            <span class="delimiter">></span>
+                            <span class="delimiter">&gt;</span>
                         </li>
                         <li style=" padding: 0 10px 0px 0; color:#7AB929">
                             <span class="current-item">Basında Verita</span>
@@ -32,76 +34,100 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="Sıralama" />
+                <select id="sortSelect" class="form-control mt-2">
+                    <option>Seçiniz</option>
+                    <option value="asc">Artan</option>
+                    <option value="desc">Azalan</option>
+                </select>
             </div>
             <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="Tarih Seçin" />
+                <input type="text" id="datepicker" class="form-control" placeholder="Tarih Seçin" />
             </div>
             <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="Etiket Seçin" />
+                <select id="labelTypeSelect" class="form-control">
+                    <option value="">Seçiniz</option>
+                    <option value="0">Yazılı</option>
+                    <option value="1">Görsel</option>
+                    <option value="2">Dijital</option>
+                    <option value="3">Reklam</option>
+                </select>
             </div>
             <div class="col-md-3">
                 <div class="row">
                     <div class="col-md-5">
-                        <a href="#" class="btn btn-primary">Temizle</a>
+                        <button type="button" class="btn btn-primary" id="clearFiltersBtn">Temizle</button> <!-- Temizle butonu -->
                     </div>
                     <div class="col-md-7">
-                        <a href="#" class="btn btn-primary">Basın Bültenleri</a>
                     </div>
                 </div>
             </div>
         </div>
 
         @{
-            int pageSize = 4; // Sayfa başına gösterilecek kart sayısı
+            int pageSize = 28; // Sayfa başına gösterilecek kart sayısı
             int cardCount = 0; // Kart sayacı
-            int pageCount = (int)Math.Ceiling((double)Model.Count() / pageSize); // Sayfa sayısını hesapla
-        }
+            int pageCount = (int)Math.Ceiling((double)Model.Count() / pageSize);
 
-        @for (int pageIndex = 0; pageIndex < pageCount; pageIndex++)
-        {
-            <div class="row mt-10">
-                @foreach (var card in Model.Skip(pageIndex * pageSize).Take(pageSize))
-                {
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img class="card-img-top" src="@card.Image" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">@card.Name</h5>
-                                <p class="card-text">@card.DateOfPublication.ToString("dd-MM-yyyy")</p>
-                            </div>
-                        </div>
-                    </div>
-                    cardCount++;
-                }
+            var request = Context.Request;
+            int currentPage = 1; // Varsayılan olarak ilk sayfa
+            if (!string.IsNullOrEmpty(request.Query["page"]))
+            {
+                currentPage = Convert.ToInt32(request.Query["page"]);
+            }
+            int startIndex = (currentPage - 1) * pageSize; // Başlangıç indeksi
+            int endIndex = Math.Min(startIndex + pageSize, Model.Count()) - 1; // Bitiş indeksi
+            int cardIndex = 0;
+      
+    int cardsPerRow = 4; // Her satırda gösterilecek kart sayısı
+    int cardsDisplayed = 0; // Gösterilen kart sayısı
+}
+@foreach (var card in Model.Skip(startIndex).Take(pageSize))
+{
+    if (cardsDisplayed % cardsPerRow == 0)
+    {
+        @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
+    }
+    <div class="col-sm-3 @(GetCardTypeClass(card.LabelType.GetHashCode()))">
+        <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")" data-type="@((int)card.LabelType)">
+            <img class="card-img-top" src="@card.Image" alt="Kart resmi">
+            <div class="card-body">
+                <h5 class="card-title">@card.Name</h5>
+                <a href="@card.Resource">@card.Resource</a>
+                <p class="card-text">@card.DateOfPublication.ToString("dd-MM-yyyy")</p>
             </div>
-        }
+        </div>
+    </div>
+    if (cardsDisplayed % cardsPerRow == cardsPerRow - 1 || cardIndex == endIndex)
+    {
+        @:</div> <!-- Satırı kapat -->
+    }
+    cardsDisplayed++;
+}
 
-        <nav aria-label="Page navigation example">
+        <nav>
             <ul class="pagination">
-                @for (int i = 0; i < pageCount; i++)
-                {
-                    <li class="page-item @(i == 0 ? "active" : "")">
-                        <a class="page-link" href="#">@(i + 1)</a>
+                    @for (int i = 1; i <= pageCount; i++)
+                    {
+                    <li class="page-item @(i == currentPage ? "active" : "")">
+                        <a class="page-link" href="?page=@i">@i</a>
                     </li>
-                }
+                    }
             </ul>
         </nav>
-    </div>
-</main>
 
-<style>
-    h4 {
-        font-size: 40px !important;
-        font-family: 'Roboto Slab SemiBold' !important;
-        font-weight: bold !important;
-        color: rgb(4,106,56) !important;
-    }
-</style>
+            </div>
+        </main>
 
-@section links{
+        <style>
+            .card-img-top {
+                height: 300px;
+            }
+        </style>
+                @section links{
     <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/layout/footer.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
+    <link href="/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 
     <script src="/Themes/Default/Content/js/bootstrap/bootstrap.bundle.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/Themes/Default/Content/plugins/jquery-inline-svg/jquery-inline-svg.min.js?v=2020100520" type="text/javascript"></script>
@@ -111,10 +137,153 @@
     <script src="/lib/jquery-migrate/jquery-migrate-3.0.1.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/lib/responsive-toolkit/responsive-toolkit.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/Themes/Default/Content/js/main.js?v=2020100520" type="text/javascript"></script>
-    <script src="/js/public.common.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/js/public.ajaxcart.js?v=2020100520" type="text/javascript"></script>
     <script src="/lib/toastr/2.1.4/toastr.min.js?v=2020100520" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
 }
+        <script>
+            $(document).ready(function () {
+
+                    @functions {
+                        string GetCardTypeClass(int labelType)
+                        {
+                            switch (labelType)
+                            {
+                                case 0:
+                                    return "type-Yazılı";
+                                case 1:
+                                    return "type-Görsel";
+                                case 2:
+                                    return "type-Dijital";
+                                case 3:
+                                    return "type-Reklam";
+                                default:
+                                    return "";
+                            }
+                        }
+                }
+
+
+                        var allCards = $('.card');
+            $('#datepicker').datepicker({
+                dateFormat: 'dd-mm-yy', // Türkçe tarih formatı
+                dayNames: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+                dayNamesMin: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
+                monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+                monthNamesShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
+                nextText: 'İleri',
+                prevText: 'Geri'
+            });
+            $('#pressReleaseBtn').click(function () {
+                searchArticles();
+            });
+
+            $('#sortSelect, #labelTypeSelect').change(function () {
+                searchArticles();
+            });
+
+            $('#datepicker').change(function () {
+                searchArticles();
+            });
+
+            $('#clearFiltersBtn').click(function () {
+                $('#datepicker').val('');
+
+                // Etiket seçimini sıfırla
+                $('#labelTypeSelect').val('');
+
+                // Sıralama seçimini başlangıç değerine getir
+                $('#sortSelect').val('Seçiniz');
+
+                // Tüm kartları göster
+                $('.card').show();
+
+                // Tüm kartları tekrar doldur
+                var $cardContainer = $('#cardContainer');
+                $cardContainer.empty(); // Önce tüm kartları temizle
+                allCards.get().forEach(function (card) {
+                    var cardTypeClass = 'type-' + $(card).data('type'); // Kartın tipine göre sınıf oluştur
+                    var $col = $('<div class="col-sm-3 ' + cardTypeClass + '"></div>'); // Yeni bir col oluştur
+                    $col.append(card); // Kartı col içine yerleştir
+                    $cardContainer.append($col); // Col'u container içine yerleştir
+                });
+            });
+
+
+            function searchArticles() {
+                var searchDate = $('#datepicker').val();
+                var searchType = $('#labelTypeSelect').val();
+                var sortOrder = $('#sortSelect').val();
+
+                var filteredCards = allCards.filter(function () {
+                    var cardDate = $(this).data('date').replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1');
+                    var cardType = $(this).data('type').toString();
+
+                    var dateMatch = searchDate === '' || cardDate === searchDate;
+                    var typeMatch = searchType === '' || cardType === searchType;
+
+                    return dateMatch && typeMatch;
+                });
+
+                var $cardContainer = $('#cardContainer');
+                $cardContainer.empty();
+
+                if (sortOrder === 'asc') {
+                    filteredCards.sort(function (a, b) {
+                        return new Date($(a).data('date')) - new Date($(b).data('date'));
+                    });
+                } else if (sortOrder === 'desc') {
+                    filteredCards.sort(function (a, b) {
+                        return new Date($(b).data('date')) - new Date($(a).data('date'));
+                    });
+                }
+
+                filteredCards.each(function (index, card) {
+                    var $col = $('<div class="col-sm-3"></div>');
+                    $col.append(card);
+                    $cardContainer.append($col);
+                });
+            }
+        });
+
+        function parseDate(input) {
+            var parts = input.split('-');
+            // new Date(year, monthIndex, day)
+            return new Date(parts[2], parts[1] - 1, parts[0]); // Month index 0-based olduğu için 1 çıkarıyoruz
+        }
+    </script>
+        <script>
+            $(document).ready(function () {
+                // Fotoğrafa tıklanınca modalı aç
+                $('.card-img-top').click(function () {
+                    var imgUrl = $(this).attr('src'); // Tıklanan fotoğrafın URL'sini al
+                    var title = $(this).closest('.card').find('.card-title').text(); // Başlık bilgisini al
+                    var date = $(this).closest('.card').find('.card-text').text(); // Tarih bilgisini al
+                    var modalHtml = '<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">\
+                                                        <div class="modal-dialog modal-dialog-centered modal-lg">\
+                                                            <div class="modal-content">\
+                                                                <div class="modal-header">\
+                                                                    <h5 class="modal-title">' + title + '</h5>\
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>\
+                                                                </div>\
+                                                                <div class="modal-body">\
+                                                                    <img src="' + imgUrl + '" class="img-fluid" alt="Fotoğraf">\
+                                                                    <p class="mt-3">Tarih: ' + date + '</p>\
+                                                                </div>\
+                                                            </div>\
+                                                        </div>\
+                                                    </div>';
+                    $('body').append(modalHtml); // Modal HTML'ini sayfaya ekle
+                    $('#imageModal').modal('show'); // Modalı göster
+                });
+
+                // Modal kapatıldığında temizle
+                $('#imageModal').on('hidden.bs.modal', function (e) {
+                    $(this).remove(); // Modal HTML'ini kaldır
+                });
+            });
+        </script> 

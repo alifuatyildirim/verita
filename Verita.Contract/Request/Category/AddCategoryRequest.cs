@@ -5,7 +5,7 @@ namespace Verita.Contract.Request.Category
 {
     public class AddCategoryRequest
     {
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         public int SortOrder { get; set; }
         public Language LanguageId { get; set; }
         public IFormFile? MainImage { get; set; }

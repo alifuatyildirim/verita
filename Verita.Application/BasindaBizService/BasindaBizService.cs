@@ -23,6 +23,10 @@ namespace Verita.Application.BasindaBizService
                 LanguageId = basindaBiz.LanguageId,
                 SortOrder = basindaBiz.SortOrder,
                 DateOfPublication = basindaBiz.DateOfPublication,
+                Link = basindaBiz.Link,
+                Resource = basindaBiz.Resource,
+                ContentType = basindaBiz.ContentType,
+                LabelType = basindaBiz.LabelType,
                 CreatedDate = DateTime.Now
             });
         }
@@ -55,6 +59,10 @@ namespace Verita.Application.BasindaBizService
                 Image = basindaBiz.ImageUrl, 
                 UpdatedDate = DateTime.Now, 
                 DateOfPublication = basindaBiz.DateOfPublication,
+                Link = basindaBiz.Link,
+                Resource = basindaBiz.Resource,
+                ContentType = basindaBiz.ContentType,
+                LabelType = basindaBiz.LabelType,
             };
             await this.basindaBizRepository.UpdateBasindaBizAsync(basindaBizEntity);
         }

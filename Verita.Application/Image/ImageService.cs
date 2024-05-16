@@ -20,7 +20,7 @@ namespace Verita.Application.Image
             }
 
             // Dosya adını benzersiz bir şekilde oluştur
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + fileName;
+            var uniqueFileName = Guid.NewGuid().ToString();
 
             // Dosyayı kaydet
             var filePath = Path.Combine(sharedFolderPath, uniqueFileName);

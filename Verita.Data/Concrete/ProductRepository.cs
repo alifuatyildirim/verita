@@ -38,7 +38,7 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (!string.IsNullOrEmpty( product.MainImageUrl)) 
+            if (!string.IsNullOrWhiteSpace( product.MainImageUrl)) 
             {
                 productEntity.MainImageUrl = product.MainImageUrl;
             }

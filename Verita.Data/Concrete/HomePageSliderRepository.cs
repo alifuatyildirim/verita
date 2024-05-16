@@ -35,7 +35,7 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (!string.IsNullOrEmpty(slider.ImageUrl))
+            if (!string.IsNullOrWhiteSpace(slider.ImageUrl))
             {
                 sliderEntity.ImageUrl = slider.ImageUrl;
             }

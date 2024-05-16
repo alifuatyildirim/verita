@@ -35,7 +35,7 @@ namespace Verita.Data.Concrete
                 return;
             }
 
-            if (!string.IsNullOrEmpty(basindaBiz.Image))
+            if (!string.IsNullOrWhiteSpace(basindaBiz.Image))
             {
                 basindaBizEntity.Image = basindaBiz.Image;
             } 
@@ -44,6 +44,10 @@ namespace Verita.Data.Concrete
             basindaBizEntity.DateOfPublication = basindaBiz.DateOfPublication;
             basindaBizEntity.SortOrder = basindaBiz.SortOrder;
             basindaBizEntity.UpdatedBy = basindaBiz.UpdatedBy;
+            basindaBizEntity.Link = basindaBiz.Link;
+            basindaBizEntity.Resource = basindaBiz.Resource;
+            basindaBizEntity.ContentType = basindaBiz.ContentType;
+            basindaBizEntity.LabelType = basindaBiz.LabelType;
 
             this.genericRepository.Update(basindaBizEntity);
            await this.genericRepository.SaveChangesAsync();

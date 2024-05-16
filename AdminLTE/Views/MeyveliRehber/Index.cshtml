@@ -1,0 +1,54 @@
+﻿@using Verita.Common.Enums;
+@model IEnumerable<Verita.Domain.Entities.MeyveliRehber>
+
+@{
+    ViewBag.Title = "Meyveli Rehber List";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Meyveli Rehber List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="mb-3">
+            <a href="@Url.Action("Create", "MeyveliRehber")" class="btn btn-success float-left">Create New</a>
+            <div class="clearfix"></div>
+        </div>
+        <table id="categoryTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Language</th>
+                    <th>DateOfPublicitaion</th>
+                    <th>Order</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var meyveliRehber in Model)
+                {
+                    <tr>
+                        <td>@meyveliRehber.Id</td>
+                        <td>@meyveliRehber.Name</td>
+                        <td>@((Language)meyveliRehber.LanguageId)</td>
+                        <td>@meyveliRehber.DateOfPublication</td>
+                        <td>@meyveliRehber.SortOrder</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Category Actions">
+                                <a href="@Url.Action("Edit", "MeyveliRehber", new { id = meyveliRehber.Id })" class="btn btn-primary">Edit</a>
+                                <form asp-action="Delete" asp-controller="MeyveliRehber" asp-route-id="@meyveliRehber.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this meyveli rehber?')" class="delete-form">
+                                    <input type="hidden" name="id" value="@meyveliRehber.Id" />
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->

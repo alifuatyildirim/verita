@@ -99,8 +99,11 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "Hakkimizda",
         pattern: "hakkimizda/{id?}",
+         defaults: new { controller = "Hakkimizda", action = "Index" });
+    endpoints.MapControllerRoute(
+        name: "Hakkimizda2",
+        pattern: "hakkimizda2/{id?}",
          defaults: new { controller = "Home", action = "Hakkimizda" });
-
     endpoints.MapControllerRoute(
         name: "EgzotikMeyveler",
         pattern: "egzotik-meyveler/{id?}",

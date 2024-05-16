@@ -19,6 +19,10 @@ namespace Verita.Data
         public DbSet<HomePageContent> HomePageContent { get; set; }
         public DbSet<NedenVerita> NedenVerita { get; set; }
         public DbSet<Referanslar> Referanslar { get; set; }
+        public DbSet<BunlariBiliyorMusunuz> BunlariBiliyorMusunuz { get; set; }
+        public DbSet<Hakkimizda> Hakkimizda { get; set; }
+        public DbSet<HakkimizdaTimeLine> HakkimizdaTimeLine { get; set; }
+        public DbSet<MeyveliRehber> MeyveliRehber { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

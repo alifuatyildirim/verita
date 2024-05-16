@@ -1,0 +1,74 @@
+﻿@using Verita.Contract.Request.Hakkimizda;
+@model AddHakkimizdaRequest
+@{
+    ViewData["Title"] = "Create Hakkimizda";
+}
+
+<h1>Create Hakkimizda</h1>
+
+@using (Html.BeginForm("Create", "Hakkimizda", FormMethod.Post, new { enctype = "multipart/form-data", id = "HakkimizdaForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title1, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title1, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title1, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description1, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Description1, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description1, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageUrl1, htmlAttributes: new { @class = "control-label" })
+                <input type="file" name="Image1" class="form-control-file" />
+                @Html.ValidationMessageFor(model => model.Image1, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title2, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title2, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title2, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description2, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Description2, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description2, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageUrl2, htmlAttributes: new { @class = "control-label" })
+                <input type="file" name="Image2" class="form-control-file" />
+                @Html.ValidationMessageFor(model => model.Image2, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title3, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Title3, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title3, "", new { @class = "text-danger" })
+            </div>
+           
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description3, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Description3, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description3, "", new { @class = "text-danger" })
+            </div>
+           
+
+             
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BackgroundImageUrl, htmlAttributes: new { @class = "control-label" })
+                <input type="file" name="BackgroundImage" class="form-control-file" />
+                @Html.ValidationMessageFor(model => model.BackgroundImage, "", new { @class = "text-danger" })
+            </div>
+             
+        </div> 
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
