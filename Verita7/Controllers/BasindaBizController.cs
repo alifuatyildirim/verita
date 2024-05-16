@@ -22,13 +22,13 @@ namespace Verita7.Controllers
                 int a = new Random().Next(0,3);
                 basindaBiz.Add(new Verita.Domain.Entities.BasindaBiz
                 {
-                    ContentType = Verita.Common.Enums.BasindaBizContentType.Image,
+                    ContentType = Verita.Common.Enums.BasindaBizContentType.Link,
                     Image = basindaBiz[0].Image,
                     Id = i + 100,
                     DateOfPublication = DateTime.Now,
                     Name = "test" + i,
                     LabelType = (LabelType)a,
-                    Link = "LİNK",
+                    Link = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/4TK4LrYpJys?si=c_96OKGDfzIboLBf\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
                     Resource = "RESOURCE",
                     SortOrder = 1,
                     LanguageId = Language.Tr,

@@ -88,7 +88,7 @@
         @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
     }
     <div class="col-sm-3 @(GetCardTypeClass(card.LabelType.GetHashCode()))">
-        <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")" data-type="@((int)card.LabelType)">
+        <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")" data-type="@((int)card.LabelType)"  data-image="@card.Image"  data-link="@card.Link"  data-contenttype="@card.ContentType.ToString()">
             <img class="card-img-top" src="@card.Image" alt="Kart resmi">
             <div class="card-body">
                 <h5 class="card-title">@card.Name</h5>
@@ -104,7 +104,7 @@
     cardsDisplayed++;
 }
 
-        <nav>
+        <nav class="mt-10">
             <ul class="pagination">
                     @for (int i = 1; i <= pageCount; i++)
                     {
@@ -256,34 +256,45 @@
             return new Date(parts[2], parts[1] - 1, parts[0]); // Month index 0-based olduğu için 1 çıkarıyoruz
         }
     </script>
-        <script>
-            $(document).ready(function () {
-                // Fotoğrafa tıklanınca modalı aç
-                $('.card-img-top').click(function () {
-                    var imgUrl = $(this).attr('src'); // Tıklanan fotoğrafın URL'sini al
-                    var title = $(this).closest('.card').find('.card-title').text(); // Başlık bilgisini al
-                    var date = $(this).closest('.card').find('.card-text').text(); // Tarih bilgisini al
-                    var modalHtml = '<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">\
-                                                        <div class="modal-dialog modal-dialog-centered modal-lg">\
-                                                            <div class="modal-content">\
-                                                                <div class="modal-header">\
-                                                                    <h5 class="modal-title">' + title + '</h5>\
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>\
-                                                                </div>\
-                                                                <div class="modal-body">\
-                                                                    <img src="' + imgUrl + '" class="img-fluid" alt="Fotoğraf">\
-                                                                    <p class="mt-3">Tarih: ' + date + '</p>\
-                                                                </div>\
-                                                            </div>\
-                                                        </div>\
-                                                    </div>';
-                    $('body').append(modalHtml); // Modal HTML'ini sayfaya ekle
-                    $('#imageModal').modal('show'); // Modalı göster
-                });
+    <script>
+    $(document).ready(function () {
+        // Kart tıklanıldığında modalı aç
+        $('.card').click(function () {
+            var contentType = $(this).data('contenttype');
+            var content = contentType === 'Image' ? 
+                '<img src="' + $(this).data('image') + '" class="img-fluid" alt="Fotoğraf">' :
+                $(this).data('link');
+            var modalHtml = '<div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">\
+                <div class="modal-dialog modal-dialog-centered modal-lg">\
+                    <div class="modal-content">\
+                        <div class="modal-header">\
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeAndRemoveModal()"></button>\
+                        </div>\
+                        <div class="modal-body">\
+                            ' + content + '\
+                        </div>\
+                    </div>\
+                </div>\
+            </div>';
+            $('body').append(modalHtml); // Modal HTML'ini sayfaya ekle
+            $('#contentModal').modal('show'); // Modalı göster
+        });
 
-                // Modal kapatıldığında temizle
-                $('#imageModal').on('hidden.bs.modal', function (e) {
+         $(document).on('click', function (e) {
+            if ($(e.target).hasClass('modal')) {
+                $('#contentModal').modal('hide'); // Modalı kapat
+                $('#contentModal').on('hidden.bs.modal', function () {
                     $(this).remove(); // Modal HTML'ini kaldır
                 });
+            }
+        });
+        // Modalı kapat ve sil
+        window.closeAndRemoveModal = function () {
+            $('#contentModal').modal('hide'); // Modalı kapat
+            $('#contentModal').on('hidden.bs.modal', function () {
+                $(this).remove(); // Modal HTML'ini kaldır
             });
-        </script> 
+        };
+    });
+</script>
+
