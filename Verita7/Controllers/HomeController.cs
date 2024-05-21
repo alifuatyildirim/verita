@@ -6,6 +6,7 @@ using Verita.Application.HomePageSliderService;
 using Verita.Application.NedenVeritaService;
 using Verita.Application.ProductService;
 using Verita.Common.Enums;
+using Verita.Domain.Entities;
 
 namespace Verita7.Controllers
 {
@@ -46,6 +47,7 @@ namespace Verita7.Controllers
             ViewBag.Hakkimizda = content.FirstOrDefault(x => x.ContentType == HomePageContentType.Hakkimizda);
             ViewBag.NedenVeritaContent = content.FirstOrDefault(x => x.ContentType == HomePageContentType.NedenVerita);
             ViewBag.NedenVerita = await this.nedenVeritaService.GetNedenVeritaListAsync();
+             
             ViewBag.Referanslar = await this.referanslarService.GetReferanslarListAsync();
             var pages = await this.pageService.GetPagesAsync();
             ViewBag.DalindanSofraya = pages.Where(x => x.Name.StartsWith("Dalından")).FirstOrDefault()?.Id;

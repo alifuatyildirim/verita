@@ -18,8 +18,9 @@ namespace Verita7.Controllers
         }
         public async Task<IActionResult> Index()
         { 
-            var bunlariBiliyorMusunuz = await this.meyveliRehberService.GetMeyveliRehberListAsync(); 
-            return View(bunlariBiliyorMusunuz);
+            var meyveliRehber = await this.meyveliRehberService.GetMeyveliRehberListAsync();
+           
+            return View(meyveliRehber);
         }
     }
 }

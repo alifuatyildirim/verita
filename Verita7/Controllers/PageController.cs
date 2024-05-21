@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Verita.Application.ProductService;
+using Verita.Domain.Entities;
 
 namespace Verita7.Controllers
 {

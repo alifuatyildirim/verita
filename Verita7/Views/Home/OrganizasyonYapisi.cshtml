@@ -38,7 +38,7 @@
 
             <li class="inactive">
                 <a href="/basinda-biz/">
-                    Basinda Verita
+                    Basında Verita
                 </a>
             </li>
         </ul>
@@ -48,11 +48,11 @@
             <div class="category-info">
                 <div class="breadcrumb">
                     <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
-                        <li style=" padding: 0 10px 0px 0; color :#046a38">
+                        <li class="breadcrumb-first-item" style=" padding: 0 10px 0px 0; ">
                             <a href="/" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
-                        <li style=" padding: 0 10px 0px 0; color:#7AB929">
+                        <li class="breadcrumb-last-item" style=" padding: 0 10px 0px 0;">
                             <span class="current-item">Organizasyon Yapısı</span>
                         </li>
                     </ul>
@@ -60,7 +60,7 @@
             </div>
 
         </div>
-        <div class="heading-title">
+        <div class="heading-title mt-20">
             <h4>Organizasyon Yapısı</h4>
 
         </div>
@@ -68,13 +68,19 @@
 
             <div id="accordion" class="pt-10">
                 <div class="row">
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 text-center">
                         Verita; dünya genelinde yüksek standartları, sertifikalı ürünleri ve taze meyve-sebzeleri, tam mevsiminde ve en uygun koşullarda sizlere ulaştırmak üzere küresel bir organizasyon olarak faaliyet göstermektedir.
                         <p class="mt-9">Bölge temsilciliği ağı, Türkiye genelinde perakendecilerin tüm ihtiyaçlarını eksiksiz bir şekilde karşılamak üzere kurulmuştur. Verita, tedarik zincirini titizlikle yöneterek, sofralarınıza kalite, tazelik ve kesintisiz besin sağlamak için büyük bir özveriyle çalışmaktadır</p>
                     </div>
+                    <div class="col-md-2"></div>
                 </div>
                 <div class="row justify-content-center mt-25">
                     <div class="card">
+                        <img class="card-img-top" src="~/images/org_dunya_harita-min.jpg">
+                    </div>
+
+                    <div class="card mt-40">
                         <img class="card-img-top" src="~/images/DSC1316.jpg">
                         <div class="card-body">
                             <div class="row">
@@ -99,6 +105,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="card mt-40">
+                        <img class="card-img-top" src="~/images/org_turkiye_harita-min.jpg">
                     </div>
 
                     <div class="card mt-40" style="border:none">
@@ -424,6 +434,10 @@
 
     .organizasyon-body {
         padding: 45px;
+    }
+
+    .container-bg {
+        background-image: url('/images/organizasyon-yapisi-zemin-webp.webp');
     }
 </style>
 @section links{

@@ -46,7 +46,7 @@
 
             <li class="inactive">
                 <a href="/basinda-biz/">
-                    Basinda Verita
+                    Basında Verita
                 </a>
             </li>
         </ul>
@@ -56,11 +56,11 @@
             <div class="category-info">
                 <div class="breadcrumb" style="margin-bottom:10px">
                     <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
-                        <li style=" padding: 0 10px 0px 0; color :#046a38">
+                        <li  class="breadcrumb-first-item" style=" padding: 0 10px 0px 0; color :#046a38">
                             <a href="/" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">&gt;</span>
                         </li>
-                        <li style=" padding: 0 10px 0px 0; color:#7AB929">
+                        <li style=" padding: 0 10px 0px 0;">
                             <span class="current-item">Basında Verita</span>
                         </li>
                     </ul>
@@ -74,16 +74,22 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <select id="sortSelect" class="form-control mt-2">
+                <select id="sortSelect" class="form-control">
                     <option>Seçiniz</option>
                     <option value="asc">Artan</option>
                     <option value="desc">Azalan</option>
                 </select>
             </div>
-            <div class="col-md-3">
-                <input type="text" id="datepicker" class="form-control" placeholder="Tarih Seçin" />
+            <div class="col-md-4">
+                <select id="datepicker" name="datepicker" class="form-control">
+            @foreach (var item in ViewBag.Years as List<int>)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
+               
                 <select id="labelTypeSelect" class="form-control">
                     <option value="">Seçiniz</option>
                     <option value="0">Yazılı</option>
@@ -92,7 +98,7 @@
                     <option value="3">Reklam</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-1">
                 <div class="row">
                     <div class="col-md-5">
                         <button type="button" class="btn btn-primary" id="clearFiltersBtn">Temizle</button> <!-- Temizle butonu -->
@@ -128,12 +134,13 @@
         @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
     }
     <div class="col-sm-3 @(GetCardTypeClass(card.LabelType.GetHashCode()))">
-        <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")" data-title="@card.Name" data-type="@((int)card.LabelType)"  data-image="@card.Image"  data-link="@card.Link"  data-contenttype="@card.ContentType.ToString()">
+        <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")"  data-year="@card.DateOfPublication.Year" data-title="@card.Name" data-type="@((int)card.LabelType)"  data-image="@card.Image"  data-link="@card.Link"  data-contenttype="@card.ContentType.ToString()">
             <img class="card-img-top" src="@card.Image" alt="Kart resmi">
             <div class="card-body">
-                <h5 class="card-title">@card.Name</h5>
-                <a href="@card.Resource">@card.Resource</a>
                 <p class="card-text">@card.DateOfPublication.ToString("dd-MM-yyyy")</p>
+                <a href="@card.Resource">@card.Resource</a>
+                <hr>
+                <h5 class="card-title">@card.Name</h5> 
             </div>
         </div>
     </div>
@@ -159,9 +166,25 @@
         </main>
 
         <style>
+            .card-title{
+                margin-bottom: .5rem;
+                font-size: 15px;
+                font-weight: bold;
+                font-family: 'Roboto Slab SemiBold' !important;
+            }
+            .card-body{
+                height:200px;
+            }
             .card-img-top {
                 height: 300px;
             }
+
+             h4 {
+        font-size: 40px !important;
+        font-family: 'Roboto Slab SemiBold' !important;
+        font-weight: bold !important;
+        color: rgb(4,106,56) !important;
+    }
         </style>
                 @section links{
     <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
@@ -209,15 +232,7 @@
 
 
                         var allCards = $('.card');
-            $('#datepicker').datepicker({
-                dateFormat: 'dd-mm-yy', // Türkçe tarih formatı
-                dayNames: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
-                dayNamesMin: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
-                monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
-                monthNamesShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
-                nextText: 'İleri',
-                prevText: 'Geri'
-            });
+         
             $('#pressReleaseBtn').click(function () {
                 searchArticles();
             });
@@ -255,12 +270,12 @@
 
 
             function searchArticles() {
-                var searchDate = $('#datepicker').val();
+                var searchDate = parseInt($('#datepicker').val());
                 var searchType = $('#labelTypeSelect').val();
                 var sortOrder = $('#sortSelect').val();
 
                 var filteredCards = allCards.filter(function () {
-                    var cardDate = $(this).data('date').replace(/(\d{4})-(\d{2})-(\d{2})/, '$3-$2-$1');
+                    var cardDate = $(this).data('year');
                     var cardType = $(this).data('type').toString();
 
                     var dateMatch = searchDate === '' || cardDate === searchDate;
@@ -306,7 +321,7 @@
                 '<img src="' + $(this).data('image') + '" class="img-fluid" alt="Fotoğraf">' :
                 $(this).data('link');
             var modalHtml = '<div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">\
-                <div class="modal-dialog modal-dialog-centered modal-lg">\
+                <div class="modal-dialog modal-dialog-centered modal-xl">\
                     <div class="modal-content">\
                         <div class="modal-header">\
                             <h5 class="modal-title">'+title+'</h5>\

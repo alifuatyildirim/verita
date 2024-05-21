@@ -717,7 +717,7 @@ header .navbar-right .navbar-right-item {
     }
 
     header .navbar-right .navbar-right-item ~ .navbar-right-item {
-        margin-left: 25px
+        margin-left: 50px
     }
 
     header .navbar-right .navbar-right-item:hover path {
@@ -829,13 +829,15 @@ header .navbar-right .account-dropdown {
  z-index:1000;
 }
 
+/*Menüyü saða dayamak için justify-content*/
     .header-mobile .bottom {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         width: 100%;
         padding: 15px 20px;
-        flex-direction: row
+        flex-direction: row;
+        padding-right:60px;
     }
 
 .header-mobile-logo {
@@ -917,7 +919,7 @@ header .navbar-right .account-dropdown {
         top: 0;
         right: -100%;
         left: auto;
-        width: 40%
+        width: 60%
     }
 }
 
@@ -965,7 +967,7 @@ header .navbar-right .account-dropdown {
 @media (min-width: 768px) and (max-width: 991.98px) {
     .header-mobile .bottom .header-mobile-nav #header-mobile-toggle:checked + .hamburger-btn + .header-mobile-content {
         top: auto;
-        right: 0
+        left: 0
     }
 }
 
@@ -998,7 +1000,7 @@ header .navbar-right .account-dropdown {
         font-size: 30px;
         color: #434343;
         padding-top: 0.65rem;
-        border-bottom: 1px solid #e3e6ea;
+        border-bottom: 5px solid #e3e6ea;
         font-weight:600;
     }
 

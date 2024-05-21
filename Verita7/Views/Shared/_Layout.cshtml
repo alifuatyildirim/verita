@@ -39,7 +39,8 @@
                     <div class="header-mobile-content-wrap">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" id="dropdownMenuButton-4" href="#">VERİTA</a>
+                                <a class="nav-link" id="dropdownMenuButton-4" href="#">VERİTA  <span style="float:right; margin-right:40px;">></span> </a>
+                               
                                 <div class="sub-menu">
                                     <ul>
                                         <li><a class="dropdown-item mobil-sub-menu-font" href="/hakkimizda">Hakkımızda</a>                                 </li>
@@ -52,7 +53,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="dropdownMenuButton-1" href="#">ÜRÜNLERİMİZ</a>
+                                <a class="nav-link" id="dropdownMenuButton-1" href="#">ÜRÜNLERİMİZ <span style="float:right; margin-right:40px;">></span> </a>
                                 <div class="sub-menu">
                                     <ul>
                                         @await Component.InvokeAsync("CategoryListMobil")
@@ -61,7 +62,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="dropdownMenuButton-1" href="#">GÜVENLİ GIDA</a>
+                                <a class="nav-link" id="dropdownMenuButton-1" href="#">GÜVENLİ GIDA <span style="float:right; margin-right:40px;">></span> </a>
                                 <div class="sub-menu">
                                     <ul>
                                         @await Component.InvokeAsync("PageListMobil", new { pageCategoryId = PageCategory.GuvenliGida })
@@ -69,7 +70,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="dropdownMenuButton-1" href="#">MERAK ETTİKLERİNİZ</a>
+                                <a class="nav-link" id="dropdownMenuButton-1" href="#">MERAK ETTİKLERİNİZ <span style="float:right; margin-right:40px;">></span> </a>
                                 <div class="sub-menu">
                                     <ul>
                                         @await Component.InvokeAsync("PageListMobil", new { pageCategoryId = PageCategory.MerakEttikleriniz })
@@ -95,7 +96,7 @@
             </div>
             <div class="header-mobile-logo">
                 <a href="/">
-                    <img src="/logo.png" style="margin-top:50px;" />
+                    <img src="/logo.png" style="margin-top:110px; height:80%;" />
                 </a>
             </div>
             <div></div>
@@ -195,7 +196,7 @@
                         </div>
                         <div class="navbar-right-item" style="background-color:#ee2e24; padding:10px;">
                             <a href="https://www.dunyaninmeyvesi.com/"><div class="navbar-right-item-title">ONLINE <br />ALIŞVERİŞ</div></a>
-                        </div> ss
+                        </div> 
 
                         <div class="navbar-right-item">
                             <a href="/meyveli-rehber" class="navbar-right-item-title">MEYVELİ <br /> REHBER</a>
@@ -214,8 +215,8 @@
     <footer>
 
         <div class="container pb-10" style="max-width:100%">
-            <div class="row g-0">
-                <div class="col-md-12 col-lg-12 offset-md-1 offset-lg-0 py-10">
+            <div class="row g-0  mx-10">
+                <div class="col-md-12 col-lg-12 offset-lg-0 py-10">
                     <div class="row">
                         <div class="col-lg-10 col-sm-10 mt-md-7 mt-lg-0">
                             <div class="row">
