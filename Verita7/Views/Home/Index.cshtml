@@ -129,9 +129,9 @@
                         <img src="@(((HomePageContent)ViewBag.Hakkimizda)?.Image)" class="w-100" style="height:auto;" />
                     </div>
                     <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.Hakkimizda)?.Title)</span>
+                        <span class="text-center mb-4 font-size-h3 title">@Html.Raw(((HomePageContent)ViewBag.Hakkimizda)?.Title)</span>
                         <span class="text-center mb-4 px-10 home-page-content">
-                            @(((HomePageContent)ViewBag.Hakkimizda)?.Description)
+                            @Html.Raw((((HomePageContent)ViewBag.Hakkimizda)?.Description)) 
                         </span>
                         <a href="@(((HomePageContent)ViewBag.Hakkimizda)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
                     </div>
@@ -173,9 +173,9 @@
                         <img src="@(((HomePageContent)ViewBag.GuvenliGida)?.Image)" class="w-100" style="height:auto;" />
                     </div>
                     <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.GuvenliGida)?.Title)</span>
+                        <span class="text-center mb-4 font-size-h3 title">@Html.Raw(((HomePageContent)ViewBag.GuvenliGida)?.Title)</span>
                         <span class="text-center mb-4 px-10 home-page-content">
-                            @(((HomePageContent)ViewBag.GuvenliGida)?.Description)
+                            @Html.Raw(((HomePageContent)ViewBag.GuvenliGida)?.Description)
                         </span>
                         <a href="@(((HomePageContent)ViewBag.GuvenliGida)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
                     </div>
@@ -537,7 +537,7 @@
         @{
             // Initialize JavaScript variables
             <text>
-                var mobileJson = [];
+                        var mobileJson = [];
                 var tabletJson = [];
                 var desktopJson = [];
             </text>
@@ -552,13 +552,13 @@
                     <text>
                         var slider = {
                             Id: @item.Id,
-                            Title: "@item.Description",
+                            Title: '@Html.Raw(item.Description)',
                             Name: "@item.Name",
                             PictureUrl: "'@item.ImageUrl'",
-                            Url: "'@item.Link'",
-                            Mobile: true,  
-                            Tablet: true,  
-                            Desktop: true  
+                            Url: '@item.Link',
+                            Mobile: true,
+                            Tablet: true,
+                            Desktop: true
                         };
                     </text>
 
@@ -571,14 +571,10 @@
                 }
             }
 
-        } 
-            // Variables
-           // mobileJson =  [{ "Id": 1, "Title": "Kalite Garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-           // tabletJson =  [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-           // desktopJson = [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-
-            // Slide Array
-            var slides = new Array();
+        }
+           
+                // Slide Array
+                var slides = new Array();
 
             // Viewport Detect
             if (ResponsiveToolkit.is('<=sm')) { slides = mobileJson }
@@ -594,16 +590,17 @@
 
             // Each slide items in slides
             $.each(slides, function (index, slide) {
-                var slideItem = $('<div class="swiper-slide"><div class="slider-bg" style="background-image: url(' + slide.PictureUrl + ')"><h2>' + slide.Title + '</h2><div class="btn-big" style="width:240px; height:64px;"><a href="' + slide.Url + '" position: relative; class="btn-dahafazla"">DAHA FAZLA</a></div></div>');
+                var slideItem = $('<div class="swiper-slide"><div class="slider-bg" style="background-image: url(' + slide.PictureUrl + ')"></div></div>');
+                var slideContent = $('<div>').html(slide.Title);
+                var button = $('<div class="btn-big" style="width:240px; height:64px;"><a href="' + slide.Url + '" target="_blank" class="btn-dahafazla">DAHA FAZLA</a></div>');
+
+                slideItem.find('.slider-bg').append(slideContent).append(button);
                 slideWrap.append(slideItem);
             });
-
-
 
             //Swiper-Slider
             const swiper = new Swiper('.big-slider-swiper .swiper', {
                 // Enable lazy loading
-
                 lazy: {
                     loadPrevNext: true,
                 },
@@ -624,6 +621,5 @@
             initSlides();
         });
     </script>
-
 
 }

@@ -158,18 +158,16 @@ namespace Verita7.Controllers
         public ActionResult BizeUlasin(string FullName, string Email, string Subject, string Enquiry)
         {
 
-            string fromAddress = "alifuatyildirim36@gmail.com"; // gönderici mail
+            string fromAddress = "bilisimuzamni2017@gmail.com"; // gönderici mail
             string toAddress = "alifuat.yildirim@hotmail.com"; //alıcı mail
-            const string fromPassword = "şifre"; // Uygulama şifresi
+            const string fromPassword = "Aa13582."; // Uygulama şifresi
 
             // E-posta göndermek için SmtpClient oluşturun ve Gmail SMTP sunucusunu belirtin
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
+                EnableSsl = true, 
                 Credentials = new NetworkCredential(fromAddress, fromPassword)
             };
 
