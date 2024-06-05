@@ -6,6 +6,7 @@ using Verita.Application.HakkimizdaService;
 using Verita.Application.HakkimizdaTimeLineService;
 using Verita.Application.HomePageSliderService;
 using Verita.Application.Image;
+using Verita.Application.MailService;
 using Verita.Application.MeyveliRehberService;
 using Verita.Application.NedenVeritaService;
 using Verita.Application.ProductService;
@@ -69,6 +70,7 @@ public static class ApplicationServicesExtension
         services.AddScoped<IMeyveliRehberService, MeyveliRehberService.MeyveliRehberService>();
 
         services.AddScoped<IImageService, ImageService>();
+        services.AddScoped<IMailService, MailService.MailService>();
         return services;
     }
 

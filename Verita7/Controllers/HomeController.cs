@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Mail;
 using Verita.Application.HomePageSliderService;
+using Verita.Application.MailService;
 using Verita.Application.NedenVeritaService;
 using Verita.Application.ProductService;
 using Verita.Common.Enums;
@@ -19,8 +20,17 @@ namespace Verita7.Controllers
         private readonly IHomePageSliderService homePageSliderService;
         private readonly INedenVeritaService nedenVeritaService;
         private readonly IReferanslarService referanslarService;
+        private readonly IMailService mailService;
 
-        public HomeController(IProductService productService, ICategoryService categoryService, IPageService pageService, IHomePageContentService homePageContentService, IHomePageSliderService homePageSliderService, INedenVeritaService nedenVeritaService, IReferanslarService referanslarService)
+        public HomeController(IProductService productService,
+            ICategoryService categoryService, 
+            IPageService pageService, 
+            IHomePageContentService homePageContentService, 
+            IHomePageSliderService homePageSliderService, 
+            INedenVeritaService nedenVeritaService, 
+            IReferanslarService referanslarService,
+            IMailService mailService
+            )
         {
             this.productService = productService;
             this.categoryService = categoryService;
@@ -29,7 +39,7 @@ namespace Verita7.Controllers
             this.homePageSliderService = homePageSliderService;
             this.nedenVeritaService = nedenVeritaService;
             this.referanslarService = referanslarService;
-
+            this.mailService = mailService;
         }
 
         public async Task<IActionResult> CategoriesPartialView()
@@ -158,38 +168,7 @@ namespace Verita7.Controllers
         public ActionResult BizeUlasin(string FullName, string Email, string Subject, string Enquiry)
         {
 
-            string fromAddress = "alifuatyildirim36@gmail.com"; // gönderici mail
-            string toAddress = "alifuat.yildirim@hotmail.com"; //alıcı mail
-            const string fromPassword = "şifre"; // Uygulama şifresi
-
-            // E-posta göndermek için SmtpClient oluşturun ve Gmail SMTP sunucusunu belirtin
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress, fromPassword)
-            };
-
-            // E-posta oluşturun ve gönderilecek kişi, konu ve içeriği belirtin
-            var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = Subject,
-                Body = "Ad Soyad: " + FullName + "\nE-Posta: " + Email + "\nMesaj: " + Enquiry
-            };
-
-            try
-            {
-                // E-postayı gönder
-                smtp.Send(message);
-                Console.WriteLine("E-posta başarıyla gönderildi.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("E-posta gönderilirken hata oluştu: " + ex.Message);
-            }
+            this.mailService.SendMail(FullName, Email, Subject, Enquiry);
             return RedirectToAction("Iletisim");
         }
     }

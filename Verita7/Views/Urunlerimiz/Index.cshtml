@@ -11,11 +11,23 @@
 
             @foreach (var item in (List<Category>)ViewBag.Categories)
             {
-                <li class="inactive">
-                    <a href="/urunlerimiz?categoryId=@item.Id">
-                        @item.Name
-                    </a>
-                </li>
+                if (item.IsPage)
+                {
+                    <li class="inactive">
+                        <a href="/Page?pageId=@item.PageId&isPage=true">
+                            @item.Name
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="inactive">
+                        <a href="/urunlerimiz?categoryId=@item.Id">
+                            @item.Name
+                        </a>
+                    </li>
+                }
+              
             }
         </ul>
     </div>
