@@ -27,7 +27,7 @@
                         </a>
                     </li>
                 }
-              
+
             }
         </ul>
     </div>
@@ -47,7 +47,7 @@
                             <span class="delimiter">></span>
                         </li>
                         <li style=" padding: 0 10px 0px 0; color :#7AB929">
-                            <span class="current-item">@Model.FirstOrDefault()?.Category.Name</span> 
+                            <span class="current-item">@Model.FirstOrDefault()?.Category.Name</span>
                         </li>
                     </ul>
                 </div>
@@ -64,32 +64,27 @@
                     var products = Model;
                     var rowCount = (int)Math.Ceiling((double)products.Count / 3);
                 }
-
-                @for (int i = 0; i < rowCount; i++)
-                {
-                    <div class="row g-5 mb-13">
-                        @for (int j = i * 3; j < Math.Min((i + 1) * 3, products.Count); j++)
-                        {
-                            var item = products[j];
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 product-item400 @(j % 3 == 2 ? "last-item" : "")">
-                                <div class="product-item">
-                                    <a href ="/urunler?productId=@item.Id" class="product-link"></a>
-                                    <div class="product-image">
-                                        <img src="@item.MainImageUrl" alt="@item.Name">
-                                    </div>
-                                    <div class="overlay">
-                                        <div class="middle">
-                                            <div></div>
-                                            <div class="overlay-name">@item.Name</div>
-                                            <a href="/urunler?productId=@item.Id" class="btn-big product-btn-big">İNCELE</a>
-                                        </div>
+                <div class="row g-5 mt-10 mb-13">
+                    @foreach (var item in products)
+                    { 
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                            <div class="product-item">
+                                <a href="/urunler?productId=@item.Id" class="product-link"></a>
+                                <div class="product-image">
+                                    <img src="@item.MainImageUrl" alt="@item.Name">
+                                </div>
+                                <div class="overlay">
+                                    <div class="middle">
+                                        <div></div>
+                                        <div class="overlay-name">@item.Name</div>
+                                        <a href="/urunler?productId=@item.Id" class="btn-big product-btn-big">İNCELE</a>
                                     </div>
                                 </div>
                             </div>
-                        }
-                    </div>
-                }
+                        </div>
 
+                    }
+                </div>
             </div>
 
         </div>
@@ -191,7 +186,7 @@
     body {
         background: url(/images/hedeflerimiz-ust-zemin.png);
         /*  background-size: 100%;
-                                    background-repeat: no-repeat;*/
+                                        background-repeat: no-repeat;*/
     }
 
     p {

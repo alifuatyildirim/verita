@@ -29,7 +29,7 @@
 
 @media (max-width: 991px) {
     .product-item400 {
-        width: 200px !important;
+        width: 50% !important;
     }
 }
 
