@@ -32,7 +32,7 @@
         </ul>
     </div>
 
-    <div class="container container-bg">
+    <div class="container  container-bg @(string.IsNullOrEmpty(@Model.FirstOrDefault()?.Category.BackgroundImage) ? "" : "with-image")" ">
 
         <div class="page-nav-header">
             <div class="category-info">
@@ -42,11 +42,12 @@
                             <a href="/" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
-                        <li style=" padding: 0 10px 0px 0;">
+                       @*  <li style=" padding: 0 10px 0px 0;">
                             <span class="current-item">Ürünlerimiz</span>
                             <span class="delimiter">></span>
-                        </li>
-                        <li style=" padding: 0 10px 0px 0; color :#7AB929">
+                        color :#7AB929
+                        </li> *@
+                        <li style=" padding: 0 10px 0px 0; ">
                             <span class="current-item">@Model.FirstOrDefault()?.Category.Name</span>
                         </li>
                     </ul>
@@ -54,7 +55,7 @@
             </div>
 
         </div>
-        <div class="heading-title">
+        <div class="heading-title mt-20">
             <h4>Ürünlerimiz</h4>
         </div>
         <div class="page-content pe-0">
@@ -96,8 +97,14 @@
     }
 
     .container-bg {
-        background-image: url(@Model.FirstOrDefault()?.Category.BackgroundImage);
+        background-color: white; /* varsayılan beyaz arka plan */
     }
+
+        .container-bg.with-image {
+            background-image: url(@Model.FirstOrDefault()?.Category.BackgroundImage);
+            background-color: transparent; /* resim varsa şeffaf arka plan */
+        }
+
 
     .page-container .page-content {
         padding-bottom: 0px !important;
@@ -195,6 +202,26 @@
 
     .left-image-showcase .showcase-products {
         padding-left: 0px !important;
+    }
+
+    @@media (max-width: 991.98px) {
+
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 2rem !important;
+            line-height: 36px !important;
+            margin: 0 auto;
+            padding: 0px;
+            width: 800px;
+        }
+
+        .home-page-content {
+            font-size: 22px !important;
+            font-family: 'Roboto Slab';
+            line-height: 40px !important;
+            padding-top: 40px;
+            margin-bottom: 100px !important;
+        }
     }
 </style>
 @section links

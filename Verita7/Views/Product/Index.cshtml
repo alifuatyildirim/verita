@@ -19,7 +19,7 @@
             }
         </ul>
     </div>
-    <div class="container container-bg">
+    <div class="container container-bg @(string.IsNullOrEmpty(Model.BackgroundImageUrl) ? "" : "with-image")">
         <div class="page-nav-header">
             <div class="category-info">
                 <div class="breadcrumb">
@@ -28,10 +28,10 @@
                             <a href="/" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
-                        <li style=" padding: 0 10px 0px 0;">
+                      @*   <li style=" padding: 0 10px 0px 0;">
                             <a href="/" title="Ürünlerimiz">Ürünlerimiz</a>
                             <span class="delimiter">></span>
-                        </li>
+                        </li> *@
                         <li style=" padding: 0 10px 0px 0;">
                             <a href="urunlerimiz?categoryId=@Model.CategoryId" title="@Model.Category.Name">@Model.Category.Name</a>
                             <span class="delimiter">></span>
@@ -44,7 +44,7 @@
             </div>
 
         </div>
-        <div class="heading-title">
+        <div class="heading-title mt-20">
             <h4>@Html.DisplayFor(model=>model.Title)</h4>
 
         </div>
@@ -221,8 +221,13 @@
     /* ... Diğer stillendirmeler ... */
 
     .container-bg {
-        background-image: url(@Model.BackgroundImageUrl);
+        background-color: white; /* varsayılan beyaz arka plan */
     }
+
+        .container-bg.with-image {
+            background-image: url(@Model.BackgroundImageUrl);
+            background-color: transparent; /* resim varsa şeffaf arka plan */
+        }
 
     .page-container .page-content {
         padding-bottom: 0px !important;
@@ -274,13 +279,16 @@
         margin-right: 24px;
     }
 
-    .card-body {
-        background-color: rgba(255, 255, 255, 0.1);
-        font-size: 20px !important;
-        line-height: 36px !important;
-        margin: 0 auto;
-        padding: 0px;
-        width: 800px;
+
+    @@media (min-width: 992px) {
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 20px !important;
+            line-height: 36px !important;
+            margin: 0 auto;
+            padding: 0px;
+            width: 800px;
+        }
     }
 
     .collapsed .collapse-icon:before {
@@ -320,6 +328,26 @@
 
     .left-image-showcase .showcase-products {
         padding-left: 0px !important;
+    }
+
+    @@media (max-width: 991.98px) {
+
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 2rem !important;
+            line-height: 36px !important;
+            margin: 0 auto;
+            padding: 0px;
+            width: 800px;
+        }
+
+        .home-page-content {
+            font-size: 22px !important;
+            font-family: 'Roboto Slab';
+            line-height: 40px !important;
+            padding-top: 40px;
+            margin-bottom: 100px !important;
+        }
     }
 </style>
 @section links{

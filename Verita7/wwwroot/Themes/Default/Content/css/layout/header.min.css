@@ -494,8 +494,9 @@ header .navbar .navbar-nav {
     }
 }
 
+/*sol menÃ¼ soldan boÅŸluk*/
 .shop-home header .navbar .navbar-nav {
-    margin-left: 0;
+    margin-left: 25px;
     font-size: 14px
 }
 
@@ -643,10 +644,11 @@ header .navbar .navbar-nav .nav-item.dropdown:hover .nav-link.dropdown-toggle::a
     }
 }
 
+
 .shop-home header .navbar-right {
     display: flex;
     align-items: center;
-    margin-right:100px;
+    margin-right:80px;
 }
 
 header .navbar-right .online-store-btn {
@@ -717,7 +719,8 @@ header .navbar-right .navbar-right-item {
     }
 
     header .navbar-right .navbar-right-item ~ .navbar-right-item {
-        margin-left: 50px
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     header .navbar-right .navbar-right-item:hover path {
@@ -816,28 +819,28 @@ header .navbar-right .account-dropdown {
 }
 
 .header-mobile {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 15px 20px;
+    padding: 15px 35px;
     flex-direction: column;
- background-color: rgba(0,0,0,0.37);
- position:fixed;
- width:100%;
- top:0;
- z-index:1000;
+    background-color: rgba(0, 0, 0, 0.37);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 240px;
 }
 
-/*Menüyü saða dayamak için justify-content*/
+/*Menï¿½yï¿½ saï¿½a dayamak iï¿½in justify-content*/
     .header-mobile .bottom {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         width: 100%;
-        padding: 15px 20px;
+        padding: 35px 35px;
         flex-direction: row;
-        padding-right:60px;
+        padding-right: 130px;
     }
 
 .header-mobile-logo {
@@ -858,7 +861,8 @@ header .navbar-right .account-dropdown {
 }
 
 .header-mobile .bottom .header-mobile-logo img {
-    height: 200px
+    height: 150px;
+    margin-top:110px;
 }
 
 .header-mobile .bottom .header-mobile-nav {
@@ -892,12 +896,12 @@ header .navbar-right .account-dropdown {
         .header-mobile .bottom .header-mobile-nav .hamburger-btn span {
             display: block;
             position: relative;
-            width: 80px;
-            height: 7px;
+            width: 140px;
+            height: 15px;
             border-radius: 3px;
-            background-color: #78be20;
-            margin-top: 12px;
-            transition: all 0.3s ease-in-out
+            background-color: #fff;
+            margin-top: 28px;
+            transition: all 0.3s ease-in-out;
         }
 
     .header-mobile .bottom .header-mobile-nav .header-mobile-content {
@@ -919,7 +923,7 @@ header .navbar-right .account-dropdown {
         top: 0;
         right: -100%;
         left: auto;
-        width: 60%
+        width: 80%
     }
 }
 
@@ -944,20 +948,24 @@ header .navbar-right .account-dropdown {
 
     .header-mobile .bottom .header-mobile-nav #header-mobile-toggle:checked + .hamburger-btn .top-bun {
         transform: rotate(-45deg);
-        margin-top: 20px;
-        background-color: #78be20
+        margin-top: 70px;
+        background-color: #fff;
+        height: 20px;
+        width: 140px;
     }
 
     .header-mobile .bottom .header-mobile-nav #header-mobile-toggle:checked + .hamburger-btn .bottom-bun {
         opacity: 0;
         transform: rotate(45deg);
-        background-color: #78be20
+        background-color: #fff;
     }
 
     .header-mobile .bottom .header-mobile-nav #header-mobile-toggle:checked + .hamburger-btn .meat {
         transform: rotate(45deg);
-        margin-top: -5px;
-        background-color: #78be20
+        margin-top: -20px;
+        background-color: #fff;
+        height: 20px;
+        width: 140px;
     }
 
     .header-mobile .bottom .header-mobile-nav #header-mobile-toggle:checked + .hamburger-btn + .header-mobile-content {
@@ -987,21 +995,30 @@ header .navbar-right .account-dropdown {
     font-weight: 700
 }
 
-.mobil-sub-menu-font{
-    font-size : 26px;
-    font-weight:400;
+.mobil-sub-menu-font {
+    font-size: 50px;
+    font-weight: 900;
+    font-family: 'Roboto Slab SemiBold';
+    color: #036939;
+    line-height: 65px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .header-mobile .bottom .navbar-nav {
-    margin-top: 20px
+    margin-top: 170px
 }
 
     .header-mobile .bottom .navbar-nav .nav-item .nav-link {
-        font-size: 30px;
-        color: #434343;
+        font-size: 65px;
+        color: #036939;
         padding-top: 0.65rem;
-        border-bottom: 5px solid #e3e6ea;
-        font-weight:600;
+        border-bottom: 5px solid #78be20;
+        font-weight: 900;
+        font-family: 'Roboto Slab SemiBold';
+        margin-left: 50px;
+        margin-right: 50px;
+        padding-bottom: 0.65rem;
     }
 
     .header-mobile .bottom .navbar-nav .nav-item .dropdown-menu {

@@ -44,6 +44,7 @@ namespace Verita.Data.Concrete
             sliderEntity.SortOrder = slider.SortOrder;
             sliderEntity.Link = slider.Link;
             sliderEntity.Description = slider.Description;
+            sliderEntity.HomePageSliderType = slider.HomePageSliderType;
 
             this.genericRepository.Update(sliderEntity);
            await this.genericRepository.SaveChangesAsync();

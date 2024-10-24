@@ -18,62 +18,30 @@
         float: left;
         font-family: 'Aleo';
     }
-     
-
 </style>
 <style>
-    /*eski haline dönmesi için body-bg içini dışarı kopyala*/
+    @@media (min-width: 992px) {
     .body-bg {
-        background-image: url(/images/bg.jpg);
-        background-position-x: center;
+        color: #232323;
         background-repeat: no-repeat;
-        max-width: 100% !important;
+        width: 100%;
+        letter-spacing: 0.015rem;
+        overflow-x: hidden;
+        background-image: url(/images/anasayfa_zemin_gorseli.jpg) !important;
+    }
     }
 
-    .swiper-slide {
-        position: relative;
-    }
-
-        .swiper-slide .slider-bg {
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
+    @@media (max-width: 991.98px) {
+        .body-bg {
+            color: #232323;
+            background-repeat: no-repeat;
+            width: 100%;
+            letter-spacing: 0.015rem;
+            overflow-x: hidden;
+            background-image: url(/images/anasayfa_zemin_gorseli.jpg) !important;
+            background-repeat:repeat-y;
         }
-
-            .swiper-slide .slider-bg::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                font-family: 'Roboto Slab SemiBold' !important;
-                background: rgba(0, 0, 0, 0.5); /* Buradaki 0.5 saydamlık seviyesini dilediğiniz gibi ayarlayabilirsiniz */
-                z-index: 2;
-            }
-
-            .swiper-slide .slider-bg h2 {
-                color: #fff;
-                font-size: 90px;
-                line-height: 90px;
-                letter-spacing: 2px;
-                font-weight: 600;
-                margin-bottom: 90px;
-                position: relative;
-                z-index: 3;
-                font-family: 'Roboto Slab SemiBold';
-            }
-
-    .big-slider .big-slider-swiper .swiper {
-        border-radius: 0px !important;
     }
-
-    .swiper-slide .slider-bg .btn-big {
-        position: relative;
-        z-index: 3; /* Butonun z-index değerini artırın */
-    }
-
-    /* Diğer stiller buraya eklenmeye devam edebilir */
 </style>
 
 
@@ -123,32 +91,32 @@
                 </div>
 
             </div>
-            <div class="d-flex flex-column my-18 box-shadow" style="background-color: rgb(255 255 255 / 63%); ">
+            <div class="d-flex flex-column my-40 box-shadow" style="background-color: rgb(255 255 255 / 80%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
-                    <div class="align-self-center col-lg-6 col-sm-12">
-                        <img src="@(((HomePageContent)ViewBag.Hakkimizda)?.Image)" class="w-100" style="height:auto;" />
+                    <div class="align-self-center col-lg-6 col-sm-12 main-page-info-size">
+                        <img src="@(((HomePageContent)ViewBag.Hakkimizda)?.Image)" class="w-100 mobile-main-image" style="height:auto;" />
                     </div>
-                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.Hakkimizda)?.Title)</span>
-                        <span class="text-center mb-4 px-10 home-page-content">
-                            @(((HomePageContent)ViewBag.Hakkimizda)?.Description)
+                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center  main-page-info-size">
+                        <span class="text-center mb-7 font-size-h3 title">@(((HomePageContent)ViewBag.Hakkimizda)?.Title)</span>
+                        <span class="text-center mb-6 px-10 home-page-content">
+                            @Html.Raw(((HomePageContent)ViewBag.Hakkimizda)?.Description)
                         </span>
-                        <a href="@(((HomePageContent)ViewBag.Hakkimizda)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
+                        <a href="@(((HomePageContent)ViewBag.Hakkimizda)?.Link)" class="btn-big mt-5 home-page-button">TÜMÜNÜ GÖR</a>
                     </div>
                 </div>
             </div>
 
-            <div class="d-flex flex-column my-18 box-shadow" style="background-color: rgb(255 255 255 / 63%); ">
+            <div class="d-flex flex-column my-40 box-shadow" style="background-color: rgb(255 255 255 / 80%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
-                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center order-lg-1 order-sm-2">
-                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.NedenVeritaContent)?.Title)</span>
-                        <span class="text-center mb-4 px-10 home-page-content">
-                            @(((HomePageContent)ViewBag.NedenVeritaContent)?.Description)
+                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center order-lg-1 order-sm-2  main-page-info-size">
+                        <span class="text-center mb-7 font-size-h3 title">@(((HomePageContent)ViewBag.NedenVeritaContent)?.Title)</span>
+                        <span class="text-center mb-6 px-10 home-page-content">
+                            @Html.Raw(((HomePageContent)ViewBag.NedenVeritaContent)?.Description)
                         </span>
-                        <a href="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
+                        <a href="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Link)" class="btn-big mt-5 home-page-button">TÜMÜNÜ GÖR</a>
                     </div>
-                    <div class="align-self-center col-lg-6 col-sm-12 order-lg-2 order-sm-1">
-                        <img src="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Image)" class="w-100" style="height:auto;" />
+                    <div class="align-self-center col-lg-6 col-sm-12 order-lg-2 order-sm-1  main-page-info-size">
+                        <img src="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Image)" class="w-100 mobile-main-image" style="height:auto;" />
                     </div>
                 </div>
             </div>
@@ -158,8 +126,7 @@
         </div>
 
     </div>
-    <div class="d-flex w-100 mt-20"
-         style="height: 670px; background: url(/Themes/Default/Content/img/rawjuice.png); background-position-x:center; background-repeat: no-repeat; max-width: 100% !important; ">
+    <div class="d-flex w-100 rawjuice">
     </div>
 
 
@@ -167,41 +134,32 @@
     <div class="home-middle mt-10">
         <div class="container contents" style="padding:0px !important;">
 
-            <div class="d-flex flex-column my-18 box-shadow" style="background-color: rgb(255 255 255 / 63%); ">
+            <div class="d-flex flex-column my-40 box-shadow" style="background-color: rgb(255 255 255 / 80%); box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
                     <div class="align-self-center col-lg-6 col-sm-12">
-                        <img src="@(((HomePageContent)ViewBag.GuvenliGida)?.Image)" class="w-100" style="height:auto;" />
+                        <img src="@(((HomePageContent)ViewBag.GuvenliGida)?.Image)" class="w-100 mobile-main-image" style="height:auto;" />
                     </div>
                     <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
-                        <span class="text-center mb-4 font-size-h3 title">@(((HomePageContent)ViewBag.GuvenliGida)?.Title)</span>
-                        <span class="text-center mb-4 px-10 home-page-content">
-                            @(((HomePageContent)ViewBag.GuvenliGida)?.Description)
+                        <span class="text-center mb-7 font-size-h3 title">@(((HomePageContent)ViewBag.GuvenliGida)?.Title)</span>
+                        <span class="text-center mb-6 px-10 home-page-content">
+                            @Html.Raw(((HomePageContent)ViewBag.GuvenliGida)?.Description)
                         </span>
-                        <a href="@(((HomePageContent)ViewBag.GuvenliGida)?.Link)" class="btn-big mt-4">TÜMÜNÜ GÖR</a>
+                        <a href="@(((HomePageContent)ViewBag.GuvenliGida)?.Link)" class="btn-big mt-5 home-page-button">TÜMÜNÜ GÖR</a>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 
     <div class="mb-20">
-        <div class="newsletter">
-
-            <div class="footer-newsletter py-20">
-                <p style="font-size:26px !important; margin-bottom:0.5rem !important">Sertifikalı, pestisit analizli,</p>
-                <p style="font-size:26px !important; margin-bottom:0.5rem !important">Gurme meyve ve sebzeler</p>
-                <p style="font-size:26px !important; margin-bottom:0.5rem !important">Dünyanın Meyvesi online satış noktalarımızda!</p>
-                <span class="text-center mb-8 font-size-h3 title" style="font-size:40px !important; margin-top:24px;">Siz de <u>Dünyanın Meyvesi</u>’ne üye olun,</span> 
-                <span style="font-size:40px !important">Ayrıcalıkların tadını çıkarın!</span>
-                <div class="input-group btn-uyeol mt-5">
-                    <a href="https://dunyaninmeyvesi.com/uyeol" target="_blank" style="color: white;font-size: 30px;" class="px-6">ÜYE OL</a>
+            <div class="footer-newsletter">
+                <div class="input-group btn-uyeol mt-7">
+                    <a href="https://dunyaninmeyvesi.com/uyeol" target="_blank" class="px-6 footer-newsletter-button">ÜYE OL</a>
 
                 </div>
             </div>
-
-        </div>
-
     </div>
+
     <div class="mb-10">
 
         <section class="showcase">
@@ -213,22 +171,22 @@
 
                 <div class="left-image-showcase showcase-scope-branch">
                     <div class="showcase-products">
-                        <div class="showcase-wrap">
+                        <div class="showcase-wrap showcase-wrap-newsletter">
                             <div class="showcase-slider-branch swiper">
-                                <div class="showcase-slider__wrapper swiper-wrapper">
+                                <div class="showcase-slider__wrapper swiper-wrapper" style="padding-top:4px";>
                                     @foreach (var item in (List<Referanslar>)ViewBag.Referanslar)
                                     {
-                                        <div class="swiper-slide" style="width:244px !important;">
+                                    <div class="swiper-slide" style="width:244px !important;">
 
-                                            <div class="product-item d-flex">
-                                                <div class="product-image branch">
-                                                    <img src="@item.Image" alt="@item.Title">
-                                                </div>
-
+                                        <div class="product-item d-flex">
+                                            <div class="product-image branch">
+                                                <img class="mobile-slider-img" src="@item.Image" alt="@item.Title">
                                             </div>
+
                                         </div>
+                                    </div>
                                     }
-                                    
+
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -242,8 +200,9 @@
         </section>
 
     </div>
+
     <section class="showcase client-showcase">
-        <div class="container" style="padding:0px !important;">
+        <div class="container" style="padding: 0px 0px 150px 0px !important;">
 
             <div class="showcase-title">
                 <h4>Neden Verita Tercih Ediyorlar?</h4>
@@ -252,26 +211,26 @@
             <div class="left-image-showcase showcase-scope-client">
 
                 <div class="showcase-products clients">
-                    <div class="showcase-wrap">
+                    <div class="showcase-wrap showcase-wrap-comment-container">
                         <div class="showcase-slider-client swiper">
-                            <div class="showcase-slider__wrapper swiper-wrapper ">
+                            <div class="showcase-slider__wrapper swiper-wrapper showcase-wrap-comment">
 
-                                 @foreach (var item in (List<NedenVerita>)ViewBag.NedenVerita)
+                                @foreach (var item in (List<NedenVerita>)ViewBag.NedenVerita)
                                 {
                                     <div class="swiper-slide box-shadow">
-                                        <div class="client-item d-flex"> 
-                                            <div class="name mt-5">@item.Name</div>
+                                        <div class="client-item d-flex">
+                                            <div class="name mt-7">@item.Name</div>
                                             <div class="title">
                                                 @item.Title
                                             </div>
                                             <div class="duty mb-5">@item.City</div>
-                                            <div class="description">
+                                            <div class="description pb-5">
                                                 @item.Description
                                             </div>
 
                                         </div>
                                     </div>
-                                } 
+                                }
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
@@ -283,9 +242,10 @@
             </div>
         </div>
     </section>
+
 </div>
 @section links
-    {
+{
     <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/layout/shop/shop-info.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/layout/shop/store-showcase.min.css?v=2020100520" rel="stylesheet" type="text/css" />
@@ -314,8 +274,51 @@
     <script src="/lib/jquery-lazy/jquery.lazy.min.js?v=2020100520" type="text/javascript"></script>
 
 }
+<style>
+    @@media (max-width: 992px) {
+    body{
+        background-image: url(/images/bg.png) !important;
+        background-repeat : repeat-y;
+    }
 
-@section scripts{
+        body {
+            margin: 0;
+            font-family: "Montserrat", Helvetica, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #232323;
+            background-color: #fff;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            background-image: url(/images/bg.png) !important;
+            background-size: contain;
+        }
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%; /* Hem html hem body %100 yüksekliğe sahip */
+    }
+
+    body {
+        font-size: 16px !important;
+        font-weight: 400;
+        font-family: "Roboto Slab";
+        line-height: 1.4;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        background-image: url(/images/bg.png) !important;
+        background-size: cover; /* Arka plan resmi tüm sayfayı kaplar */
+        background-repeat: no-repeat; /* Arka plan tekrar etmez */
+        background-position: center; /* Ortalar */
+        height: auto; /* Yükseklik otomatik */
+        min-height: 100vh; /* En az %100 yükseklik, viewport yüksekliğine göre ayarlama */
+    }
+</style>
+@section scripts {
     <script>
         AjaxCart.init('.header-links .qty-cart', '.header-links .qty-wishlist', '.flyout-cart');
     </script>
@@ -537,7 +540,7 @@
         @{
             // Initialize JavaScript variables
             <text>
-                var mobileJson = [];
+                                                                        var mobileJson = [];
                 var tabletJson = [];
                 var desktopJson = [];
             </text>
@@ -548,17 +551,18 @@
                 // Iterate through ViewBag.Sliders
                 foreach (var item in (List<HomePageSlider>)ViewBag.Sliders)
                 {
-                    // Create JavaScript object for the slider
+                        // Create JavaScript object for the slider
                     <text>
-                        var slider = {
+           var slider = {
                             Id: @item.Id,
-                            Title: "@item.Description",
+                            ButtonType : @item.HomePageSliderType.GetHashCode(),
+                            Title: '@Html.Raw(item.Description)',
                             Name: "@item.Name",
                             PictureUrl: "'@item.ImageUrl'",
-                            Url: "'@item.Link'",
-                            Mobile: true,  
-                            Tablet: true,  
-                            Desktop: true  
+                            Url: '@item.Link',
+                            Mobile: true,
+                            Tablet: true,
+                            Desktop: true
                         };
                     </text>
 
@@ -571,14 +575,15 @@
                 }
             }
 
-        } 
-            // Variables
-           // mobileJson =  [{ "Id": 1, "Title": "Kalite Garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-           // tabletJson =  [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
-           // desktopJson = [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+        }
 
-            // Slide Array
-            var slides = new Array();
+                            // Variables
+                   // mobileJson =  [{ "Id": 1, "Title": "Kalite Garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+                   // tabletJson =  [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+                   // desktopJson = [{ "Id": 1, "Title": "Kalite garantili <br> meyve ve sebzeler", "Name": "", "PictureUrl": "/images/slider/1.kalite-garantili-meyve-ve-sebzeler.webp", "Url": "/kalite-garantisi", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 2, "Title": "İstanbul içi <br> aynı gün teslim", "Name": "Slider2", "PictureUrl": "/images/slider/2.istanbul-ici-ayni-gün-teslim.webp", "Url": "/organizasyon-yapisi/", "Mobile": true, "Tablet": true, "Desktop": true }, { "Id": 3, "Title": "Fresh Cut çeşitlerimizi<br>denediniz mi?", "Name": "Slider3", "PictureUrl": "/images/slider/3.fresh-cut-cesitlerimizi-denediniz-mi.webp", "Url": "/hakkimizda", "Mobile": true, "Tablet": true, "Desktop": true }];
+
+                    // Slide Array
+                             var slides = new Array();
 
             // Viewport Detect
             if (ResponsiveToolkit.is('<=sm')) { slides = mobileJson }
@@ -594,16 +599,24 @@
 
             // Each slide items in slides
             $.each(slides, function (index, slide) {
-                var slideItem = $('<div class="swiper-slide"><div class="slider-bg" style="background-image: url(' + slide.PictureUrl + ')"><h2>' + slide.Title + '</h2><div class="btn-big" style="width:240px; height:64px;"><a href="' + slide.Url + '" position: relative; class="btn-dahafazla"">DAHA FAZLA</a></div></div>');
+                var slideItem = $('<div class="swiper-slide"><div class="slider-bg" style="background-image: url(' + slide.PictureUrl + ')"></div></div>');
+                var slideContent = $('<div>').html(slide.Title);
+                var button ="";
+                if (slide.ButtonType == 0) {
+                    button = $('<div class="btn-big"><a href="' + slide.Url + '" target="_blank" class="btn-dahafazla">DAHA FAZLA</a></div>');
+                }
+                else{
+                    button = $('<div class="btn-hemenal"><a href="' + slide.Url + '" target="_blank" class="btn-dahafazla">HEMEN AL</a></div>');
+                }
+                
+
+                slideItem.find('.slider-bg').append(slideContent).append(button);
                 slideWrap.append(slideItem);
             });
-
-
 
             //Swiper-Slider
             const swiper = new Swiper('.big-slider-swiper .swiper', {
                 // Enable lazy loading
-
                 lazy: {
                     loadPrevNext: true,
                 },
@@ -624,6 +637,7 @@
             initSlides();
         });
     </script>
+
 
 
 }

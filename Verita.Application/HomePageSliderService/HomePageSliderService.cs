@@ -47,17 +47,18 @@ namespace Verita.Application.HomePageSliderService
 
         public async Task UpdateHomePageSliderAsync(EditHomePageSliderRequest slider)
         {
-            var basindaBizEntity = new HomePageSlider
+            var homePageSlider = new HomePageSlider
             {
                 Id = slider.Id,
                 SortOrder = slider.SortOrder,
                 Name = slider.Name,
                 Description = slider.Description,
                 Link = slider.Link,
-                ImageUrl = slider.MainImageUrl, 
-                UpdatedDate = DateTime.Now,  
+                ImageUrl = slider.MainImageUrl,
+                UpdatedDate = DateTime.Now,
+                HomePageSliderType = slider.HomePageSliderButtonType
             };
-            await this.homePageSliderRepository.UpdateHomePageSliderAsync(basindaBizEntity);
+            await this.homePageSliderRepository.UpdateHomePageSliderAsync(homePageSlider);
         }   
          
     }

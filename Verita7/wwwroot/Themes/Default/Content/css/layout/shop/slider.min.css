@@ -37,6 +37,74 @@
             width: 100%;
             padding-top: 50%
         }
+
+    @media (max-width: 991px) {
+        .product-item400 {
+            width: 50% !important;
+        }
+
+        .btn-dahafazla {
+            color: white;
+            font-size: 70px;
+            font-weight: 700;
+            padding-top: 15px;
+        }
+
+        .btn-big {
+            width: 480px;
+            height: 160px;
+            margin-top: 120px;
+            position: relative;
+            z-index: 3;
+            background-image: url(/Themes/Default/Content/img/btn-big.png);
+            font-size: 45px;
+            font-weight: 600;
+            background-size: contain;
+            color: #fff;
+            background-repeat: no-repeat;
+            padding: 45px 75px;
+            cursor: pointer;
+            background-position-y: center;
+            font-family: 'Roboto Slab SemiBold' !important;
+        }
+
+        .btn-hemenal {
+            width: 480px;
+            height: 160px;
+            margin-top: 120px;
+            position: relative;
+            z-index: 3;
+            background-image: url(/Themes/Default/Content/img/alisverise_basla.png);
+            font-size: 45px;
+            font-weight: 600;
+            background-size: contain;
+            color: #fff;
+            background-repeat: no-repeat;
+            padding: 45px 75px;
+            cursor: pointer;
+            background-position-y: center;
+            font-family: 'Roboto Slab SemiBold' !important;
+        }
+
+        .swiper-slide .slider-bg .btn-big {
+            width: 600px;
+            height: 160px;
+            margin-top: 120px;
+            position: relative;
+            z-index: 3;
+            background-image: url(/Themes/Default/Content/img/btn-big.png);
+            font-size: 22px;
+            font-weight: 600;
+            background-size: contain;
+            color: #fff;
+            background-repeat: no-repeat;
+            padding: 10px 15px;
+            cursor: pointer;
+            background-position-y: center;
+            font-family: 'Roboto Slab SemiBold' !important;
+        }
+    }
+
 }
 
 .big-slider .big-slider-swiper .swiper {
@@ -84,10 +152,114 @@
     z-index: 1
 }
 
+.swiper-slide {
+    position: relative;
+}
+
+    .swiper-slide .slider-bg {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+        .swiper-slide .slider-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Roboto Slab SemiBold' !important;
+            background: rgba(0, 0, 0, 0.5); /*Buradaki 0.5 saydamlýk seviyesini dilediðiniz gibi ayarlayabilirsiniz */
+            z-index: 2;
+        }
+
+        .swiper-slide .slider-bg h2 {
+            color: #fff;
+            font-size: 90px;
+            line-height: 90px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin: 0px;
+            position: relative;
+            z-index: 3;
+            font-family: 'Roboto Slab SemiBold';
+        }
+
+.big-slider .big-slider-swiper .swiper {
+    border-radius: 0px !important;
+}
+
+
+
 @media (min-width: 768px) and (max-width: 991.98px) {
+
+    .swiper-slide .slider-bg h2 {
+        color: #fff;
+        font-size: 140px;
+        line-height: 160px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin: 0px;
+        position: relative;
+        z-index: 3;
+        font-family: 'Roboto Slab SemiBold';
+    }
+
+    .big-slider .big-slider-swiper .swiper .swiper-slide .slider-bg {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding-bottom: 13%;
+    }
+
     .big-slider .big-slider-swiper .big-slider-button-prev, .big-slider .big-slider-swiper .big-slider-button-next {
-        height: 54px;
-        width: 54px
+        height: 180px;
+        width: 90px;
+    }
+
+        .big-slider .big-slider-swiper .big-slider-button-prev:after, .big-slider .big-slider-swiper .big-slider-button-next:after {
+            position: absolute;
+            font-family: 'Font Awesome 5 Pro';
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            color: #fff;
+            top: 50%;
+            transform: translateY(-50%) translateX(0);
+            left: 20%;
+            font-size: 36px;
+            content: '';
+            width: 70px;
+            height: 70px;
+            background-repeat: no-repeat;
+            color: transparent !important;
+            filter: brightness(0) invert(1);
+            background-size: contain;
+            background-position: center
+        }
+
+    .big-slider .big-slider-swiper .big-slider-button-prev, .big-slider .big-slider-swiper .big-slider-button-next {
+        background-color: rgba(0,0,0,0.73);
+        height: 180px;
+        width: 125px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        z-index: 1
     }
 }
 
@@ -125,7 +297,28 @@
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     .big-slider .big-slider-swiper .big-slider-button-prev:after, .big-slider .big-slider-swiper .big-slider-button-next:after {
-        font-size: 26px
+        position: absolute;
+        font-family: 'Font Awesome 5 Pro';
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        color: #fff;
+        top: 50%;
+        transform: translateY(-50%) translateX(0);
+        left: 20%;
+        font-size: 36px;
+        content: '';
+        width: 80px;
+        height: 80px;
+        background-repeat: no-repeat;
+        color: transparent !important;
+        filter: brightness(0) invert(1);
+        background-size: contain;
+        background-position: center
     }
 }
 

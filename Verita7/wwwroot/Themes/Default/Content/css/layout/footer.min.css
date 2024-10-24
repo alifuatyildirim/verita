@@ -8,8 +8,65 @@ footer {
 
 @media (min-width: 768px) and (max-width: 991.98px) {
     footer {
-        padding-top: 50px
+        font-size:2.7rem;
     }
+    .footer-title{
+        font-size:3rem;
+    }
+
+    .footer-menu{
+        margin-top:70px;
+    }
+
+    .footer-support {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        flex-direction: column;
+    }
+
+    .footer-support {
+        display: flex; /* Flex kullanarak yan yana dizilir */
+        flex-direction: column; /* Yan yana dizilmesini saðlar */
+        align-items: center; /* Dikeyde ortalar */
+        justify-content: center; /* Yatayda ortalar */
+        padding-bottom: 150px;
+        font-size: 4rem;
+    }
+
+        .footer-support br {
+            display: none; /* <br> etiketini gizler */
+        }
+
+    .text-hover-primary{
+        font-size : 4rem;
+    }
+
+    footer .social-links li a {
+        background-color: #77bd1f;
+        width: 80px;
+        height: 80px;
+        line-height: 40px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 50%;
+        color: #006940;
+        box-shadow: 0 5px 15px 0 rgba(90,90,90,0.06);
+        transition: all .2s ease-in-out
+    }
+
+
+        footer .social-links li a i {
+            font-size: 60px;
+            margin-top:10px;
+        }
+
+        .x-icon{
+            height:50px;
+            width:50px;
+            margin-top:10px;
+        }
 }
 
 @media (max-width: 767.98px) {
@@ -100,22 +157,31 @@ footer .social-links {
         display: inline-block
     }
 
-        footer .social-links li a {
-            background-color: #77bd1f;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            display: inline-block;
-            border-radius: 50%;
-            color: #006940;
-            box-shadow: 0 5px 15px 0 rgba(90,90,90,0.06);
-            transition: all .2s ease-in-out
+@media (min-width: 992px) {
+    footer .social-links li a {
+        background-color: #77bd1f;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 50%;
+        color: #006940;
+        box-shadow: 0 5px 15px 0 rgba(90,90,90,0.06);
+        transition: all .2s ease-in-out
+    }
+
+        footer .social-links li a i {
+            font-size: 18px
         }
 
-            footer .social-links li a i {
-                font-size: 18px
-            }
+    .x-icon {
+        height: 14px;
+        width: 14px;
+    }
+}
+        
+
 
             footer .social-links li a:hover {
                 background-color: #78be20;
@@ -184,22 +250,23 @@ footer .footer-copyright .footer-copyright-menu li a {
         text-decoration: underline !important
     }
 
-.footer-newsletter {
-    flex-direction: column;
-    background: url("/Themes/Default/Content/img/our_products_ustgorsel.webp");
-    display: flex;
-    align-items: center;
-    padding: 0;
-    background-repeat: no-repeat; 
-    max-width: 100% !important;
-    background-position-x: center;
-}
-
-@media (max-width: 991.98px) {
+@media(min-width:992px){
     .footer-newsletter {
-        display: none
+        flex-direction: column;
+        background: url(/Themes/Default/Content/img/our_products_ustgorsel2.jpg);
+        display: flex;
+        align-items: center; /* Center items horizontally */
+        justify-content: flex-end; /* Align items to the bottom */
+        padding: 0;
+        background-repeat: no-repeat;
+        max-width: 100% !important;
+        background-position: center;
+        background-size: cover;
+        height: 304px;
+        background-size: contain;
     }
 }
+
 
 @media (max-width: 575.98px) {
     .footer-newsletter {
@@ -234,14 +301,19 @@ footer .footer-copyright .footer-copyright-menu li a {
 }
 
 .footer-newsletter .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
     width: 220px;
-    height:60px;
-    font-size:40px;
+    height: 60px;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
     .footer-newsletter .input-group {
-        margin-top: 15px
+        width: 350px;
+        height: 100px;
+        padding-left: 70px;
+        padding-top: 15px;
     }
 }
 

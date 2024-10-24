@@ -12,12 +12,12 @@
         else
         {
             <a class="dropdown-item with-submenu" href="/urunlerimiz?categoryId=@category.Id">@category.Name</a>
-            <div class="sub-menu">
+           @* <div class="sub-menu">
                 @foreach (var product in Model.Products.Where(x => x.CategoryId == category.Id))
                 {
                     <a class="dropdown-item" href="/Urunler?productId=@product.Id">@product.Name</a>
                 }
-            </div>
+            </div>*@
         }
     }
 }

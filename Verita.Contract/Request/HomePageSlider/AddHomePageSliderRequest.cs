@@ -11,6 +11,8 @@ namespace Verita.Contract.Request.HomePageSlider
         public int SortOrder { get; set; }
         public IFormFile? MainImage { get; set; }
         public string MainImageUrl { get; set; } = string.Empty;
-         
+        public HomePageSliderButtonType HomePageSliderButtonType { get; set; }
+
+
     }
 }

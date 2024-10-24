@@ -43,6 +43,12 @@
                 @Html.TextBoxFor(model => model.SortOrder, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HomePageSliderButtonType, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.HomePageSliderButtonType, new SelectList(Enum.GetValues(typeof(Verita.Common.Enums.HomePageSliderButtonType))), "Select Button Type", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HomePageSliderButtonType, "", new { @class = "text-danger" })
+            </div>
              
 
             <div class="form-group">

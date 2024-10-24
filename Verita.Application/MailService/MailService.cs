@@ -16,15 +16,15 @@ namespace Verita.Application.MailService
             {
 
             
-            string fromAddress = "iletisim@verita.com.tr";
-            string fromPassword = "ZCfk23Q1";
+            string fromAddress = "iletisimverita@hotmail.com";
+            string fromPassword = "Iletisim.Verita!2024";
             MailAddress from = new MailAddress(fromAddress); 
 
-            using (SmtpClient client = new SmtpClient("mail.verita.com.tr", 465) { DeliveryMethod = SmtpDeliveryMethod.Network, EnableSsl = true, UseDefaultCredentials = false })
+            using (SmtpClient client = new SmtpClient("outlook.office365.com", 587) { DeliveryMethod = SmtpDeliveryMethod.Network, EnableSsl = true, UseDefaultCredentials = false })
             {
                 client.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
 
-                MailAddress to = new MailAddress(fromAddress);
+                MailAddress to = new MailAddress("iletisim@verita.com.tr");
 
                 using (MailMessage message = new MailMessage(from, to) { IsBodyHtml = true })
                 {
@@ -32,10 +32,13 @@ namespace Verita.Application.MailService
                     message.Body = $@"
                         <html>
                         <body>
-                            <h2>İletişim Formu Mesajı</h2>
-                            <p><strong>Ad Soyad:</strong> {FullName}</p>
+                            <h2>Verita İletişim Mesajı</h2>
+                            <p><strong>Gönderen:</strong> {FullName}</p>
                             <p><strong>Email:</strong> {Email}</p>
+                            <p><strong>Konu:</strong> {Subject}</p>
                             <p><strong>Mesaj:</strong> {Enquiry}</p>
+                            <br/>
+                            <h3><i># Bu mail, <u>verita.com.tr</u> web sitesinden gönderilmiştir. #</i></h3>
                         </body>
                         </html>";
 

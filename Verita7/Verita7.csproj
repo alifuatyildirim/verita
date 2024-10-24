@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Verita.Repository.Mssql\Verita.Repository.Mssql.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\SharedFolder\" />
+  </ItemGroup>
+
 </Project>
