@@ -6301,8 +6301,9 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 }
 .container-bg {
     background-position-x: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     max-width: 100% !important;
+    background-color:white !important;
 }
 
 .categoryNav {

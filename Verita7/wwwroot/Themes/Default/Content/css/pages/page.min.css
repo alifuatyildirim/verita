@@ -1,5 +1,6 @@
 ﻿body {
     background: url("/Themes/Default/Content/img/our_products_ustgorsel.png");
+    background-repeat: repeat-x;
 }
 
 .contact-us-page {
