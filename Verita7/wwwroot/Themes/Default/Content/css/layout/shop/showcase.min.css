@@ -150,7 +150,6 @@
     }
 
     .client-showcase .clients .client-item .title {
-        font-weight: bold;
         font-size: 3rem;
     }
 
@@ -233,7 +232,6 @@
 
                             .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle {
                                 display: flex;
-                                justify-content: space-evenly;
                                 flex-direction: column;
                                 height: 100%;
                             }
@@ -243,6 +241,7 @@
                                     font-weight: 600;
                                     font-size: 30px;
                                     font-family: 'Roboto Slab SemiBold';
+                                    margin-top:auto;
                                 }
 
                                 .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-btn {
