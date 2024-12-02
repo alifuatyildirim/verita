@@ -56,7 +56,7 @@
 
         </div>
         <div class="heading-title mt-20">
-            <h4>Ürünlerimiz</h4>
+            <h4>@Model.FirstOrDefault()?.Category.Name</h4>
         </div>
         <div class="page-content pe-0">
 
@@ -104,17 +104,13 @@
             background-image: url(@Model.FirstOrDefault()?.Category.BackgroundImage);
             background-color: transparent; /* resim varsa şeffaf arka plan */
         }
-
-
     .page-container .page-content {
         padding-bottom: 0px !important;
-        margin-bottom: 0px !important;
+        margin-bottom: 350px !important;
     }
 
     .page-content {
-        background-color: rgba(255, 255, 255, 0.7); /* Saydam arka plan rengi */
         margin: 0 auto; /* Sayfa içeriğini ortalar */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* İsteğe bağlı: sayfa içeriğine bir gölge ekleyebilirsiniz */
         position: relative;
         z-index: 2; /* .page-content'ı .container'ın üzerine getirmek için z-index ekledik */
     }
@@ -240,7 +236,6 @@
     <script src="/Themes/Default/Content/plugins/swiperjs/swiper-bundle.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/lib/jquery-validate/jquery.validate-v1.17.0/jquery.validate.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/lib/jquery-validate/jquery.validate.unobtrusive-v3.2.10/jquery.validate.unobtrusive.min.js?v=2020100520" type="text/javascript"></script>
-    <script src="/lib/jquery-migrate/jquery-migrate-3.0.1.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/lib/responsive-toolkit/responsive-toolkit.min.js?v=2020100520" type="text/javascript"></script>
     <script src="/Themes/Default/Content/js/main.js?v=2020100520" type="text/javascript"></script>
     <script src="/js/public.common.min.js?v=2020100520" type="text/javascript"></script>

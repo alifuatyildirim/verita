@@ -72234,6 +72234,13 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         padding: 20px
     }
 
+    .page-bottom-footer{
+        padding-bottom:350px !important;
+    }
+
+    .page-bottom-margin-footer{
+        margin-bottom:350px !important;
+    }
     @media (min-width: 768px) {
         .product-swiper {
             padding: 0
