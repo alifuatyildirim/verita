@@ -38,7 +38,7 @@
 }
 
 .breadcrumb-first-item {
-    color: #046a38;
+    color: black;
 }
 
 .breadcrumb-last-item{
@@ -119,6 +119,33 @@ h1, .h1 {
         font-size: 3.25rem
     }
 }
+
+.breadcrumb-home {
+    color: #232323;
+}
+
+@media (min-width: 1200px) {
+    .breadcrumb-header {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .breadcrumb-header {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 33px;
+    }
+}
+
+
+
 
 h2, .h2 {
     font-size: calc(1.4125rem + 1.95vw)
@@ -236,7 +263,7 @@ sup {
 }
 
 a {
-    color: #78be20;
+    color: #78be20;   
     text-decoration: none
 }
     .btn-hemenal .btn-dahafazla a:hover {
@@ -3817,7 +3844,7 @@ progress {
     background-clip: padding-box;
     border: 1px solid #dadce0;
     appearance: none;
-    border-radius: .38rem;
+    /*border-radius: .38rem; Arama alanlarında textboxlar köşeli olmalı */
     box-shadow: 0 0 0 0 transparent;
     transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out
 }
@@ -3929,7 +3956,7 @@ progress {
     min-height: calc(1.5em + .9rem + 2px);
     padding: .45rem .65rem;
     font-size: .8125rem;
-    border-radius: .2rem
+    /*border-radius: .2rem*/
 }
 
     .form-control-sm::file-selector-button {
@@ -3948,7 +3975,7 @@ progress {
     min-height: calc(1.5em + 1.45rem + 2px);
     padding: .725rem 1.32rem;
     font-size: .96rem;
-    border-radius: .38rem
+    /*border-radius: .38rem*/
 }
 
     .form-control-lg::file-selector-button {
@@ -3987,12 +4014,12 @@ textarea.form-control-lg {
 
     .form-control-color::-moz-color-swatch {
         height: 1.5em;
-        border-radius: .38rem
+        /*border-radius: .38rem*/
     }
 
     .form-control-color::-webkit-color-swatch {
         height: 1.5em;
-        border-radius: .38rem
+        /*border-radius: .38rem*/
     }
 
 .form-select {
@@ -4009,7 +4036,7 @@ textarea.form-control-lg {
     background-position: right 1rem center;
     background-size: 16px 12px;
     border: 1px solid #dadce0;
-    border-radius: .38rem;
+    /*border-radius: .38rem;*/
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
     appearance: none
 }

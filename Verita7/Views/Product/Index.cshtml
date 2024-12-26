@@ -23,21 +23,21 @@
         <div class="page-nav-header">
             <div class="category-info">
                 <div class="breadcrumb">
-                    <ul style="display: flex; list-style: none; padding: 0;margin:0;font-size:14px">
-                        <li style=" padding: 0 10px 0px 0; color :#046a38">
-                            <a href="/" title="Anasayfa">Anasayfa</a>
+                    <ul class="breadcrumb-header">
+                        <li style=" padding: 0 10px 0px 0;">
+                            <a href="/"  class="breadcrumb-home" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
-                      @*   <li style=" padding: 0 10px 0px 0;">
-                            <a href="/" title="Ürünlerimiz">Ürünlerimiz</a>
-                            <span class="delimiter">></span>
+                        @*   <li style=" padding: 0 10px 0px 0;">
+                        <a href="/" title="Ürünlerimiz">Ürünlerimiz</a>
+                        <span class="delimiter">></span>
                         </li> *@
                         <li style=" padding: 0 10px 0px 0;">
                             <a href="urunlerimiz?categoryId=@Model.CategoryId" title="@Model.Category.Name">@Model.Category.Name</a>
                             <span class="delimiter">></span>
                         </li>
                         <li style=" padding: 0 10px 0px 0;">
-                            <span class="current-item">@Html.DisplayFor(model=>model.Title)</span>
+                            <span class="current-item">@Html.DisplayFor(model => model.Title)</span>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
 
         </div>
         <div class="heading-title mt-20">
-            <h4>@Html.DisplayFor(model=>model.Title)</h4>
+            <h4>@Html.DisplayFor(model => model.Title)</h4>
 
         </div>
         <div class="page-content pe-0">
@@ -196,16 +196,37 @@
 
 
                                                     </div>
+
+
                                                     <div class="swiper-button-next"></div>
                                                     <div class="swiper-button-prev"></div>
                                                     <div class="swiper-pagination"></div>
+
+
+
+
+
                                                 </div>
 
                                             </div>
                                         </div>
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </section>
+
+
+                            <div class="card-body mt-18" style="text-align:center;">
+                                Verita <span class="current-item">@Html.DisplayFor(model => model.Title)</span>  ürünümüzü,
+                                <a href="https://www.dunyaninmeyvesi.com/" target="_blank" style="color:black; font-weight:bold; border-bottom:solid 1px;"> Dünyanın Meyvesi</a> online satış<br /> noktamız dışında bulabileceğiniz yerleri görmek için
+                                <b><a style="color:black; border-bottom:solid 1px;" href="https://veritatest.verita.cr/Page?pageId=10" target="_blank">buraya tıklayınız.</a></b>
+                            </div>
+
 
                         </div>
 
@@ -215,6 +236,10 @@
 
             </div>
         }
+
+
+
+
     </div>
 </main>
 <style>
@@ -319,7 +344,7 @@
     body {
         background: url(/images/hedeflerimiz-ust-zemin.png);
         /*  background-size: 100%;
-                                    background-repeat: no-repeat;*/
+                                                    background-repeat: no-repeat;*/
     }
 
     p {
@@ -350,7 +375,7 @@
         }
     }
 </style>
-@section links{
+@section links {
     <link href="/Themes/Default/Content/css/style.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
     <link href="/Themes/Default/Content/css/plugins/toastr.min.css?v=2020100520" rel="stylesheet" type="text/css" />
@@ -377,7 +402,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 }
 
-@section scripts{
+@section scripts {
 
     <script>
         AjaxCart.init('.header-links .qty-cart', '.header-links .qty-wishlist', '.flyout-cart');
