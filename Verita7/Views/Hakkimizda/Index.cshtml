@@ -62,41 +62,59 @@
             </div>
 
         </div>
-        <div class="heading-title mt-20">
+        <div class="sub-page-title mt-20">
             <h4>Hakkımızda</h4>
         </div>
         <div class="pe-0 page-bottom-footer">
             <div id="accordion" class="roboto-font pt-10">
-                <div class="d-flex page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
-                    <div class="align-content-end col-6 d-flex justify-content-start"><img src="@Model.ImageUrl1" class="w-100" style="height:fit-content" /></div>
-                    <div class="col-6 p-4">
-                        <div class="d-flex flex-column align-items-start p-5" style="text-align:center;">
-                            <span class="text-center mb-8 product-title">@Html.DisplayFor(model=>model.Title1)</span>
-                            @Html.Raw(Model.Description1)
+
+
+
+                <div class="container contents" style="padding:0px !important;">
+
+                    <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                        <div class="d-flex flex-lg-row flex-column-reverse">
+                            <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
+                                <img src="@Model.ImageUrl1" class="w-100 mobile-main-image" style="height:auto;" />
+                            </div>
+                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4" style="text-align:center;">
+                                    <span class="text-center mb-8 font-sub-page-title p-4">@Html.DisplayFor(model=>model.Title1)</span>
+                                    <span class="text-center mb-6 px-5 sub-page-content">
+                                    @Html.Raw(Model.Description1)
+                                    </span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="d-flex page-content mb-10 mt-40" style="background-color: rgb(255 255 255 / 63%);">
-                    <div class="col-6 p-4">
-                        <div class="d-flex flex-column align-items-center p-5" style="text-align:center;">
-                            <span class="text-center mb-8 product-title">@Html.DisplayFor(model=>model.Title2)</span>
-                            @Html.Raw(Model.Description2)
+                <div class="container contents mb-10 mt-40" style="padding:0px !important;">
 
+                    <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                        <div class="d-flex flex-lg-row flex-column">
+                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4" style="text-align:center;">
+                                <span class="text-center mb-8 font-sub-page-title p-4">@Html.DisplayFor(model=>model.Title2)</span>
+                                <span class="text-center mb-6 px-5 sub-page-content">
+                                    @Html.Raw(Model.Description2)
+                                </span>
+                            </div>
+                            <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
+                                <img src="@Model.ImageUrl2" class="w-100 mobile-main-image" style="height:auto;" />
+                            </div>
+                            
                         </div>
                     </div>
-                    <div class="align-content-end col-6 d-flex justify-content-end">
-                        <img src="@Model.ImageUrl2" class="w-100" style="height:fit-content" />
-                    </div>
-
                 </div>
+
+
                 <div class="d-flex flex-column align-items-center my-18 page-content">
                 <div class="d-flex justify-content-center w-100 mb-4" style="background-color: rgb(255 255 255 / 63%);">
-                    <div class="col-6 p-4 mt-20">
+                    <div class="col-lg-6 col-sm-12 p-4 mt-20">
                             <div class="d-flex flex-column align-items-center p-5" style="text-align:center;">
-                            <span class="text-center mb-8 product-title">@Html.DisplayFor(model=>model.Title3)</span>
+                                <span class="text-center mb-8 font-sub-page-title">@Html.DisplayFor(model=>model.Title3)</span>
+                                <span class="sub-page-content">
                                 @Html.Raw(Model.Description3)
+                                </span>
                         </div>
                     </div>
                 </div>

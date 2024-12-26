@@ -65,13 +65,18 @@
 /*}*/
 @font-face {
     font-family: "Roboto Slab";
-    src: url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.eot");
-    src: url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.eot?#iefix")format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.woff2")format("woff2"), url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.woff")format("woff"), url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.ttf")format("truetype"), url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.svg#Roboto Slab Light")format("svg");
+    src: url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.woff2") format("woff2"), 
+        url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.woff") format("woff"), 
+        url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.ttf") format("truetype"), 
+        url("https://db.onlinewebfonts.com/t/838d30a090ecd1ea46fe78ba86a95755.svg#Roboto Slab Light") format("svg");
 }
+
 @font-face {
-    font-family: "Roboto Slab SemiBold";
-    src: url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.eot");
-    src: url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.eot?#iefix")format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.woff2")format("woff2"), url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.woff")format("woff"), url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.ttf")format("truetype"), url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.svg#Roboto Slab SemiBold")format("svg");
+    font-family: "Roboto Slab SemiBold"; /* Check if you have a separate font file for this */
+    src: url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.woff2") format("woff2"), 
+        url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.woff") format("woff"), 
+        url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.ttf") format("truetype"), 
+        url("https://db.onlinewebfonts.com/t/13379d71c428c4bd81171044c2527eb6.svg#Roboto Slab SemiBold") format("svg");
 }
 @media (prefers-reduced-motion: no-preference) {
     :root {
@@ -132,6 +137,30 @@ h1, .h1 {
         margin: 0;
         font-size: 14px;
     }
+
+    .font-sub-page-title {
+        color: #006940;
+        font-weight: bold;
+        font-size: 40px;
+        font-weight: 700;
+        font-family: 'Roboto Slab SemiBold'
+    }
+
+
+    .sub-page-content {
+        font-size: 20px;
+        font-family: 'Roboto Slab';
+        line-height: 28px;
+    }
+
+    .sub-page-title h4, .sub-page-title .h4 {
+        font-weight: 600;
+        color: #232323;
+        font-size: 26px;
+        margin-bottom: 4px;
+        text-align: center;
+        .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl padding-top: 80px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -141,6 +170,31 @@ h1, .h1 {
         padding: 0;
         margin: 0;
         font-size: 33px;
+    }
+
+    .font-sub-page-title {
+        color: #006940;
+        font-weight: bold;
+        font-size: 4.5rem !important;
+        font-weight: 700;
+        font-family: 'Roboto Slab SemiBold'
+    }
+
+    .sub-page-content {
+        font-size: 3.6rem;
+        font-family: 'Roboto Slab';
+        line-height: 75px;
+        padding-top: 40px;
+    }
+
+    .sub-page-title h4, .sub-page-title .h4 {
+        font-size:6.5rem !important;
+        font-weight: 600;
+        color: #232323;
+        font-size: 26px;
+        margin-bottom: 4px;
+        text-align: center;
+        .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl padding-top: 80px;
     }
 }
 
