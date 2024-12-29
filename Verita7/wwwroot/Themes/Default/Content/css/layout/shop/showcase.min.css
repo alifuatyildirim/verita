@@ -73,6 +73,13 @@
 
 @media(max-width:991.98px) {
 
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-btn {
+        color: #fff;
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+
     .showcase .showcase-title h4 {
         font-family: 'Roboto Slab SemiBold';
         margin-bottom: 5px;
@@ -104,6 +111,13 @@
     }
 }
 @media(min-width:991.98) {
+
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-btn {
+        color: #fff;
+        font-size: 23px;
+        font-weight: bold;
+    }
+
     .home-page-products {
         width: 400px !important;
         margin-right: 40px !important;
@@ -244,11 +258,7 @@
                                     margin-top:auto;
                                 }
 
-                                .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-btn {
-                                    color: #fff;
-                                    font-size: 23px;
-                                    font-weight: bold;
-                                }
+                               
 
                                 .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .product-price {
                                     font-size: 20px;

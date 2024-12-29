@@ -62,7 +62,52 @@
         @for (int i = 0; i < Model.ProductCards.Count; i++)
         {
 
-            <div class="page-content pe-0">
+            @if (i == 0 || i % 2 == 0)
+            {
+                <div class="container contents " style="padding:0px !important;">
+
+                <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                    <div class="d-flex flex-lg-row flex-column-reverse">
+                        <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
+                                <img src="@Url.Content(Model.ProductCards[i].Image)" class="w-100 mobile-main-image" style="height:auto;" />
+                        </div>
+                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4 product-mobile-margin" style="text-align:center;">
+                                <span class="text-center mb-8 font-sub-page-title p-4"> @Html.Raw(@Model.ProductCards[i].Title)</span>
+                            <span class="text-center mb-6 px-5 sub-page-content">
+                                    @Html.Raw(Model.ProductCards[i].Description)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            }
+            else{
+            <div class="container contents mb-10 mt-40" style="padding:0px !important;">
+
+                <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                    <div class="d-flex flex-lg-row flex-column">
+                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4 product-mobile-margin" style="text-align:center;">
+                                <span class="text-center mb-8 font-sub-page-title p-4"> @Html.Raw(@Model.ProductCards[i].Title)</span>
+                            <span class="text-center mb-6 px-5 sub-page-content">
+                                    @Html.Raw(Model.ProductCards[i].Description)
+                            </span>
+                        </div>
+                        <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
+                                <img src="@Url.Content(Model.ProductCards[i].Image)" class="w-100 mobile-main-image" style="height:auto;" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            }
+
+
+
+
+
+
+          @*  <div class="page-content pe-0">
 
                 <div id="accordion">
 
@@ -93,7 +138,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div>*@
         }
         @if (Model.ProductOrderItems != null && Model.ProductOrderItems.Any())
         {
@@ -103,8 +148,8 @@
                         <div class="showcase-container">
                             <section class="showcase">
                                 <div class="container">
-                                    <div class="showcase-title">
-                                        <h4>Hemen Sipariş Verebilirsiniz</h4>
+                                    <div class="showcase-title font-sub-page-title">
+                                        Hemen Sipariş Verebilirsiniz
                                     </div>
                                     <div class="left-image-showcase showcase-scope-1">
 
@@ -127,10 +172,10 @@
                                                                 <a href="@Model.ProductOrderItems[0].Url" target="_blank" class="product-link"></a>
 
                                                                 <div class="product-image">
-                                                                    <img style="width:400px; height:400px;" src="@Url.Content(Model.ProductOrderItems[0].Image)" alt="@Model.ProductOrderItems[0].Title">
+                                                                    <img src="@Url.Content(Model.ProductOrderItems[0].Image)" alt="@Model.ProductOrderItems[0].Title">
                                                                 </div>
 
-                                                                <div class="overlay">
+                                                                <div class="overlay overlay-mobile">
                                                                     <div class="middle">
                                                                         <div></div>
                                                                         <div class="overlay-name">@Model.ProductOrderItems[0].Title</div>
@@ -143,10 +188,10 @@
                                                                 <a href="@Model.ProductOrderItems[1].Url" target="_blank" class="product-link"></a>
 
                                                                 <div class="product-image">
-                                                                    <img style="width:400px; height:400px;" src="@Url.Content(Model.ProductOrderItems[1].Image)" alt="@Model.ProductOrderItems[1].Title">
+                                                                    <img src="@Url.Content(Model.ProductOrderItems[1].Image)" alt="@Model.ProductOrderItems[1].Title">
                                                                 </div>
 
-                                                                <div class="overlay">
+                                                                <div class="overlay overlay-mobile">
                                                                     <div class="middle">
                                                                         <div></div>
                                                                         <div class="overlay-name">@Model.ProductOrderItems[1].Title</div>
@@ -167,10 +212,10 @@
                                                                         <a href="@productItem.Url" target="_blank" class="product-link"></a>
 
                                                                         <div class="product-image">
-                                                                            <img style="width:400px; height:400px;" src="@Url.Content(productItem.Image)" alt="@productItem.Title">
+                                                                            <img src="@Url.Content(productItem.Image)" alt="@productItem.Title">
                                                                         </div>
 
-                                                                        <div class="overlay">
+                                                                        <div class="overlay overlay-mobile">
                                                                             <div class="middle">
                                                                                 <div></div>
                                                                                 <div class="overlay-name">@productItem.Title</div>
@@ -221,7 +266,7 @@
                             </section>
 
 
-                            <div class="card-body mt-18" style="text-align:center;">
+                            <div class="sub-page-content mt-18" style="text-align:center;">
                                 Verita <span class="current-item">@Html.DisplayFor(model => model.Title)</span>  ürünümüzü,
                                 <a href="https://www.dunyaninmeyvesi.com/" target="_blank" style="color:black; font-weight:bold; border-bottom:solid 1px;"> Dünyanın Meyvesi</a> online satış<br /> noktamız dışında bulabileceğiniz yerleri görmek için
                                 <b><a style="color:black; border-bottom:solid 1px;" href="https://veritatest.verita.cr/Page?pageId=10" target="_blank">buraya tıklayınız.</a></b>

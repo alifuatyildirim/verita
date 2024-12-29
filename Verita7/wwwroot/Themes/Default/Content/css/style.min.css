@@ -129,6 +129,11 @@ h1, .h1 {
     color: #232323;
 }
 
+.breadcrumb-header a {
+    color: black;
+    text-decoration: none;
+}
+
 @media (min-width: 1200px) {
     .breadcrumb-header {
         display: flex;
@@ -195,6 +200,21 @@ h1, .h1 {
         margin-bottom: 4px;
         text-align: center;
         .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl padding-top: 80px;
+    }
+
+    .timeline-mobile {
+        font-size: 3rem !important;
+        max-width: max-content !important;
+        width: 100% !important;
+    }
+
+    .timeline-content h3{
+        font-size : 3.6rem !important;
+        margin-bottom:40px;
+    }
+
+    .product-mobile-margin{
+        margin-top:200px;
     }
 }
 
