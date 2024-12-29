@@ -7735,17 +7735,9 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         }
     }
 
-    @media (min-width: 992px) {
-        .modal-lg, .modal-xl {
-            max-width: 800px
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .modal-xl {
-            max-width: 1140px
-        }
-    }
+.modal-xl {
+    max-width: 1140px
+}
 
     .modal-fullscreen {
         width: 100vw;
