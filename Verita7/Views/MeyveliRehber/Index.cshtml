@@ -253,6 +253,7 @@
             return new Date(parts[2], parts[1] - 1, parts[0]); // Month index 0-based olduğu için 1 çıkarıyoruz
         }
     </script>
+ 
     <script>
     $(document).ready(function () {
         // Kart tıklanıldığında modalı aç
@@ -276,5 +277,28 @@
     $('#contentModal').modal('show'); // Modalı göster
 });
 
+  $(document).on('click', function (e) {
+            if ($(e.target).hasClass('modal')) {
+                $('#contentModal').modal('hide'); // Modalı kapat
+                $('#contentModal').on('hidden.bs.modal', function () {
+                    $(this).remove(); // Modal HTML'ini kaldır
+                });
+            }
+
+           
+        });
+
+        // Modalı kapat ve sil
+        window.closeAndRemoveModal = function () {
+            $('#contentModal').modal('hide'); // Modalı kapat
+            $('#contentModal').on('hidden.bs.modal', function () {
+                $(this).remove(); // Modal HTML'ini kaldır
+            });
+        };
     });
+
+
+     // Modal dışına tıkladığında modalı kapat ve sil
+      
+    
 </script>

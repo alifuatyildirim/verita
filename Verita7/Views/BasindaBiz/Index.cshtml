@@ -368,6 +368,7 @@
             $('#contentModal').modal('show'); // Modalı göster
         });
 
+
         // Modal dışına tıkladığında modalı kapat ve sil
         $(document).on('click', function (e) {
             if ($(e.target).hasClass('modal')) {
@@ -376,6 +377,8 @@
                     $(this).remove(); // Modal HTML'ini kaldır
                 });
             }
+
+           
         });
 
         // Modalı kapat ve sil
