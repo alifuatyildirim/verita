@@ -23,8 +23,6 @@
 </head>
 <body class="@ViewBag.BodyClass">
     <section class="header-mobile">
-
-
         <div class="bottom">
             <div class="header-mobile-nav">
                 <input id="header-mobile-toggle" type="checkbox" />
@@ -347,6 +345,14 @@
     </footer>
 
     <div class="container hidden-container"></div>
+    <script>
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const menu = document.getElementById('menu');
+
+        menuToggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+    </script>
     @section Scripts {
         <script>
             $(document).ready(function () {
