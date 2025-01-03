@@ -21,7 +21,7 @@
             </li> 
         </ul>
     </div> 
-    <div class="container">
+    <div class="container container-bg  page-bottom-padding-footer">
        <div class="page-nav-header"> 
             <div class="category-info">
                 <div class="breadcrumb" style="margin-bottom:10px">
@@ -60,6 +60,8 @@
     int cardsPerRow = 4; // Her satırda gösterilecek kart sayısı
     int cardsDisplayed = 0; // Gösterilen kart sayısı
 }
+
+ <div class="page-content pe-0 ">
 @foreach (var card in Model.Skip(startIndex).Take(pageSize))
 {
     if (cardsDisplayed % cardsPerRow == 0)
@@ -93,7 +95,7 @@
                     }
             </ul>
         </nav>
-
+        </div>
             </div>
         </main>
 

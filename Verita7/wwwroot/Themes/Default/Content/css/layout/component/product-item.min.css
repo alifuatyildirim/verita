@@ -211,7 +211,7 @@
     }
 
     .overlay-mobile {
-        opacity: 1
+        opacity: 1 !important;
     }
 
     .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide .product-item .overlay .middle .overlay-name{

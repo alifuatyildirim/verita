@@ -32,7 +32,7 @@
         </ul>
     </div>
 
-    <div class="container  container-bg @(string.IsNullOrEmpty(@Model.FirstOrDefault()?.Category.BackgroundImage) ? "" : "with-image")" ">
+    <div class="container  container-bg @(string.IsNullOrEmpty(@Model.FirstOrDefault()?.Category.BackgroundImage) ? "" : "with-image")">
 
         <div class="page-nav-header">
             <div class="category-info">
@@ -65,7 +65,7 @@
                     var products = Model;
                     var rowCount = (int)Math.Ceiling((double)products.Count / 3);
                 }
-                <div class="row g-5 mt-10 mb-13">
+                <div class="row g-5 mt-10 pb-13">
                     @foreach (var item in products)
                     { 
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -74,7 +74,7 @@
                                 <div class="product-image">
                                     <img src="@item.MainImageUrl" alt="@item.Name">
                                 </div>
-                                <div class="overlay">
+                                <div class="overlay overlay-mobile">
                                     <div class="middle">
                                         <div></div>
                                         <div class="overlay-name">@item.Name</div>
@@ -105,8 +105,7 @@
             background-color: transparent; /* resim varsa şeffaf arka plan */
         }
     .page-container .page-content {
-        padding-bottom: 0px !important;
-        margin-bottom: 350px !important;
+        padding-bottom: 350px !important;
     }
 
     .page-content {
@@ -201,6 +200,14 @@
     }
 
     @@media (max-width: 991.98px) {
+
+        .overlay-name {
+            font-size: 3.6rem !important;
+        }
+
+        .overlay{
+            opacity:1 !important;
+        }
 
         .card-body {
             background-color: rgba(255, 255, 255, 0.1);

@@ -77,10 +77,12 @@
 
             <div id="accordion" class="pt-10">
                 <div class="card">
-                    <span class="mb-15 font-size-h3 fw-bold">@Model.Title</span>
+                    <span class="mb-15 font-verita-page-title fw-bold">@Model.Title</span>
                 </div>
                 <div class="card-body">
+                    <span class="sub-page-verita-content">
                     @Html.Raw(Model.Description)
+                    </span>
                 </div>
                 @foreach (var image in Model.PageImages)
                 {
@@ -148,13 +150,30 @@
         margin-right: 24px;
     }
 
-    .card-body { 
-        font-size: 20px !important;
-        line-height: 36px !important;
-        margin: 0 auto;
-        padding: 0px;
-        width: 800px;
+
+    @@media (max-width: 1200px) {
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 20px !important;
+            line-height: 36px !important;
+            margin: 0 auto;
+            padding: 0px;
+            width: 80% !important;
+        }
     }
+
+    @@media (min-width: 1200px) {
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 20px !important;
+            line-height: 36px !important;
+            margin: 0 auto;
+            padding: 0px;
+            width: 800px;
+        }
+    }
+
+
 
     .collapsed .collapse-icon:before {
         content: '+ ';
