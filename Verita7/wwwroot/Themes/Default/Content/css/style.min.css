@@ -6576,6 +6576,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         }
 
     .menu-container {
+        margin-top:-2px !important;
         position: absolute;
         background-color: #006940;
         display: flex;
