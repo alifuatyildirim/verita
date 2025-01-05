@@ -3944,7 +3944,7 @@ progress {
     padding: .55rem 1rem;
     font-size: .875rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 2.5;
     color: #232323;
     background-color: #fff;
     background-clip: padding-box;
@@ -4712,7 +4712,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 .btn {
     display: inline-block;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 2;
     color: #232323;
     text-align: center;
     vertical-align: middle;
@@ -4722,7 +4722,6 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     border: 1px solid transparent;
     padding: .55rem 1rem;
     font-size: .875rem;
-    border-radius: .38rem;
     transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out,box-shadow 0.3s ease-in-out
 }
 
@@ -6481,7 +6480,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             list-style: none;
             padding: 24px 0;
             margin: 0;
-            height: 140px;
+            height: 170px;
             align-items: center;
             padding-right: 40px;
             padding-left: 40px;
@@ -6493,6 +6492,10 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 
                 .categoryNav ul li a:hover {
                     color: #fff;
+                }
+
+                .mb-content-title{
+                    margin-top:5rem !important;
                 }
 }
 
@@ -6552,10 +6555,10 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     }
 
     .menu li {
-        padding: 20px 15px;
+        padding: 35px 15px;
         text-align: center;
         min-height: 60px;
-        font-size: 2.6rem;
+        font-size: 3.2rem;
     }
 
     .menu {
@@ -38786,7 +38789,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     }
 
     .form-control, .form-select {
-        font-family: "Montserrat"
+        font-family: "Roboto Slab"
     }
 
         .form-control[readonly], .form-select[readonly] {

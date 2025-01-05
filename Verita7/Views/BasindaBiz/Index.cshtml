@@ -73,27 +73,28 @@
             </div>
         </div>
         <div class="page-content pe-0">
-            <div class="heading-title mb-25" style="text-align:center;">
+            <div class="sub-page-title my-20" style="text-align:center;">
                 <h4>Basında Verita</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-lg-3 col-sm-12">
                 <select id="sortSelect" class="form-control">
                     <option>Seçiniz</option>
                     <option value="asc">Artan</option>
                     <option value="desc">Azalan</option>
                 </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-sm-12 mb-form-control-margin">
                 <select id="datepicker" name="datepicker" class="form-control">
+                     <option value="">Seçiniz</option>
             @foreach (var item in ViewBag.Years as List<int>)
             {
                 <option value="@item">@item</option>
             }
         </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4  col-sm-12 mb-form-control-margin">
                
                 <select id="labelTypeSelect" class="form-control">
                     <option value="">Seçiniz</option>
@@ -103,12 +104,12 @@
                     <option value="3">Reklam</option>
                 </select>
             </div>
-            <div class="col-md-1">
+            <div class="col-lg-1 col-sm-12 mb-form-control-margin">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-lg-5 col-sm-12 d-flex mobile-center">
                         <button type="button" class="btn btn-primary" id="clearFiltersBtn">Temizle</button> <!-- Temizle butonu -->
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                     </div>
                 </div>
             </div>
@@ -138,7 +139,7 @@
     {
         @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
     }
-    <div class="col-lg-3 col-sm-6 padding-for-mobile @(GetCardTypeClass(card.LabelType.GetHashCode()))">
+    <div class="col-lg-3 col-sm-6 mt-5 padding-for-mobile @(GetCardTypeClass(card.LabelType.GetHashCode()))">
         <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")"  data-year="@card.DateOfPublication.Year" data-title="@card.Name" data-type="@((int)card.LabelType)"  data-image="@card.Image"  data-link="@card.Link"  data-contenttype="@card.ContentType.ToString()">
             <img class="card-img-top" src="@card.Image" alt="Kart resmi">
             <div class="card-body">
@@ -171,13 +172,50 @@
         </main>
 
         <style>
+            select {
+    -webkit-appearance: none !important; /* Safari ve Chrome */
+    -moz-appearance: none !important; /* Firefox */
+    appearance: none !important; /* Diğer tarayıcılar */
+    padding: 5px 10px !important; /* İç boşluk */
+    box-sizing: border-box !important;
+}
+
              @@media (min-width: 992px) {
+
+                 
                     .card-img-top {
                         height: 300px;
                     }
                 }
 
                 @@media (max-width: 992px) {
+
+                    .page-link{
+                        font-size:5.2rem !important;
+                        padding-left:40px;
+                        padding-right:40px;
+                    }
+
+                    .mobile-center{
+                        justify-content :center !important;
+                    }
+
+                    select.form-control {
+                        font-size: 2.2rem;
+                    }
+
+                    .mb-form-control-margin{
+                     margin-top:2rem !important;
+                 }
+
+                 .btn{
+                     font-size:3.2rem !important;
+                 }
+
+                 .form-control{
+                     font-size :3.2rem !important;
+                     line-height:2 !important;
+                 }
                     .card-img-top {
                         height: 800px;
                     }
@@ -245,6 +283,8 @@
 
 }
         <script>
+
+
             $(document).ready(function () {
 
                     @functions {
