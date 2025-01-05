@@ -6,9 +6,14 @@
 }
 
 <section class="page-container mt-40">
-    <div class="filter-box categoryNav">
-        <ul>
 
+    <div class="categoryNav d-flex justify-content-center">
+        <ul class="menu-toggle-btn" id="menuToggleBtn">
+            <li>ÜRÜNLERİMİZ</li>
+        </ul>
+    </div>
+    <div class="menu-container">
+        <ul class="menu" id="menu">
             @foreach (var item in (List<Category>)ViewBag.Categories)
             {
                 if (item.IsPage)
@@ -31,6 +36,7 @@
             }
         </ul>
     </div>
+
 
     <div class="container  container-bg @(string.IsNullOrEmpty(@Model.FirstOrDefault()?.Category.BackgroundImage) ? "" : "with-image")">
 
@@ -55,7 +61,7 @@
             </div>
 
         </div>
-        <div class="heading-title mt-20">
+        <div class="sub-page-title my-20">
             <h4>@Model.FirstOrDefault()?.Category.Name</h4>
         </div>
         <div class="page-content pe-0">

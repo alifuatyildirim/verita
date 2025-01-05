@@ -6537,13 +6537,18 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         background-color: #006940;
         display: flex;
         width: 100%;
-        z-index: 1000;
+        z-index: 100;
     }
 }
 
 
 /* Mobil Uyumluluk */
 @media (max-width: 1200px) {
+
+    .padding-for-mobile {
+        padding-bottom: 100px;
+    }
+
 
     .menu-toggle-btn {
         display: block;
@@ -6584,7 +6589,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         background-color: #006940;
         display: flex;
         width: 100%;
-        z-index: 1000;
+        z-index: 100;
     }
 }
 

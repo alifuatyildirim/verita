@@ -11,16 +11,21 @@
 <link href="/Themes/Default/Content/css/pages/page.min.css?v=2020100520" rel="stylesheet" type="text/css" />
 
 <main class="page-container mt-40">
-      <div class="filter-box categoryNav">
-        <ul>
-
-            <li class="active last">
-                <a href="/">
-                    Ana Sayfa
-                </a>
-            </li> 
+     <div class="categoryNav d-flex justify-content-center">
+        <ul class="menu-toggle-btn">
+            <li><a href="#">MEYVELİ REHBER<</a></li>
         </ul>
-    </div> 
+    </div>
+    <div class="menu-container">
+        <ul class="menu" id="menu">
+             <li class="active last">
+                <a href="#">
+                    MEYVELİ REHBER
+                </a>
+            </li>
+
+        </ul>
+    </div>
     <div class="container container-bg  page-bottom-padding-footer">
        <div class="page-nav-header"> 
             <div class="category-info">
@@ -37,7 +42,7 @@
                 </div>
             </div>
         </div> 
-       <div class="heading-title mt-20">
+       <div class="sub-page-title my-20">
             <h4>Meyveli Rehber</h4>
         </div>
 
@@ -68,13 +73,13 @@
     {
         @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
     }
-    <div class="col-sm-3">
+    <div class="col-lg-3 col-sm-6  padding-for-mobile">
         <div class="card" data-file ="@card.File" data-title ="@card.Name">
             <img class="card-img-top" src="@card.Image" alt="Kart resmi">
             <div class="card-body">
                 <h5 class="card-title">@card.Name</h5>
-                <a href="@card.Link">@card.Link</a>
-                <p class="card-text">@card.DateOfPublication.ToString("dd-MM-yyyy")</p>
+               @* <a href="@card.Link">@card.Link</a>
+                <p class="card-text">@card.DateOfPublication.ToString("dd-MM-yyyy")</p>*@
             </div>
         </div>
     </div>
@@ -105,6 +110,18 @@
                 .modal-xl {
                   max-width: 1000px;
                 }
+           }
+
+
+           @@media (max-width: 1200px) {
+
+               .card-title{
+                   font-size :3.2rem !important;
+               }
+
+           .card-img-top{
+               height:auto !important;
+           }
            }
 
             @@media (min-width: 1200px) {
