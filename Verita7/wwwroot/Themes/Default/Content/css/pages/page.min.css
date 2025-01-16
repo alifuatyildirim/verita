@@ -99,12 +99,7 @@
     transform: translateY(-50%);
 }
 
-@media(max-width:1200px) {
-    .page-container .page-content {
-        margin-left:62px !important;
-        margin-right:62px !important;
-    }
-}
+
 
     @media(max-width:767.98px) {
         .page-container .page-content {
