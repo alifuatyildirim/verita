@@ -163,8 +163,8 @@
             color: #fff;
             font-weight: bold;
             font-size: 28px;
-            font-family: 'Roboto Slab SemiBold' !important;
-            margin-top:auto;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
+            margin-top: auto;
         }
 
         .product-item .overlay .middle .overlay-btn {
@@ -241,7 +241,7 @@
         padding: 45px 75px;
         cursor: pointer;
         background-position-y: center;
-        font-family: 'Roboto Slab SemiBold' !important;
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
     }
 }
 
@@ -261,7 +261,7 @@
             padding: 13px 40px;
             cursor: pointer;
             background-position-y: center;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
         }
 
         .product-btn-big {
@@ -285,7 +285,7 @@
             padding: 13px 40px;
             cursor: pointer;
             background-position-y: center;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
         }
 
         .swiper-slide .slider-bg .btn-big {
@@ -303,7 +303,7 @@
             padding: 10px 15px;
             cursor: pointer;
             background-position-y: center;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
         }
 
         .btn-dahafazla {

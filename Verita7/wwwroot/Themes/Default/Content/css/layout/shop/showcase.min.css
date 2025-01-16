@@ -38,7 +38,7 @@
 }
 
     .showcase .showcase-title h4 {
-        font-family:'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
         margin-bottom: 5px;
         font-size: 45px;
         color: #006940;
@@ -81,7 +81,7 @@
 
 
     .showcase .showcase-title h4 {
-        font-family: 'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
         margin-bottom: 5px;
         font-size: 6rem;
         color: #006940;
@@ -254,8 +254,8 @@
                                     color: #fff;
                                     font-weight: 600;
                                     font-size: 30px;
-                                    font-family: 'Roboto Slab SemiBold';
-                                    margin-top:auto;
+                                    font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
+                                    margin-top: auto;
                                 }
 
                                

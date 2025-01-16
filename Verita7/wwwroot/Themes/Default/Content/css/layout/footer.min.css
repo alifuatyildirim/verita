@@ -297,7 +297,7 @@ footer .footer-copyright .footer-copyright-menu li a {
     text-align: center;
     width: 800px;
     font-size: 26px;
-    font-family: 'Roboto Slab SemiBold' !important;
+    font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
 }
 
 .footer-newsletter .input-group {

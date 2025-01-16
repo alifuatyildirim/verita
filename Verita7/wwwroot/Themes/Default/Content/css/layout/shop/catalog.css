@@ -21,7 +21,7 @@
     margin-top:64px;
     color: #006940; }
     .catalog-page .catalog-title h3 {
-        font-family: 'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
         font-size: 38px;
         font-weight: 700;
     }

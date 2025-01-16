@@ -65,7 +65,7 @@
             padding: 45px 75px;
             cursor: pointer;
             background-position-y: center;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
         }
 
         .btn-hemenal {
@@ -83,7 +83,7 @@
             padding: 45px 75px;
             cursor: pointer;
             background-position-y: center;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
         }
 
         .swiper-slide .slider-bg .btn-big {
@@ -101,7 +101,7 @@
             padding: 10px 15px;
             cursor: pointer;
             background-position-y: center;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
         }
     }
 
@@ -169,7 +169,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            font-family: 'Roboto Slab SemiBold' !important;
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif !important;
             background: rgba(0, 0, 0, 0.5); /*Buradaki 0.5 saydamlýk seviyesini dilediðiniz gibi ayarlayabilirsiniz */
             z-index: 2;
         }
@@ -183,7 +183,7 @@
             margin: 0px;
             position: relative;
             z-index: 3;
-            font-family: 'Roboto Slab SemiBold';
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
         }
 
 .big-slider .big-slider-swiper .swiper {
@@ -203,7 +203,7 @@
         margin: 0px;
         position: relative;
         z-index: 3;
-        font-family: 'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
     }
 
     .big-slider .big-slider-swiper .swiper .swiper-slide .slider-bg {

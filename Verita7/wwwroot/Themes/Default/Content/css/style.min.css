@@ -86,7 +86,7 @@
         font-weight: bold;
         font-size: 4.5rem !important;
         font-weight: 700;
-        font-family: 'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
     }
 }
 
@@ -96,14 +96,14 @@
         font-weight: bold;
         font-size: 40px;
         font-weight: 700;
-        font-family: 'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
     }
 }
 
 @media (max-width: 1200px) {
     .sub-page-verita-content {
         font-size: 3.2rem;
-        font-family: 'Roboto Slab';
+        font-family: 'Roboto Slab', 'Aleo', sans-serif;
         line-height: 75px;
         padding-top: 40px;
     }
@@ -219,13 +219,13 @@ h1, .h1 {
         font-weight: bold;
         font-size: 40px;
         font-weight: 700;
-        font-family: 'Roboto Slab SemiBold'
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif
     }
 
 
     .sub-page-content {
         font-size: 20px;
-        font-family: 'Roboto Slab';
+        font-family: 'Roboto Slab', 'Aleo', sans-serif;
         line-height: 28px;
     }
 
@@ -253,12 +253,12 @@ h1, .h1 {
         font-weight: bold;
         font-size: 4.5rem !important;
         font-weight: 700;
-        font-family: 'Roboto Slab SemiBold'
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif
     }
 
     .sub-page-content {
         font-size: 3.6rem;
-        font-family: 'Roboto Slab';
+        font-family: 'Roboto Slab', 'Aleo', sans-serif;
         line-height: 75px;
         padding-top: 40px;
     }
@@ -6397,11 +6397,11 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             border-top: 0
         }
 
-        .home-page-content{
-            font-size:18px;
-            font-family:'Roboto Slab';
-            line-height:30px;
-        }
+.home-page-content {
+    font-size: 18px;
+    font-family: 'Roboto Slab', 'Aleo', sans-serif;
+    line-height: 30px;
+}
 
 
 .header-mobile-content .sub-menu {
@@ -6410,9 +6410,9 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     left: 0;
     background-color: #fff;
     font-size: 18px;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Aleo', sans-serif;
     padding: 10px;
-    text-align:left;
+    text-align: left;
 }
 
 .header-mobile-content .nav-item:hover .sub-menu {
@@ -8029,7 +8029,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 
         .home-page-content {
             font-size: 3.6rem;
-            font-family: 'Roboto Slab';
+            font-family: 'Roboto Slab', 'Aleo', sans-serif;
             line-height: 80px;
             padding-top: 40px;
             margin-bottom: 100px !important;
@@ -38888,9 +38888,9 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         color: #434343
     }
 
-    .form-control, .form-select {
-        font-family: "Roboto Slab"
-    }
+.form-control, .form-select {
+    font-family: "Roboto Slab", 'Aleo', sans-serif
+}
 
         .form-control[readonly], .form-select[readonly] {
             background-color: #fff
@@ -62638,13 +62638,13 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             transition: fill 0.3s ease
         }
 
-    .product-title {
-        color: #006940;
-        font-weight: bold;
-        font-size: 40px;
-        font-weight: 700;
-        font-family: 'Roboto Slab SemiBold'
-    }
+.product-title {
+    color: #006940;
+    font-weight: bold;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif
+}
 
     .font-roboto {
         font-family: "Roboto",Helvetica,sans-serif !important
@@ -62674,10 +62674,10 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         font-size: 2.875rem !important
     }
 
-    .font-size-h3 {
-        font-family: 'Roboto Slab SemiBold';
-        font-size: 2rem !important
-    }
+.font-size-h3 {
+    font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
+    font-size: 2rem !important
+}
 
     .font-size-h4 {
         font-size: 1.75rem !important
@@ -62902,7 +62902,7 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         }
 
         .font-size-h3 {
-            font-family: 'Roboto Slab SemiBold';
+            font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
             font-size: 6.5rem !important;
         }
 
@@ -72116,14 +72116,14 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
         -webkit-tap-highlight-color: transparent
     }
 
-    html, body {
-        margin: 0px;
-        padding: 0px;
-        font-size: 16px !important;
-        font-weight: 400;
-        font-family: "Roboto Slab";
-        -ms-text-size-adjust: 100%
-    }
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px !important;
+    font-weight: 400;
+    font-family: "Roboto Slab", 'Aleo', sans-serif;
+    -ms-text-size-adjust: 100%
+}
 
     @media (min-width: 992px) {
         html, body {

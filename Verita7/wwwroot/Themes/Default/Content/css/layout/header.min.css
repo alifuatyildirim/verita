@@ -998,7 +998,7 @@ header .navbar-right .account-dropdown {
 .mobil-sub-menu-font {
     font-size: 50px;
     font-weight: 900;
-    font-family: 'Roboto Slab SemiBold';
+    font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
     color: #036939;
     line-height: 65px;
     margin-left: 100px;
@@ -1015,7 +1015,7 @@ header .navbar-right .account-dropdown {
         padding-top: 0.65rem;
         border-bottom: 5px solid #78be20;
         font-weight: 900;
-        font-family: 'Roboto Slab SemiBold';
+        font-family: 'Roboto Slab SemiBold', 'Aleo', sans-serif;
         margin-left: 50px;
         margin-right: 50px;
         padding-bottom: 0.65rem;
