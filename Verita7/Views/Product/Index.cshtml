@@ -32,7 +32,7 @@
                 <div class="breadcrumb">
                     <ul class="breadcrumb-header">
                         <li style=" padding: 0 10px 0px 0;">
-                            <a href="/"  class="breadcrumb-home" title="Anasayfa">Anasayfa</a>
+                            <a href="/" class="breadcrumb-home" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
                         @*   <li style=" padding: 0 10px 0px 0;">
@@ -71,81 +71,44 @@
 
             @if (i == 0 || i % 2 == 0)
             {
-                <div class="container contents " style="padding:0px !important;">
+                <div style="padding:0px !important;">
 
-                <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
-                    <div class="d-flex flex-lg-row flex-column-reverse">
-                        <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
+                    <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                        <div class="d-flex flex-lg-row flex-column-reverse">
+                            <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
                                 <img src="@Url.Content(Model.ProductCards[i].Image)" class="w-100 mobile-main-image" style="height:auto;" />
-                        </div>
-                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4 product-mobile-margin" style="text-align:center;">
-                                <span class="text-center mb-8 font-sub-page-title p-4"> @Html.Raw(@Model.ProductCards[i].Title)</span>
-                            <span class="text-center mb-6 px-5 sub-page-content">
-                                    @Html.Raw(Model.ProductCards[i].Description)
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            }
-            else{
-            <div class="container contents mb-10 mt-40" style="padding:0px !important;">
-
-                <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
-                    <div class="d-flex flex-lg-row flex-column">
-                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4 product-mobile-margin" style="text-align:center;">
-                                <span class="text-center mb-8 font-sub-page-title p-4"> @Html.Raw(@Model.ProductCards[i].Title)</span>
-                            <span class="text-center mb-6 px-5 sub-page-content">
-                                    @Html.Raw(Model.ProductCards[i].Description)
-                            </span>
-                        </div>
-                        <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
-                                <img src="@Url.Content(Model.ProductCards[i].Image)" class="w-100 mobile-main-image" style="height:auto;" />
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            }
-
-
-
-
-
-
-          @*  <div class="page-content pe-0">
-
-                <div id="accordion">
-
-
-                    <div class="d-flex my-40">
-                        @if (i == 0 || i % 2 == 0)
-                        {
-                            <div class="align-content-end col-6 d-flex justify-content-start">
-                                <img src="@Url.Content(Model.ProductCards[i].Image)"
-                                     class="w-100" style="height: fit-content" />
                             </div>
-                        }
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="d-flex flex-column align-items-center p-5">
-                                <span class="text-center mb-10 product-title"> @Html.Raw(@Model.ProductCards[i].Title)</span>
-                                <span class="text-center mb-4 px-10 home-page-content">
+                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4 product-mobile-margin" style="text-align:center;">
+                                <span class="text-center mb-8 font-sub-page-title p-4"> @Html.Raw(@Model.ProductCards[i].Title)</span>
+                                <span class="text-center mb-6 px-5 sub-page-content">
                                     @Html.Raw(Model.ProductCards[i].Description)
                                 </span>
                             </div>
                         </div>
-                        @if (i == 1 || i % 2 != 0)
-                        {
-                            <div class="align-content-end col-6 d-flex justify-content-start">
-                                <img src="@Url.Content(Model.ProductCards[i].Image)"
-                                     class="w-100" style="height:fit-content" />
-                            </div>
-                        }
                     </div>
-
                 </div>
-            </div>*@
+
+            }
+            else
+            {
+                <div class="mb-10" style="padding:0px !important;">
+
+                    <div class="d-flex flex-column page-content mb-20" style="background-color: rgb(255 255 255 / 63%);">
+                        <div class="d-flex flex-lg-row flex-column">
+                            <div class="d-flex flex-column align-items-center col-lg-6 col-sm-12 p-4 product-mobile-margin" style="text-align:center;">
+                                <span class="text-center mb-8 font-sub-page-title p-4"> @Html.Raw(@Model.ProductCards[i].Title)</span>
+                                <span class="text-center mb-6 px-5 sub-page-content">
+                                    @Html.Raw(Model.ProductCards[i].Description)
+                                </span>
+                            </div>
+                            <div class="align-content-end col-lg-6 col-sm-12 justify-content-start">
+                                <img src="@Url.Content(Model.ProductCards[i].Image)" class="w-100 mobile-main-image" style="height:auto;" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
         }
         @if (Model.ProductOrderItems != null && Model.ProductOrderItems.Any())
         {
@@ -154,121 +117,119 @@
                     <div class="mt-7 mx-4">
                         <div class="showcase-container">
                             <section class="showcase">
-                                <div class="container">
-                                    <div class="showcase-title font-sub-page-title">
-                                        Hemen Sipariş Verebilirsiniz
-                                    </div>
-                                    <div class="left-image-showcase showcase-scope-1">
+                                <div class="showcase-title font-sub-page-title">
+                                    Hemen Sipariş Verebilirsiniz
+                                </div>
+                                <div class="left-image-showcase showcase-scope-1">
 
-                                        <div class="showcase-products">
-                                            <div class="showcase-wrap">
-                                                <div class="showcase-slider-1 swiper">
-                                                    <div class="showcase-slider__wrapper swiper-wrapper">
-                                                        @if (Model.ProductOrderItems.Count() == 1)
+                                    <div class="showcase-products">
+                                        <div class="showcase-wrap">
+                                            <div class="showcase-slider-1 swiper">
+                                                <div class="showcase-slider__wrapper swiper-wrapper">
+                                                    @if (Model.ProductOrderItems.Count() == 1)
+                                                    {
+                                                        <div class="swiper-slide">
+
+                                                            <div class="product-item">
+                                                            </div>
+
+                                                        </div>
+                                                    }
+                                                    @if (Model.ProductOrderItems.Count() == 2)
+                                                    {
+                                                        <div class="product-item" style="margin-left:198px;">
+                                                            <a href="@Model.ProductOrderItems[0].Url" target="_blank" class="product-link"></a>
+
+                                                            <div class="product-image">
+                                                                <img src="@Url.Content(Model.ProductOrderItems[0].Image)" alt="@Model.ProductOrderItems[0].Title">
+                                                            </div>
+
+                                                            <div class="overlay overlay-mobile">
+                                                                <div class="middle">
+                                                                    <div></div>
+                                                                    <div class="overlay-name">@Model.ProductOrderItems[0].Title</div>
+                                                                    <a class="btn-big product-btn-big">İNCELE</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="product-item" style="margin-left:20px;">
+                                                            <a href="@Model.ProductOrderItems[1].Url" target="_blank" class="product-link"></a>
+
+                                                            <div class="product-image">
+                                                                <img src="@Url.Content(Model.ProductOrderItems[1].Image)" alt="@Model.ProductOrderItems[1].Title">
+                                                            </div>
+
+                                                            <div class="overlay overlay-mobile">
+                                                                <div class="middle">
+                                                                    <div></div>
+                                                                    <div class="overlay-name">@Model.ProductOrderItems[1].Title</div>
+                                                                    <a class="btn-big product-btn-big">İNCELE</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+
+
+                                                        @foreach (var productItem in Model.ProductOrderItems)
                                                         {
                                                             <div class="swiper-slide">
 
                                                                 <div class="product-item">
-                                                                </div>
+                                                                    <a href="@productItem.Url" target="_blank" class="product-link"></a>
 
-                                                            </div>
-                                                        }
-                                                        @if (Model.ProductOrderItems.Count() == 2)
-                                                        {
-                                                            <div class="product-item" style="margin-left:198px;">
-                                                                <a href="@Model.ProductOrderItems[0].Url" target="_blank" class="product-link"></a>
-
-                                                                <div class="product-image">
-                                                                    <img src="@Url.Content(Model.ProductOrderItems[0].Image)" alt="@Model.ProductOrderItems[0].Title">
-                                                                </div>
-
-                                                                <div class="overlay overlay-mobile">
-                                                                    <div class="middle">
-                                                                        <div></div>
-                                                                        <div class="overlay-name">@Model.ProductOrderItems[0].Title</div>
-                                                                        <a class="btn-big product-btn-big">İNCELE</a>
+                                                                    <div class="product-image">
+                                                                        <img src="@Url.Content(productItem.Image)" alt="@productItem.Title">
                                                                     </div>
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="product-item" style="margin-left:20px;">
-                                                                <a href="@Model.ProductOrderItems[1].Url" target="_blank" class="product-link"></a>
-
-                                                                <div class="product-image">
-                                                                    <img src="@Url.Content(Model.ProductOrderItems[1].Image)" alt="@Model.ProductOrderItems[1].Title">
-                                                                </div>
-
-                                                                <div class="overlay overlay-mobile">
-                                                                    <div class="middle">
-                                                                        <div></div>
-                                                                        <div class="overlay-name">@Model.ProductOrderItems[1].Title</div>
-                                                                        <a class="btn-big product-btn-big">İNCELE</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        }
-                                                        else
-                                                        {
-
-
-                                                            @foreach (var productItem in Model.ProductOrderItems)
-                                                            {
-                                                                <div class="swiper-slide">
-
-                                                                    <div class="product-item">
-                                                                        <a href="@productItem.Url" target="_blank" class="product-link"></a>
-
-                                                                        <div class="product-image">
-                                                                            <img src="@Url.Content(productItem.Image)" alt="@productItem.Title">
-                                                                        </div>
-
-                                                                        <div class="overlay overlay-mobile">
-                                                                            <div class="middle">
-                                                                                <div></div>
-                                                                                <div class="overlay-name">@productItem.Title</div>
-                                                                                <a class="btn-big product-btn-big">İNCELE</a>
-                                                                                @* <a class="btn-big overlay-btn mx-10 py-2">İNCELE</a> *@
-                                                                                @* <a class="btn-big product-btn-big">İNCELE</a> *@
-                                                                            </div>
+                                                                    <div class="overlay overlay-mobile">
+                                                                        <div class="middle">
+                                                                            <div></div>
+                                                                            <div class="overlay-name">@productItem.Title</div>
+                                                                            <a class="btn-big product-btn-big">İNCELE</a>
+                                                                            @* <a class="btn-big overlay-btn mx-10 py-2">İNCELE</a> *@
+                                                                            @* <a class="btn-big product-btn-big">İNCELE</a> *@
                                                                         </div>
                                                                     </div>
-
-                                                                </div>
-                                                            }
-                                                        }
-                                                        @if (Model.ProductOrderItems.Count() == 1)
-                                                        {
-                                                            <div class="swiper-slide">
-
-                                                                <div class="product-item">
                                                                 </div>
 
                                                             </div>
                                                         }
+                                                    }
+                                                    @if (Model.ProductOrderItems.Count() == 1)
+                                                    {
+                                                        <div class="swiper-slide">
 
+                                                            <div class="product-item">
+                                                            </div>
 
-                                                    </div>
-
-
-                                                    <div class="swiper-button-next"></div>
-                                                    <div class="swiper-button-prev"></div>
-                                                    <div class="swiper-pagination"></div>
-
-
-
+                                                        </div>
+                                                    }
 
 
                                                 </div>
 
+
+                                                <div class="swiper-button-next"></div>
+                                                <div class="swiper-button-prev"></div>
+                                                <div class="swiper-pagination"></div>
+
+
+
+
+
                                             </div>
+
                                         </div>
-
-
-
-
-
-
                                     </div>
+
+
+
+
+
+
                                 </div>
                             </section>
 
@@ -296,9 +257,10 @@
 </main>
 <style>
     /* ... Diğer stillendirmeler ... */
-    .btn-big{
-        margin-top:0px !important;
+    .btn-big {
+        margin-top: 0px !important;
     }
+
     .container-bg {
         background-color: white; /* varsayılan beyaz arka plan */
     }
@@ -397,8 +359,9 @@
 
     body {
         background: url(/images/hedeflerimiz-ust-zemin.png);
+        background: url(/images/hedeflerimiz-ust-zemin.png);
         /*  background-size: 100%;
-                                                    background-repeat: no-repeat;*/
+                                                        background-repeat: no-repeat;*/
     }
 
     p {
@@ -409,8 +372,17 @@
         padding-left: 0px !important;
     }
 
-    @@media (max-width: 991.98px) {
+    @@media (max-width: 1200px) {
 
+        .product-item .product-image img {
+            height: auto !important;
+        }
+
+        .home-middle {
+            margin-left: 62px !important;
+            margin-right: 62px !important;
+            width: 1300px !important;
+        }
 
         .card-body {
             background-color: rgba(255, 255, 255, 0.1);
@@ -421,12 +393,25 @@
             width: 800px;
         }
 
+        .swiper-button-next {
+            display: none;
+        }
+
+        .swiper-button-prev {
+            display: none;
+        }
+
         .home-page-content {
             font-size: 22px !important;
             font-family: 'Roboto Slab';
             line-height: 40px !important;
             padding-top: 40px;
             margin-bottom: 100px !important;
+        }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-wrapper .swiper-slide {
+            height: 100%;
+            padding-bottom: 0px !important;
         }
     }
 </style>

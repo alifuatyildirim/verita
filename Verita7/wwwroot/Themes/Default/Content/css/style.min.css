@@ -6478,7 +6478,6 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
             height: 70px;
             align-items: center;
             padding-right: 40px;
-            padding-left: 40px;
         }
 
             .categoryNav ul li {
@@ -6492,6 +6491,37 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
 
 
 @media (max-width: 1200px) {
+
+    .menu-toggle-btn span {
+        display: inline-block;
+        position: relative;
+        width: 140px;
+        height: 15px;
+        border-radius: 3px;
+        background-color: #78be20;
+        margin-top: 28px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle-btn .mobile-sub-menu-top-bun {
+        transform: rotate(45deg);
+        background-color: #78be20;
+        height: 12px;
+        width: 40px;
+        margin-bottom: 20px;
+    }
+
+    .menu-toggle-btn .mobile-sub-menu-bottom-bun {
+        transform: rotate(-45deg);
+        background-color: #78be20;
+        height: 12px;
+        width: 42px;
+        margin-bottom: 20px;
+        margin-left: -34px;
+    }
+
+
+
     .categoryNav {
         background-color: #006940;
         display: flex;
