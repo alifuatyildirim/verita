@@ -349,8 +349,31 @@
         const menuToggleBtn = document.getElementById('menuToggleBtn');
         const menu = document.getElementById('menu');
 
+        const topBun = document.querySelector('.mobile-sub-menu-top-bun');
+        const bottomBun = document.querySelector('.mobile-sub-menu-bottom-bun');
+        const xLineTop = document.querySelector('.mobile-sub-menu-x-top-bun');
+        const xLineBottom = document.querySelector('.mobile-sub-menu-x-bottom-bun');
+        let isMenuOpen = false;
+
         menuToggleBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+
+            if (isMenuOpen) {
+                // Menü açıldığında okları gizle, X'i göster
+                topBun.style.display = 'none';
+                bottomBun.style.display = 'none';
+                xLineTop.style.display = 'inline-block';
+                xLineBottom.style.display = 'inline-block';
+            } else {
+                // Menü kapandığında X'i gizle, okları göster
+                xLineTop.style.display = 'none';
+                xLineBottom.style.display = 'none';
+                topBun.style.display = 'inline-block';
+                bottomBun.style.display = 'inline-block';
+            }
+
             menu.classList.toggle('open');
+            menuToggleBtn.classList.toggle('open'); // Toggle open class for button
         });
     </script>
     @section Scripts {
