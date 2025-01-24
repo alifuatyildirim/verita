@@ -305,11 +305,7 @@
                         justify-content: center;
                     }
 
-            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev, .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
-                width: 44px;
-                height: 44px;
-                background-color: transparent;
-            }
+            
 
                 .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev:after, .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next:after {
                     font-size: 26px;
@@ -323,17 +319,13 @@
                     color: transparent !important;
                 }
 
-            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
-                right: -60px;
-            }
+            
 
                 .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next:after {
                     background-image: url("/Themes/Default/Content/img/carousel-arrow-right.png");
                 }
 
-            .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev {
-                left: -60px;
-            }
+    
 
                 .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev:after {
                     background-image: url("/Themes/Default/Content/img/carousel-arrow-left.png");
@@ -384,4 +376,34 @@
                     width: 100%;
                 }
 
-        
+
+
+@media (min-width: 1200px) {
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev, .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
+        width: 44px;
+        height: 44px;
+        background-color: transparent;
+    }
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
+        right: -60px;
+    }
+
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev {
+        left: -60px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev, .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
+        width: 150px;
+        height: 150px;
+        background-color: transparent;
+    }
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next {
+        right: -120px;
+    }
+
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev {
+        left: -120px;
+    }
+}

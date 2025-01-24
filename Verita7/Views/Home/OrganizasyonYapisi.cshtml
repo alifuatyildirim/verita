@@ -288,9 +288,7 @@
                                                                     <div class="organizasyon-body">
                                                                         Verita, bu bölgede tropikal meyve üreticileriyle iş birliği
                                                                         yaparak, mango, papaya, ananas gibi özel meyveleri toplamakta ve işleme süreçlerini optimize
-                                                                        etmektedir. Gazipaşa Tropikal Meyve Toplama Merkezi, sürdürülebilir tarım uygulamalarını
-                                                                        desteklemektedir. Bu merkez, bölgedeki tarım sektörünü güçlendirirken aynı zamanda çiftçilere
-                                                                        destek sağlamaktadır. Verita, bu stratejik adımıyla hem yerel ekonomiye katkı sağlamayı hem de Türk
+                                                                        etmektedir. Verita, bu stratejik adımıyla hem yerel ekonomiye katkı sağlamayı hem de Türk
                                                                         tropikal meyve ürünlerini ulusal ve uluslararası pazarlarda daha etkin bir şekilde değerlendirmeyi
                                                                         amaçlamaktadır.
                                                                     </div>
@@ -379,35 +377,6 @@
                             </div>
                         </div>
                     </div>
-
-                    @* <div class="card mt-40">
-                    <div class="card-body">
-                    <div class="row">
-                    <div class="col-md-6 justify-content-center text-center  pt-15">
-                    <h5 class="header">Malezya</h5>
-                    <h5 class="sub-header">İdeal Agriculture Products SDN BHD - Selangor</h5>
-                    <p>Malezya ve İdeal Tarım Ürünleri arasında ticari ilişkilerin</p>
-                    <p>başlamasıyla birlikte, 2019 yılında Ideal Agriculture Products SDN</p>
-                    <p>BHD kurulmuuştur. Karambola, jackfruit, mangosten, rambutan gibi</p>
-                    <p>bölgeye özgü tarım ürünleri Hollanda ve Türkiye aracılığıyla dünya</p>
-                    <p>genelinde dağıtılmaktadır. Ayrıca; Türkiye'de üretilen elma, kivi, incir,</p>
-                    <p>kiraz, kayısı, nar vb. ürünler de Malezya'daki tüketici ile</p>
-                    <p>buluşturulmaktadır.</p>
-                    </div>
-                    <div class="col-md-6 vertical-line justify-content-center">
-                    <div class="profile-container">
-                    <img src="~/images/profilfoto.png" alt="Profil Fotoğrafı" class="profile-image">
-                    <p><strong>Ali Utku Arsoy</strong></p>
-                    <p>Yönetici</p>
-                    <p>İdeal Agriculture Products SDN BHD</p>
-                    <p>+90 532 371 28 69</p>
-                    <p>uarsoy@idealtarim.com.tr</p>
-                    <p>mert@verita.cr</p>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div> *@
                 </div>
             </div>
 
@@ -438,12 +407,14 @@
         color: rgb(4,106,56) !important;
     }
 
-    .slide-min-height{
-        min-height:500px;
-    }
+   
 
    
     @@media (min-width: 1200px) {
+
+        .slide-min-height {
+            min-height: 500px;
+        }
 
         .vertical-line {
             border-left: 3px solid #ded7ca;
@@ -486,7 +457,11 @@
 
     @@media (max-width: 1200px) {
 
-
+        .slide-min-height {
+            min-height: 1700px;
+            padding-left:50px;
+            padding-right:50px;
+        }
         .vertical-line {
             border-left: 0px solid white;
             height: 100%;
@@ -537,6 +512,48 @@
 
     .container-bg {
         background-image: url('/images/organizasyon_yapisi_zemin.webp');
+    }
+
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next:after {
+        background-image: url("/Themes/Default/Content/img/carousel-arrow-right.png");
+    }
+    .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev:after {
+        background-image: url("/Themes/Default/Content/img/carousel-arrow-left.png");
+    }
+
+    .swiper-pagination-bullet-active{
+        background-color: #006940;
+    }
+
+    @@media (max-width: 1200px) { 
+
+        .swiper-button-next, .swiper-button-prev{
+            top:48.5% !important;
+        }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-next:after
+        {
+            background-size: cover;
+        }
+
+        .left-image-showcase .showcase-products .showcase-wrap .swiper .swiper-button-prev:after{
+            background-size: cover;
+        }
+
+
+        .swiper-button-next, .swiper-rtl .swiper-button-prev{
+            right:0px !important;
+        }
+
+        .swiper-button-prev, .swiper-rtl .swiper-button-next
+        {
+            left:0px !important;
+        }
+
+        .swiper-pagination-bullet{
+            width:30px !important;
+            height:30px !important;
+        }
     }
 </style>
 @section links {
