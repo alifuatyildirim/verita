@@ -234,7 +234,6 @@
         z-index: 3;
         background-image: url(/Themes/Default/Content/img/btn-big.png);
         font-size: 45px;
-        font-weight: 600;
         background-size: contain;
         color: #fff;
         background-repeat: no-repeat;
@@ -254,7 +253,6 @@
             z-index: 3;
             background-image: url(/Themes/Default/Content/img/btn-big.png);
             font-size: 22px;
-            font-weight: 600;
             background-size: contain;
             color: #fff;
             background-repeat: no-repeat;
