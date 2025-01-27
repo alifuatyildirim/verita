@@ -53,11 +53,10 @@
                             <a href="/"  class="breadcrumb-home" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
                         </li>
-                       @*  <li style=" padding: 0 10px 0px 0;">
+                        <li class="breadcrumb-last-item" style=" padding: 0 10px 0px 0;">
                             <span class="current-item">Ürünlerimiz</span>
-                            <span class="delimiter">></span>
-                        color :#7AB929
-                        </li> *@
+                            <span class="delimiter">&gt;</span>
+                        </li>
                         <li style=" padding: 0 10px 0px 0; ">
                             <span class="current-item">@Model.FirstOrDefault()?.Category.Name</span>
                         </li>

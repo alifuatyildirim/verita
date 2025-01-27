@@ -1,4 +1,5 @@
-﻿@using Verita.Common.Enums;
+﻿@using Verita.Application.Extensions;
+@using Verita.Common.Enums;
 @using Verita.Domain.Entities;
 @model Verita.Domain.Entities.Page
 @{
@@ -93,6 +94,10 @@
                         <li style=" padding: 0 10px 0px 0;">
                             <a href="/"  class="breadcrumb-home" title="Anasayfa">Anasayfa</a>
                             <span class="delimiter">></span>
+                        </li>
+                        <li class="breadcrumb-last-item" style=" padding: 0 10px 0px 0;">
+                            <span class="current-item">@Model.PageCategory.GetDescription()</span>
+                            <span class="delimiter">&gt;</span>
                         </li>
                         <li style=" padding: 0 10px 0px 0;">
                             <span class="current-item">@Model.Name</span>

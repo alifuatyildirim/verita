@@ -33,6 +33,10 @@
                             <span class="delimiter">></span>
                         </li>
                         <li class="breadcrumb-last-item" style=" padding: 0 10px 0px 0;">
+                            <span class="current-item">Merak Ettikleriniz</span>
+                            <span class="delimiter">&gt;</span>
+                        </li>
+                        <li class="breadcrumb-last-item" style=" padding: 0 10px 0px 0;">
                             <span class="current-item">Bunları Biliyor Musunuz?</span>
                         </li>
                     </ul>
@@ -44,18 +48,14 @@
             <h4>Bunları Biliyor Musunuz?</h4>
 
         </div>
-        <div class="page-content pe-0">
+        <div class="page-content card-body-bottom pe-0">
 
             <div class="row justify-content-end">
-                <div class="col-md-3">
+                <div class="col-md-3 pt-10">
                     <input type="text" class="form-control" id="searchText" placeholder="Aranacak metin" />
                 </div>
-                <div class="col-md-1">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <a href="#" class="btn btn-primary" id="searchButton">Ara</a>
-                        </div>
-                    </div>
+                <div class="col-md-1  pt-10">
+                    <a href="#" class="btn btn-primary" id="searchButton">Ara</a>
                 </div>
             </div>
             <div id="accordion" class="pt-10">
@@ -72,13 +72,13 @@
 
                         <div id="collapse@(item.Id)" class="collapse" aria-labelledby="heading@(item.Id)" data-parent="#accordion">
                             <div class="card-body">
-                                @Html.DisplayFor(model=>item.Description)
+                                @Html.Raw(item.Description)
                             </div>
                         </div>
                     </div>
                 }
             </div>
-            <ul class="pagination">
+            <ul class="pagination pb-10">
             </ul>
         </div>
     </div>
@@ -88,6 +88,7 @@
 
     .container-bg {
         background-image: url(/images/yaban_mersini_zemin.png);
+        padding-bottom : 350px !important;
     }
 
     .page-content {
