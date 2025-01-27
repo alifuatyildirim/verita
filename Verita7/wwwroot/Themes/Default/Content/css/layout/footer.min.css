@@ -250,7 +250,43 @@ footer .footer-copyright .footer-copyright-menu li a {
         text-decoration: underline !important
     }
 
-@media(min-width:992px){
+
+@media (min-width: 992px) and (max-width: 1024px) {
+    .footer-newsletter {
+        flex-direction: column;
+        background: url(/Themes/Default/Content/img/our_products_ustgorsel2_tablet.jpg);
+        display: flex;
+        align-items: center; /* Center items horizontally */
+        justify-content: flex-end; /* Align items to the bottom */
+        padding: 0;
+        background-repeat: no-repeat;
+        max-width: 100% !important;
+        background-position: center;
+        background-size: cover;
+        height: 365px;
+        background-size: contain;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1399px) {
+    .footer-newsletter {
+        flex-direction: column;
+        background: url(/Themes/Default/Content/img/our_products_ustgorsel2_tablet.jpg);
+        display: flex;
+        align-items: center; /* Center items horizontally */
+        justify-content: flex-end; /* Align items to the bottom */
+        padding: 0;
+        background-repeat: no-repeat;
+        max-width: 100% !important;
+        background-position: center;
+        background-size: cover;
+        height: 485px;
+        background-size: contain;
+    }
+}
+
+
+@media(min-width:1399px){
     .footer-newsletter {
         flex-direction: column;
         background: url(/Themes/Default/Content/img/our_products_ustgorsel2.jpg);
@@ -262,7 +298,7 @@ footer .footer-copyright .footer-copyright-menu li a {
         max-width: 100% !important;
         background-position: center;
         background-size: cover;
-        height: 304px;
+        height: 650px;
         background-size: contain;
     }
 }

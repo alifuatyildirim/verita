@@ -190,7 +190,7 @@
     --swiper-navigation-size: 44px
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 767px) {
     .swiper-button-next, .swiper-button-prev {
         position: absolute;
         top: 50%;
@@ -205,14 +205,12 @@
     }
 }
 
-@media (min-width: 1200px) {
-
-
+@media (min-width: 768px) and (max-width: 1024px) {
     .swiper-button-next, .swiper-button-prev {
         position: absolute;
-        top: 44%;
-        width: calc(var(--swiper-navigation-size)/ 44 * 27);
-        height: var(--swiper-navigation-size);
+        top: 30%;
+        width: 150px;
+        height: 150px;
         margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
         z-index: 10;
         cursor: pointer;
@@ -222,23 +220,40 @@
     }
 }
 
-        .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
-            opacity: .35;
-            cursor: auto;
-            pointer-events: none
-        }
+    @media (min-width: 1025px) {
 
-.swiper-button-next:after, .swiper-button-prev:after {
-    font-size: 26px;
-    font-weight: 600;
-    color: #78be20;
-    background-position: center;
-    content: '';
-    width: 50px;
-    height: 50px;
-    background-repeat: no-repeat;
-    color: transparent !important;
-}
+
+        .swiper-button-next, .swiper-button-prev {
+            position: absolute;
+            top: 44%;
+            width: calc(var(--swiper-navigation-size)/ 44 * 27);
+            height: var(--swiper-navigation-size);
+            margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+        opacity: .35;
+        cursor: auto;
+        pointer-events: none
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+        font-size: 26px;
+        font-weight: 600;
+        color: #78be20;
+        background-position: center;
+        content: '';
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        color: transparent !important;
+    }
 
     .swiper-button-prev, .swiper-rtl .swiper-button-next {
         left: 10px;

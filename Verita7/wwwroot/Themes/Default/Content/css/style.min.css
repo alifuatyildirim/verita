@@ -797,15 +797,15 @@ progress {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .container, .container-sm, .container-md {
         max-width: 1400px
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
     .container, .container-sm, .container-md, .container-lg { 
-        max-width: 900px
+        max-width: 1000px
     }
 }
 
@@ -6397,6 +6397,14 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     line-height: 30px;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .home-page-content {
+        font-size: 18px;
+        font-family: 'Roboto Slab', 'Aleo', sans-serif;
+        line-height: 25px;
+    }
+}
+
 
 .header-mobile-content .sub-menu {
     display: none;
@@ -7961,13 +7969,35 @@ textarea.form-control .was-validated :invalid, textarea.form-control .is-invalid
     }
 
     .rawjuice {
-        height: 365px;
+        height: 650px;
         background: url(/Themes/Default/Content/img/rawjuice.png);
         background-position-x: center;
         background-repeat: no-repeat;
         max-width: 100% !important;
         background-size: contain;
     }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .rawjuice {
+        height: 365px;
+        background: url(/Themes/Default/Content/img/rawjuice_tablet.png);
+        background-position-x: center;
+        background-repeat: no-repeat;
+        max-width: 100% !important;
+        background-size: contain;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1399px) {
+    .rawjuice {
+        height: 485px;
+        background: url(/Themes/Default/Content/img/rawjuice_tablet.png);
+        background-position-x: center;
+        background-repeat: no-repeat;
+        max-width: 100% !important;
+        background-size: contain;
+    }
+}
 
     @media (min-width: 992px) {
         .description {
