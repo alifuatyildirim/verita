@@ -160,15 +160,15 @@
 
         .client-showcase .clients .client-item .name {
             font-weight: bold;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
         }
 
         .client-showcase .clients .client-item .title {
-            font-size: 3rem;
+            font-size: 2rem;
         }
 
         .client-showcase .clients .client-item .duty {
-            font-size: 3rem;
+            font-size: 2rem;
             font-style: italic;
         }
 
