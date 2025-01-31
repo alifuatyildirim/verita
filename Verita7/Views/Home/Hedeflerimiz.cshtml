@@ -212,8 +212,18 @@
         z-index: 2; /* .page-content'ı .container'ın üzerine getirmek için z-index ekledik */
     }
 
+    @@media (min-width: 991.8px) and (max-width: 1199px) {
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 20px !important;
+            line-height: 36px !important;
+            margin: 0 auto;
+            padding: 0px;
+            width: 800px;
+        }
+    }
 
-    @@media (max-width: 1200px) {
+    @@media (max-width: 991.8px) {
             .card-body{
         background-color: rgba(255, 255, 255, 0.1);
         font-size: 20px !important;
