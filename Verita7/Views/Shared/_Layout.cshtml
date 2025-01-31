@@ -354,7 +354,7 @@
         const xLineTop = document.querySelector('.mobile-sub-menu-x-top-bun');
         const xLineBottom = document.querySelector('.mobile-sub-menu-x-bottom-bun');
         let isMenuOpen = false;
-
+        if (menuToggleBtn){
         menuToggleBtn.addEventListener('click', () => {
             isMenuOpen = !isMenuOpen;
 
@@ -375,6 +375,7 @@
             menu.classList.toggle('open');
             menuToggleBtn.classList.toggle('open'); // Toggle open class for button
         });
+        }
     </script>
     @section Scripts {
         <script>
