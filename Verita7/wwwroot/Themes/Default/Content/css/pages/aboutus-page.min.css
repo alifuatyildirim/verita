@@ -1,5 +1,7 @@
 body {
-    background: url("/Themes/Default/Content/img/our_products_ustgorsel.png")
+    background: url("/Themes/Default/Content/img/our_products_ustgorsel.png");
+    background-size: contain;
+    background-repeat:no-repeat;
 }
 
 .aboutus-page {

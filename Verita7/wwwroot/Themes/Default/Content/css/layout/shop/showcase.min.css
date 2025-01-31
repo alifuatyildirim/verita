@@ -124,6 +124,16 @@
     }
 }
 
+
+@media(min-width:991.8px) and (max-width:1400px){
+    .showcase-tablet {
+        height: 445px !important;
+        position: relative;
+        padding-bottom: 25px;
+    }
+}
+
+
 @media (min-width: 992px) and (max-width: 1024px) {
     .mobile-slider-img {
             height: 200px !important;
