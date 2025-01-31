@@ -93,10 +93,10 @@
             </div>
             <div class="d-flex flex-column my-40 box-shadow" style="background-color: rgb(255 255 255 / 80%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
-                    <div class="align-self-center col-lg-6 col-sm-12 main-page-info-size">
+                    <div class="align-self-center col-xl-6 col-12 main-page-info-size">
                         <img src="@(((HomePageContent)ViewBag.Hakkimizda)?.Image)" class="w-100 mobile-main-image" style="height:auto;" />
                     </div>
-                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center  main-page-info-size">
+                    <div class="col-xl-6 col-12 d-flex flex-column align-items-center justify-content-center  main-page-info-size">
                         <span class="text-center mb-7 font-size-h3 title">@(((HomePageContent)ViewBag.Hakkimizda)?.Title)</span>
                         <span class="text-center mb-6 px-10 home-page-content">
                             @Html.Raw(((HomePageContent)ViewBag.Hakkimizda)?.Description)
@@ -108,14 +108,14 @@
 
             <div class="d-flex flex-column my-40 box-shadow" style="background-color: rgb(255 255 255 / 80%); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
-                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center order-lg-1 order-sm-2  main-page-info-size">
+                    <div class="col-xl-6 col-12 d-flex flex-column align-items-center justify-content-center order-md-2 order-sm-2  main-page-info-size">
                         <span class="text-center mb-7 font-size-h3 title">@(((HomePageContent)ViewBag.NedenVeritaContent)?.Title)</span>
                         <span class="text-center mb-6 px-10 home-page-content">
                             @Html.Raw(((HomePageContent)ViewBag.NedenVeritaContent)?.Description)
                         </span>
                         <a href="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Link)" class="btn-big mt-5 home-page-button">TÜMÜNÜ GÖR</a>
                     </div>
-                    <div class="align-self-center col-lg-6 col-sm-12 order-lg-2 order-sm-1  main-page-info-size">
+                    <div class="align-self-center col-xl-6 col-12 order-md-1 order-sm-1  main-page-info-size">
                         <img src="@(((HomePageContent)ViewBag.NedenVeritaContent)?.Image)" class="w-100 mobile-main-image" style="height:auto;" />
                     </div>
                 </div>
@@ -136,10 +136,10 @@
 
             <div class="d-flex flex-column my-40 box-shadow" style="background-color: rgb(255 255 255 / 80%); box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); ">
                 <div class="d-flex flex-lg-row flex-column-reverse">
-                    <div class="align-self-center col-lg-6 col-sm-12">
+                    <div class="align-self-center col-xl-6 col-12">
                         <img src="@(((HomePageContent)ViewBag.GuvenliGida)?.Image)" class="w-100 mobile-main-image" style="height:auto;" />
                     </div>
-                    <div class="col-lg-6 col-sm-12 d-flex flex-column align-items-center justify-content-center">
+                    <div class="col-xl-6 col-12 d-flex flex-column align-items-center justify-content-center">
                         <span class="text-center mb-7 font-size-h3 title">@(((HomePageContent)ViewBag.GuvenliGida)?.Title)</span>
                         <span class="text-center mb-6 px-10 home-page-content">
                             @Html.Raw(((HomePageContent)ViewBag.GuvenliGida)?.Description)
