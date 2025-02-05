@@ -73,9 +73,17 @@
         width: 100%;
     }
 }
-@media(min-width:1025px) {
+@media(min-width:1300px) {
     .page-container .page-content {
-        width: 1300px;
+        width: 1250px;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+@media(min-width:1025px) and (max-width:1299) {
+    .page-container .page-content {
+        width: 1250px;
         margin: 0 auto;
         padding: 0;
     }

@@ -96,7 +96,7 @@
             </div>
             <div class="col-lg-4 col-sm-12 mb-form-control-margin">
                 <select id="datepicker" name="datepicker" class="form-control">
-                     <option value="">Seçiniz</option>
+                     <option value="-1">Seçiniz</option>
             @foreach (var item in ViewBag.Years as List<int>)
             {
                 <option value="@item">@item</option>
@@ -106,7 +106,7 @@
             <div class="col-lg-4  col-sm-12 mb-form-control-margin">
                
                 <select id="labelTypeSelect" class="form-control">
-                    <option value="">Seçiniz</option>
+                    <option value="-1">Seçiniz</option>
                     <option value="0">Yazılı</option>
                     <option value="1">Görsel</option>
                     <option value="2">Dijital</option>
@@ -142,12 +142,11 @@
     int cardsPerRow = 4; // Her satırda gösterilecek kart sayısı
     int cardsDisplayed = 0; // Gösterilen kart sayısı
 }
+
+<div class="row mt-10" id="cardContainer">
 @foreach (var card in Model.Skip(startIndex).Take(pageSize))
 {
-    if (cardsDisplayed % cardsPerRow == 0)
-    {
-        @:<div class="row mt-10" id="cardContainer"> <!-- Yeni satırı aç -->
-    }
+   
     <div class="col-lg-3 col-sm-6 mt-5 padding-for-mobile @(GetCardTypeClass(card.LabelType.GetHashCode()))">
         <div class="card" data-date="@card.DateOfPublication.ToString("dd-MM-yyyy")"  data-year="@card.DateOfPublication.Year" data-title="@card.Name" data-type="@((int)card.LabelType)"  data-image="@card.Image"  data-link="@card.Link"  data-contenttype="@card.ContentType.ToString()">
             <img class="card-img-top" src="@card.Image" alt="Kart resmi">
@@ -159,12 +158,10 @@
             </div>
         </div>
     </div>
-    if (cardsDisplayed % cardsPerRow == cardsPerRow - 1 || cardIndex == endIndex)
-    {
-        @:</div> <!-- Satırı kapat -->
-    }
+   
     cardsDisplayed++;
 }
+</div>
 
         <nav class="mt-10">
             <ul class="pagination">
@@ -344,8 +341,26 @@
                 var $cardContainer = $('#cardContainer');
                 $cardContainer.empty(); // Önce tüm kartları temizle
                 allCards.get().forEach(function (card) {
-                    var cardTypeClass = 'type-' + $(card).data('type'); // Kartın tipine göre sınıf oluştur
-                    var $col = $('<div class="col-sm-3 ' + cardTypeClass + '"></div>'); // Yeni bir col oluştur
+                    var cardType =  $(card).data('type');
+                    var cardTypeClass ="";
+                    switch (cardType)
+                            {
+                                case 0:
+                                    cardTypeClass = "type-Yazılı";
+                                    break;
+                                case 1:
+                                    cardTypeClass = "type-Görsel";
+                                     break;
+                                case 2:
+                                    cardTypeClass = "type-Dijital";
+                                     break;
+                                case 3:
+                                    cardTypeClass = "type-Reklam";
+                                     break;
+                                default:
+                                     break;
+                            }
+                    var $col = $('<div class="col-lg-3 col-sm-6 mt-5 padding-for-mobile ' + cardTypeClass + '"></div>'); // Yeni bir col oluştur
                     $col.append(card); // Kartı col içine yerleştir
                     $cardContainer.append($col); // Col'u container içine yerleştir
                 });
@@ -361,8 +376,8 @@
                     var cardDate = $(this).data('year');
                     var cardType = $(this).data('type').toString();
 
-                    var dateMatch = searchDate === '' || cardDate === searchDate;
-                    var typeMatch = searchType === '' || cardType === searchType;
+                    var dateMatch = searchDate == '-1' || cardDate === searchDate;
+                    var typeMatch = searchType == '-1' || cardType === searchType;
 
                     return dateMatch && typeMatch;
                 });
@@ -370,29 +385,52 @@
                 var $cardContainer = $('#cardContainer');
                 $cardContainer.empty();
 
-                if (sortOrder === 'asc') {
+                if (sortOrder == 'asc') {
                     filteredCards.sort(function (a, b) {
-                        return new Date($(a).data('date')) - new Date($(b).data('date'));
+                        var dateA = parseDate($(a).data('date'));
+                        var dateB = parseDate($(b).data('date'));
+                        return dateA - dateB;
                     });
-                } else if (sortOrder === 'desc') {
+                } else if (sortOrder == 'desc') {
                     filteredCards.sort(function (a, b) {
-                        return new Date($(b).data('date')) - new Date($(a).data('date'));
+                       var dateA = parseDate($(a).data('date'));
+                       var dateB = parseDate($(b).data('date'));
+                       return dateB - dateA;
                     });
                 }
 
                 filteredCards.each(function (index, card) {
-                    var $col = $('<div class="col-sm-3"></div>');
+                    var cardType =  $(card).data('type');
+                    var cardTypeClass ="";
+                    switch (cardType)
+                            {
+                                case 0:
+                                    cardTypeClass = "type-Yazılı";
+                                    break;
+                                case 1:
+                                    cardTypeClass = "type-Görsel";
+                                     break;
+                                case 2:
+                                    cardTypeClass = "type-Dijital";
+                                     break;
+                                case 3:
+                                    cardTypeClass = "type-Reklam";
+                                     break;
+                                default:
+                                     break;
+                            }
+                    var $col = $('<div class="col-lg-3 col-sm-6 mt-5 padding-for-mobile  ' + cardTypeClass + '"></div>');
                     $col.append(card);
                     $cardContainer.append($col);
                 });
             }
         });
 
-        function parseDate(input) {
-            var parts = input.split('-');
-            // new Date(year, monthIndex, day)
-            return new Date(parts[2], parts[1] - 1, parts[0]); // Month index 0-based olduğu için 1 çıkarıyoruz
-        }
+       function parseDate(input) {
+    var parts = input.split('-');
+    // Yıl, ay ve gün sırasını ayarlıyoruz. JavaScript'te aylar 0'dan başlar.
+    return new Date(parts[2], parts[1] - 1, parts[0]); 
+}
     </script>
     <script>
     $(document).ready(function () {

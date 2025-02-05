@@ -278,22 +278,7 @@
         // Kart tıklanıldığında modalı aç
     $('.card').click(function () {
     var pdfUrl = $(this).data('file'); 
-    var title = $(this).data('title'); 
-    var modalHtml = '<div class="modal fade" id="contentModal" tabindex="-1" aria-labelledby="contentModalLabel" aria-hidden="true">\
-        <div class="modal-dialog modal-dialog-centered modal-xl">\
-            <div class="modal-content">\
-                <div class="modal-header">\
-                    <h5 class="modal-title">'+title+'</h5>\
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeAndRemoveModal()"></button>\
-                </div>\
-                <div class="modal-body">\
-                    <iframe src="' + pdfUrl + '" style="width:100%; height:600px;"></iframe>\
-                </div>\
-            </div>\
-        </div>\
-    </div>';
-    $('body').append(modalHtml); // Modal HTML'ini sayfaya ekle
-    $('#contentModal').modal('show'); // Modalı göster
+      window.open(pdfUrl, '_blank');
 });
 
   $(document).on('click', function (e) {
